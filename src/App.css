@@ -1,0 +1,48 @@
+header  {
+    color: black;
+    padding: 1em;
+    text-align: center;
+    clear: left;
+    font-size: 14px;
+}
+
+.sidenav {
+float: left;
+max-width: 160px;
+margin: 0;
+padding: 1em;
+border-right: 1px solid gray;
+    height: 100%;
+    bottom: 50;
+}
+
+article {
+margin-left: 170px;
+padding: 1em;
+overflow: hidden;
+    height: 100%;
+}
+
+.rowflow
+{
+    display:flex;
+    flex-direction:row;
+}
+
+.ib1
+{
+    display: inline-block
+}
+
+.ib2
+{
+    border-left: 1px solid #ccc;
+    padding-left: 10px;
+}
+
+html
+{
+    font-size: 100%;
+}
+
+p.inset {border-style: inset;}

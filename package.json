@@ -1,0 +1,40 @@
+{
+  "name": "typescript-react-redux-boilerplate",
+  "version": "1.0.0",
+  "description": "boilerplate for react-redux project in typescript",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "redux"
+  ],
+  "author": "dengthatsgood",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.8.15",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-redux": "^7.0.8",
+    "bootstrap": "^4.4.1",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.1.2",
+    "react-tabs": "^3.1.0",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "style-loader": "^1.1.3",
+    "typesafe-actions": "^4.4.2",
+    "typescript": "^3.7.3",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "css-loader": "^3.4.2",
+    "ts-loader": "^5.4.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
