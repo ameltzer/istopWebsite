@@ -29,6 +29,7 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
       }).catch(error => {
         console.log("in error")
         console.log(error)
+        console.log(error.response)
       })
     }
 
