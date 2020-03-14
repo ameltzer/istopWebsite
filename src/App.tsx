@@ -10,6 +10,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Amplify from 'aws-amplify'
+import awsconfig from './aws-exports'
+
+
+Amplify.configure(awsconfig)
+
 export const App: React.FC<{}> = () => {
   return (
     <Router>
