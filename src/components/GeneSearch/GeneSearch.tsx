@@ -1,5 +1,6 @@
 import * as React from "react";   
 import { FilterSearch, FilterSearchState } from "../FilterSearch"
+import { API } from "aws-amplify";
 
 export interface SearchProps {
   label: string;
@@ -20,7 +21,10 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
     }
 
     handleSubmit = (e:  React.FormEvent<HTMLFormElement>) => {
-      
+      console.log("before call")
+      var a = API.get("genomic", "items/mygene", {})
+      console.log("after call")
+      console.log(a)
     }
 
     checkboxChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
