@@ -22,7 +22,7 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
 
     handleSubmit = (e:  React.FormEvent<HTMLFormElement>) => {
       console.log("before call")
-      var promise:Promise<any> = API.get("genomic", "items/mygene", {})
+      var promise:Promise<any> = API.get("genomic", "/items/mygene", {})
       promise.then(response => {
         console.log("in success")
         console.log(response)
