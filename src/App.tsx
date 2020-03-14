@@ -10,12 +10,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Amplify from 'aws-amplify'
-import awsconfig from './aws-exports'
-import { withAuthenticator } from 'aws-amplify-react'
-
-Amplify.configure(awsconfig)
-const App: React.FC<{}> = () => {
+export const App: React.FC<{}> = () => {
   return (
     <Router>
     <>
@@ -200,4 +195,26 @@ const App: React.FC<{}> = () => {
   );
 };
 
-export default withAuthenticator(App, true)
+function Home() {
+  return (
+    <div>
+      <h2>Home</h2>
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <div>
+      <h2>About</h2>
+    </div>
+  );
+}
+
+function Dashboard() {
+  return (
+    <div>
+      <h2>Dashboard</h2>
+    </div>
+  );
+}
