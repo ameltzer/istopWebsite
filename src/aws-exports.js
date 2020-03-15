@@ -2,25 +2,13 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
-    "aws_dynamodb_all_tables_region": "us-east-1",
-    "aws_dynamodb_table_schemas": [
-        {
-            "tableName": "genomicstore-cicenv",
-            "region": "us-east-1"
-        }
-    ],
-    "aws_cognito_identity_pool_id": "us-east-1:a495d0f5-704e-4b1e-ab0e-a77c5186a645",
-    "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_I7i313VbB",
-    "aws_user_pools_web_client_id": "44kksa1r2mmkslk8bt5guqeb32",
-    "oauth": {},
-    "aws_cloud_logic_custom": [
-        {
-            "name": "genomic",
-            "endpoint": "https://koqmz59m3e.execute-api.us-east-1.amazonaws.com/cicenv",
-            "region": "us-east-1"
-        }
-    ]
+    "aws_appsync_graphqlEndpoint": "https://ehxork5cdjgwjpokwsprojv5be.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_appsync_region": "us-east-1",
+    "aws_appsync_authenticationType": "API_KEY",
+    "aws_appsync_apiKey": "da2-62qhbzlvsjcb7a2jaskuq6dwgu",
+    "aws_content_delivery_bucket": "ciccia-lab-website-20200314210729-hostingbucket-ciccia",
+    "aws_content_delivery_bucket_region": "us-east-1",
+    "aws_content_delivery_url": "http://ciccia-lab-website-20200314210729-hostingbucket-ciccia.s3-website-us-east-1.amazonaws.com"
 };
 
 

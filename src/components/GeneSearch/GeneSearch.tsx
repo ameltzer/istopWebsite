@@ -1,7 +1,7 @@
 import * as React from "react";   
 import { FilterSearch, FilterSearchState } from "../FilterSearch"
-import { API } from "aws-amplify";
-
+import { API, graphqlOperation } from "aws-amplify";
+import { createTodo } from '../../graphql/mutations'
 export interface SearchProps {
   label: string;
   types: string[];
@@ -22,19 +22,19 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
 
     handleSubmit = (e:  React.FormEvent<HTMLFormElement>) => {
       console.log("before call")
-      var promise:Promise<any> = API.get("genomic", "/items/mygene", {
-        headers: {},
-        response:true
-      })
-      promise.then(response => {
-        console.log("in success")
+      const todo = { name: "Use AppSync", description: "Realtime and Offline"}
+      return API.graphql(graphqlOperation(createTodo, {input: todo}))
+      .then(response => {
+        console.log("in response")
         console.log(response)
-      }).catch(error => {
+        console.log("after response")
+      }).catch(err => {
         console.log("in error")
-        console.log(error)
-        console.log("logging response")
-        console.log(error.response)
+        console.log(err)
+        console.log(err.response)
+        console.log("after error")
       })
+     
     }
 
     checkboxChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

@@ -10,11 +10,11 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Amplify from 'aws-amplify'
+import Amplify, { PubSub, API } from 'aws-amplify'
 import awsconfig from './aws-exports'
 
-
-Amplify.configure(awsconfig)
+API.configure(awsconfig)
+PubSub.configure(awsconfig)
 
 export const App: React.FC<{}> = () => {
   return (
