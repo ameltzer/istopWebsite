@@ -21,7 +21,6 @@ export class SearchContainer extends React.Component<SearchContainerProps, Searc
 
 
     render() {
-        console.log("in search");
         var geneSearchSpecies = ["Homo Sapiens", "Saccharomyces cerevisiae", "Danio rerio", "Mus musculus", "Arabidopsis thaliana",
         "Drosophila melanogaster", "Rattus norvegicus", "Caenorhabditis elegans"];
 

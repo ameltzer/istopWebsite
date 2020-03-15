@@ -23,7 +23,7 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
     handleSubmit = (e:  React.FormEvent<HTMLFormElement>) => {
       console.log("before call")
       const todo = { name: "Use AppSync", description: "Realtime and Offline"}
-      return API.graphql(graphqlOperation(createTodo, {input: todo}))
+      var result = API.graphql(graphqlOperation(createTodo, {input: todo}))
       .then(response => {
         console.log("in response")
         console.log(response)
@@ -34,7 +34,8 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
         console.log(err.response)
         console.log("after error")
       })
-     
+      console.log("result")
+      console.log(result)
     }
 
     checkboxChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
