@@ -25,12 +25,12 @@ export interface FilterSearchState {
           upstreamG: false,
           offTargetPrediction: false,
           pam: new Map([
-            ['NGG',false],
-            ['NGA',false],
-            ['NGCG',false],
-            ['NGAG',false],
-            ['NNGRRT',false],
-            ['NNNRRT',false],
+            ['sgNGG',false],
+            ['sgNGA',false],
+            ['sgNGCG',false],
+            ['sgNGAG',false],
+            ['sgNNGRRT',false],
+            ['sgNNNRRT',false],
           ])
         }
       }

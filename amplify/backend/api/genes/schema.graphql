@@ -1,0 +1,317 @@
+type HomoSapiens @model @key(name: "byGene", fields: ["gene"], queryField:"gene") @key(name:"byCancerType", fields:["cancer_type"], queryField:"newCancerType") {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String!
+  genome_coord: String!
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+  cancer_type: String
+}
+
+type Yeast @model @key(name: "byGeneYeast", fields: ["gene"], queryField:"geneYeast") {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Loss: String
+  rFLP_Gain: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+type Fish @model @key(name: "byGeneFish", fields: ["gene"], queryField:"geneFish") {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  strand: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+}
+type Mouse @model @key(name: "byGeneMouse", fields: ["gene"], queryField:"geneMouse") {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_cord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+type Fly @model @key(name: "byGeneFly", fields: ["gene"], queryField:"geneFly") {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+type Nematode @model @key(name: "byGeneNematode", fields: ["gene"], queryField:"geneNematode") {
+  aa_target: String
+  chr: String
+  codon: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  gene: String
+}
+type Plant @model @key(name: "byGenePlant", fields: ["gene"], queryField:"genePlant") {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Loss: String
+  rFLP_Gain: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+type Rat @model @key(name: "byGeneRat", fields: ["gene"], queryField:"geneRat") {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+type Alias @model @key(fields: ["alias"], name:"byAlias", queryField:"byAlias"){
+  id: String!
+  alias: String!
+  gene: String
+  speciesName: String
+}
+
+type GeneLollipopGraph @model {
+  id: ID!
+  transcriptId: String!
+  transcriptId2: String
+  numberOfAAS: String
+  lollipopLocations: [LollipopLocations]  @connection(keyName: "byGeneLollipopLocation", fields:["id"])
+}
+
+type LollipopLocations @model @key(name: "byGeneLollipopLocation", fields:["gene"]) {
+  id: ID!
+  gene: ID!
+  sgRNASequence: String
+  function: String!
+  aapos: String
+  lfcUNT: String
+  pvalueUNT: String
+  fdrUNT: String
+  lfcCISP: String
+  pvalueCISP: String
+  fdrCISP: String
+  lfcOLAP: String
+  pvalueOLAP: String
+  fdrOLAP: String
+  lfcDOX: String
+  pvalueDOX:String
+  fdrDOX:String
+  lfcCPT: String
+  pvalueCPT: String
+  fdrCPT: String
+  clinVar: String
+  aachg: String
+}
+
+type Auth @model {
+  id: ID!
+}
