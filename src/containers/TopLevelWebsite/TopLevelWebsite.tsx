@@ -105,7 +105,11 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                <Button onClick={this.setMode(0)}>Go back to home page </Button>
            </div>
         } else if (this.state.mode == 2 ) {
-           toDisplay = <CandlestickResults/>
+           toDisplay = 
+           <div>
+               <CandlestickResults/>
+               <Button onClick={this.setMode(0)}>Go back to home page </Button>
+           </div>
         }
         return (<div>{toDisplay}</div>)
     }
