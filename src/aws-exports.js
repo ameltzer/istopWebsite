@@ -6,9 +6,9 @@ const awsmobile = {
     "aws_appsync_region": "us-east-1",
     "aws_appsync_authenticationType": "API_KEY",
     "aws_appsync_apiKey": "da2-62qhbzlvsjcb7a2jaskuq6dwgu",
-    "aws_content_delivery_bucket": "ciccia-lab-website-20200314210729-hostingbucket-ciccia",
+    "aws_content_delivery_bucket": "ciccia-lab-website-20200329184339-hostingbucket-ciccia-ciccia",
     "aws_content_delivery_bucket_region": "us-east-1",
-    "aws_content_delivery_url": "http://ciccia-lab-website-20200314210729-hostingbucket-ciccia.s3-website-us-east-1.amazonaws.com"
+    "aws_content_delivery_url": "http://ciccia-lab-website-20200329184339-hostingbucket-ciccia-ciccia.s3-website-us-east-1.amazonaws.com"
 };
 
 

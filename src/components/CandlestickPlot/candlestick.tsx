@@ -429,7 +429,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                 <LollipopPlot
                     domains={this.state.mockData.domains}
                     lollipops={lollipops}
-                    vizWidth={this.state.mockData.vizWidth}
+                    vizWidth={665}
                     vizHeight={500}
                     hugoGeneSymbol={this.state.mockData.hugoGeneSymbol}
                     xMax={this.state.mockData.xMax}

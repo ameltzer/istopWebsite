@@ -85,7 +85,7 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
 
         if (this.state.mode == 0) {
             toDisplay = 
-                <div>
+                <div className="overallContainer">
                         <Button onClick={this.setMode(1)}>Go to istop (Under Construction)</Button>
                         
                         <br/>
@@ -100,13 +100,13 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                    </div>
         } else if (this.state.mode == 1) {
            toDisplay = 
-           <div>
+           <div className="overallContainer">
                <ISTOPWebsite/>
                <Button onClick={this.setMode(0)}>Go back to home page </Button>
            </div>
         } else if (this.state.mode == 2 ) {
            toDisplay = 
-           <div>
+           <div className="overallContainer">
                <CandlestickResults/>
                <Button onClick={this.setMode(0)}>Go back to home page </Button>
            </div>
