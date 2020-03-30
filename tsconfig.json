@@ -6,6 +6,10 @@
     "target": "es5",
     "sourceMap": true,
     "allowJs": true,
+    "lib": [
+      "es2019",
+      "DOM"
+    ],
     "jsx": "react"
   }
 }
