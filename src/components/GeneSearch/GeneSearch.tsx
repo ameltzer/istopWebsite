@@ -60,7 +60,7 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
     handleSubmit = (e:  React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       console.log(this.state)
-      const genes = this.state.type.split("\n")
+      const genes = this.state.genes.split("\n")
       console.log(genes)
       const queryParameters = this.props.parameterBuilder(this.state)
       API.graphql(graphqlOperation(queryParameters[0], queryParameters[1]))
