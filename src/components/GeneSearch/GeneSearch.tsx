@@ -79,11 +79,11 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
         console.log(failureInputGeneNames)
         console.log(successValues)
 
-        failureInputGeneNames.map(failureInputGeneName => {
+        const failureInputGeneNamePromises = failureInputGeneNames.map(failureInputGeneName => {
           API.graphql(graphqlOperation(byAlias, {limit:100000, alias:failureInputGeneName}))
         })
 
-        Promise.all(failureInputGeneNames).then(aliasResults => {
+        Promise.all(failureInputGeneNamePromises).then((aliasResults:any) => {
           console.log("in alias results")
           console.log(aliasResults)
             const genePromises = aliasResults.map(aliasResult => aliasResult.data.gene.items.map(singleAlias => {
