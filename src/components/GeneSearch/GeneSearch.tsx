@@ -68,14 +68,23 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
       const columns:string[] = this.state && this.state.type && tableToColumns && tableToColumns.has(this.state.type) ? tableToColumns.get(this.state.type) : tableToColumns.get("Homo Sapiens")
 
       Promise.all(initialGeneSearchPromises).then(initialGeneSearchResults => {
-        const successes = initialGeneSearchResults.filter(initialGeneSearchResult => initialGeneSearchResult.data.gene.items && initialGeneSearchResult.data.gene.items.length > 0)
-        const initialSuccessValues = successes.map(initialSuccess => initialSuccess.data.gene.items)
-
-        const initialFailures = initialGeneSearchResults.filter(initialGeneSearchResult => !initialGeneSearchResult.data.gene.items || initialGeneSearchResult.data.gene.items.length == 0)
+        var successValues = []
+        var failureInputGeneName = []
+        for(var i =0; i<initialGeneSearchResults.length; i++) {
+          if (initialGeneSearchResults[i].data.gene.items && initialGeneSearchResults[i].data.gene.items.length > 0) {
+            console.log("success")
+            console.log(initialGeneSearchResults[i])
+            successValues.push(initialGeneSearchResults[i].data.gene.items)
+          } else {
+            console.log("failure")
+            console.log(queriesParameters[i])
+            failureInputGeneName.push(queriesParameters[i][1].gene)
+          }
+        }
+       
         console.log("check")
-        console.log(initialFailures)
-        console.log(successes)
-        console.log(initialSuccessValues)
+        console.log(failureInputGeneName)
+        console.log(successValues)
 
       })
       
