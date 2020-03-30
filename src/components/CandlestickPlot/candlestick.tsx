@@ -223,7 +223,7 @@ const tableHeaderTranslation = new Map(
     ['sgRNASequence','SG RNA Sequence'],
     ['aapos', 'AA Pos'],
     ['function', 'Function'],
-    ['clinVar', 'Clinical Var'],
+    ['clinVar', 'Clinical Relevence'],
     ['lfcUNT', 'LFC Untreated'],
     ['pvalueUNT', 'PValue Untreated'],
     ['fdrUNT', 'FDR Untreated'],
@@ -400,6 +400,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     }
 
     render() {
+        console.log(this.state.mockData.lollipops)
         const lollipops = this.state.mockData.lollipops.map(lollipop => this.lollipopUIState(lollipop))
         const toDisplay = this.state.isInSearch ? 
             <div>

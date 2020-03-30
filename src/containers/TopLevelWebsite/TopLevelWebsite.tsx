@@ -82,7 +82,7 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
 
     render() {
         var toDisplay = <div></div>;
-
+        console.log("mode: "+this.state.mode)
         if (this.state.mode == 0) {
             toDisplay = 
                 <div className="overallContainer">

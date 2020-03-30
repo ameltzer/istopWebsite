@@ -17,6 +17,7 @@ export interface SearchState {
   type: string;
   genes: string;
   filterState: FilterSearchState;
+  disabled:boolean
 }
 
 const tableToColumns:Map<string, string[]> = new Map<string, string[]>(
@@ -51,18 +52,21 @@ const tableToQuery:Map<string, string> = new Map<string, string> (
 export class GeneSearch extends React.Component<SearchProps, SearchState> {
     constructor(props) {
       super(props);
-      this.state = {type: this.props.types[0], genes: "", filterState: null}
+      this.state = {type: this.props.types[0], genes: "", filterState: null, disabled:false}
     }
 
 
 
     handleSubmit = (e:  React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
+      console.log(this.state)
+      const genes = this.state.type.split("\n")
+      console.log(genes)
       const queryParameters = this.props.parameterBuilder(this.state)
       API.graphql(graphqlOperation(queryParameters[0], queryParameters[1]))
         .then(result => {
           var columns:string[] = this.state && this.state.type && tableToColumns && tableToColumns.has(this.state.type) ? tableToColumns.get(this.state.type) : tableToColumns.get("Homo Sapiens")
-          if(result.data.gene.items || result.data.gene.items.length ==0) {
+          /*if(result.data.gene.items || result.data.gene.items.length ==0) {
             console.log("alias route")
             API.graphql(graphqlOperation(byAlias, { limit: 1000000,alias: queryParameters[1].gene}))
             .then(aliasResult => {
@@ -88,7 +92,7 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
               columns = tableToColumns.get('Homo Sapiens')
             }
             this.filterAllValues([result.data.gene.items], filterColumns(columns, this.state.filterState))
-          }
+          }*/
         }).catch(err => {
           console.log(err)
       })
@@ -142,7 +146,7 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
                 <textarea onChange={this.textAreaChange} value={this.state.genes}/>
               </label>
               <FilterSearch setFilterState={this.filterCallback}/>
-              <input type="submit" value="Submit"/>
+              <input type="submit" value="Submit" disabled={this.state.disabled}/>
             </form>
           </div>
         </div>
