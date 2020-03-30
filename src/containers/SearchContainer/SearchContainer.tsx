@@ -50,13 +50,13 @@ export class SearchContainer extends React.Component<SearchContainerProps, Searc
         })
     }
 
-    geneCallBack(searchState:SearchState) {
+    geneCallBack(gene:string, type:string) {
         const geneQuery = { 
             limit: 1000000,
-            gene: searchState.genes
+            gene: gene
           }
           
-        const query = tableToQuery.get(searchState.type);
+        const query = tableToQuery.get(type);
         return [gene, geneQuery]
     }
     goBack = (e) => {

@@ -62,7 +62,24 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
       console.log(this.state)
       const genes = this.state.genes.split("\n")
       console.log(genes)
-      const queryParameters = this.props.parameterBuilder(this.state)
+      const queriesParameters = genes.map(gene => this.props.parameterBuilder(gene, this.state.type))
+      
+      const initialGeneSearchPromises = queriesParameters.map(queryParameters => API.graphql(graphqlOperation(queryParameters[0], queryParameters[1])))
+      const columns:string[] = this.state && this.state.type && tableToColumns && tableToColumns.has(this.state.type) ? tableToColumns.get(this.state.type) : tableToColumns.get("Homo Sapiens")
+
+      Promise.all(initialGeneSearchPromises).then(initialGeneSearchResults => {
+        const successes = initialGeneSearchResults.filter(initialGeneSearchResult => initialGeneSearchResult.data.gene.items && initialGeneSearchResult.data.gene.items.length > 0)
+        const initialSuccessValues = successes.map(initialSuccess => initialSuccess.data.gene.items)
+
+        const initialFailures = initialGeneSearchResults.filter(initialGeneSearchResult => !initialGeneSearchResult.data.gene.items || initialGeneSearchResult.data.gene.items.length == 0)
+        console.log("check")
+        console.log(initialFailures)
+        console.log(successes)
+        console.log(initialSuccessValues)
+
+      })
+      
+      const queryParameters = this.props.parameterBuilder(genes[0], this.state.type)
       API.graphql(graphqlOperation(queryParameters[0], queryParameters[1]))
         .then(result => {
           var columns:string[] = this.state && this.state.type && tableToColumns && tableToColumns.has(this.state.type) ? tableToColumns.get(this.state.type) : tableToColumns.get("Homo Sapiens")
