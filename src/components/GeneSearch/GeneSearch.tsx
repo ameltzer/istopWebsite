@@ -98,6 +98,11 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
             Promise.all(genePromises).then(geneResults => {
                 console.log("finalStep")
                 console.log(geneResults)
+                const resolvedGeneValues = geneResults.map((geneResult:any) => {
+                  console.log(geneResult)
+                  return geneResult.data.gene.items
+                })
+                console.log(resolvedGeneValues)
             })
         })
 
