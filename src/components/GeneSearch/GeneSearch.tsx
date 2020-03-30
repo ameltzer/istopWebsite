@@ -59,32 +59,46 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
 
     handleSubmit = (e:  React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-      console.log(this.state)
       const genes = this.state.genes.split("\n")
-      console.log(genes)
       const queriesParameters = genes.map(gene => this.props.parameterBuilder(gene, this.state.type))
-      console.log(queriesParameters)
       const initialGeneSearchPromises = queriesParameters.map(queryParameters => API.graphql(graphqlOperation(queryParameters[0], queryParameters[1])))
       const columns:string[] = this.state && this.state.type && tableToColumns && tableToColumns.has(this.state.type) ? tableToColumns.get(this.state.type) : tableToColumns.get("Homo Sapiens")
 
       Promise.all(initialGeneSearchPromises).then(initialGeneSearchResults => {
         var successValues = []
-        var failureInputGeneName = []
+        var failureInputGeneNames = []
         for(var i =0; i<initialGeneSearchResults.length; i++) {
           if (initialGeneSearchResults[i].data.gene.items && initialGeneSearchResults[i].data.gene.items.length > 0) {
-            console.log("success")
-            console.log(initialGeneSearchResults[i])
             successValues.push(initialGeneSearchResults[i].data.gene.items)
           } else {
-            console.log("failure")
-            console.log(queriesParameters[i])
-            failureInputGeneName.push(queriesParameters[i][1].gene)
+            failureInputGeneNames.push(queriesParameters[i][1].gene)
           }
         }
        
         console.log("check")
-        console.log(failureInputGeneName)
+        console.log(failureInputGeneNames)
         console.log(successValues)
+
+        failureInputGeneNames.map(failureInputGeneName => {
+          API.graphql(graphqlOperation(byAlias, {limit:100000, alias:failureInputGeneName}))
+        })
+
+        Promise.all(failureInputGeneNames).then(aliasResults => {
+          console.log("in alias results")
+          console.log(aliasResults)
+            const genePromises = aliasResults.map(aliasResult => aliasResult.data.gene.items.map(singleAlias => {
+              console.log("singleAlias")
+              console.log(singleAlias)
+              return API.graphql(graphqlOperation(queryParameters[0], {
+                limit: 1000000,
+                gene: singleAlias.gene
+              }))
+            }))
+            Promise.all(genePromises).then(geneResults => {
+                console.log("finalStep")
+                console.log(geneResults)
+            })
+        })
 
       })
       
