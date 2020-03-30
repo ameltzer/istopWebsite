@@ -80,10 +80,10 @@ export class CancerSearch extends React.Component<CancerProps, CancerSearchArgs>
       })
     }
 
-    cancerCallBack(gene:string, type:string) {
+    cancerCallBack(geneName:string, type:string) {
         const geneQuery = { 
             limit: 1000000,
-            gene: gene
+            gene: geneName
           }
           
         return [gene, geneQuery]
