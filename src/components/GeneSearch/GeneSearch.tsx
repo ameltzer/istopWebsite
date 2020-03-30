@@ -83,10 +83,10 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
           return API.graphql(graphqlOperation(byAlias, {limit:100000, alias:failureInputGeneName}))
         })
 
-        Promise.all(failureInputGeneNamePromises).then((aliasResults) => {
+        Promise.all(failureInputGeneNamePromises).then((aliasResults:any) => {
           console.log("in alias results")
           console.log(aliasResults)
-            const genePromises = aliasResults.map(aliasResult => aliasResult.data.byAlias.items.map(singleAlias => {
+            const genePromises = aliasResults.flatMap(aliasResult => aliasResult.data.byAlias.items.map(singleAlias => {
               console.log("singleAlias")
               console.log(singleAlias)
               return API.graphql(graphqlOperation(queryParameters[0], {
@@ -94,6 +94,7 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
                 gene: singleAlias.gene
               }))
             }))
+            console.log(genePromises)
             Promise.all(genePromises).then(geneResults => {
                 console.log("finalStep")
                 console.log(geneResults)
