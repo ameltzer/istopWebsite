@@ -420,10 +420,13 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         const toDisplay = this.state.isInSearch ? 
             <div></div> :
             <div>
+                <header>
                 {this.state.gene} {this.state.treatment}
                 <br/>
                 <h3>{this.translateTreatmentName()}</h3>
                 <br/>
+                </header>
+                <section>
                 <LollipopPlot
                     domains={this.state.mockData.domains}
                     lollipops={lollipops}
@@ -435,18 +438,20 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                     options={options}
                     proteinLength={this.state.numberOfAAS}
                 />
-                <div className="rightSideButton">
-                <label><input type="radio"onClick={this.setTreatment("UNT")}/>Untreated</label>
+                </section>
+                <aside>
+                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")}/>Untreated</label>
                 <br/>
-                <label><input type="radio" onClick={this.setTreatment("CISP")}/>Cisplatin</label>
+                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CISP")}/>Cisplatin</label>
                 <br/>
-                <label><input type="radio" onClick={this.setTreatment("OLAP")}/>Olaparib</label>
+                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("OLAP")}/>Olaparib</label>
                 <br/>
-                <label><input type="radio" onClick={this.setTreatment("DOX")}/>Doxorubicin</label>
+                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("DOX")}/>Doxorubicin</label>
+                <br/> 
+                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")}/>Camptothecin</label>
                 <br/>
-                <label><input type="radio" onClick={this.setTreatment("CPT")}/>Camptothecin</label>
-                </div>
-                <br/>
+                </aside>
+                <section>
                 <TableViewer
                   title="Table"
                   content={this.state.mockData.lollipops.map(lollipop => {
@@ -461,6 +466,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                 />
                 <br/>
                 <Button onClick={this.goBack}>Go Back</Button>
+                </section>
             </div>
 
         return (
