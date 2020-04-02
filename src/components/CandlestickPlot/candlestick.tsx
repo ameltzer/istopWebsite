@@ -15,6 +15,7 @@ interface CandlestickState {
     curGeneList:string[]
     mockData:any
     numberOfAAS:number
+    transcriptId:string
 }
 
 const geneList:string[] = ["BRCA1","BRCA2","BARD1","PALB2","BRIP1","RAD51C","RAD51D","XRCC3","NBN","MRE11A","RAD50","CHEK2","ATM","FANCA","FANCG","FANCC","FANCD2","FANCE","FANCF","FANCM","FANCI","FANCL","RECQL","ATR","BLM","WRN","CDK12","FAM175A","APTX","C17orf53","CDK5RAP2","CEP152","CEP63","ERCC8","ERCC6","DCLRE1C","DNA2","DONSON","ERCC1","ERCC4","LIG4","LMNA","MCM8","MCM9","MCPH1","MLH1","MSH2","MSH6","MUTYH","NIN","ORC1","ORC4","PCNT","PMS2","PNKP","POLE","POLH","PRKDC","RAD51","RBBP8","RECQL4","REV3L","RFWD3","RIF1","RNASEH2A","RNF168","RTEL1","SAMHD1","SETX","SLX4","SMARCAL1","TDP1","TP53BP1","TRAIP","TREX1","GTF2H5","UBE2T","UVSSA","NHEJ1","XPA","ERCC3","ERCC2","ERCC5","ZRANB3","TONSL","HLTF"]
@@ -261,7 +262,8 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                 lollipops: [],
                 domains: []
               },
-              numberOfAAS:0
+              numberOfAAS:0,
+              transcriptId:""
         }
     }
 
@@ -312,7 +314,8 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
           this.setState(prevState => {
             return {
               ...prevState,
-              numberOfAAS: result.data.getGeneLollipopGraph.numberOfAAS
+              numberOfAAS: result.data.getGeneLollipopGraph.numberOfAAS,
+              transcriptId: result.data.getGeneLollipopGraph.transcriptId
             }
           })
           this.updateState(filteredLocations)
@@ -417,11 +420,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         const toDisplay = this.state.isInSearch ? 
             <div></div> :
             <div>
-                <Button onClick={this.setTreatment("UNT")}>Untreated</Button>
-                <Button onClick={this.setTreatment("CISP")}>Cisplatin</Button>
-                <Button onClick={this.setTreatment("OLAP")}>Olaparib</Button>
-                <Button onClick={this.setTreatment("DOX")}>Doxorubicin</Button>
-                <Button onClick={this.setTreatment("CPT")}>Camptothecin</Button>
+                {this.state.gene} {this.state.treatment}
                 <br/>
                 <h3>{this.translateTreatmentName()}</h3>
                 <br/>
@@ -436,6 +435,11 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                     options={options}
                     proteinLength={this.state.numberOfAAS}
                 />
+                <Button className="rightSideButton" onClick={this.setTreatment("UNT")}>Untreated</Button>
+                <Button className="rightSideButton" onClick={this.setTreatment("CISP")}>Cisplatin</Button>
+                <Button className="rightSideButton" onClick={this.setTreatment("OLAP")}>Olaparib</Button>
+                <Button className="rightSideButton" onClick={this.setTreatment("DOX")}>Doxorubicin</Button>
+                <Button className="rightSideButton" onClick={this.setTreatment("CPT")}>Camptothecin</Button>
                 <br/>
                 <TableViewer
                   title="Table"

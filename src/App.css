@@ -6,6 +6,16 @@ header  {
     font-size: 14px;
 }
 
+body
+{
+    font-family: Helvetica, Sans-Serif;
+}
+
+.rightSideButton
+{
+    align: right;
+}
+
 .sidenav {
 float: left;
 max-width: 160px;
