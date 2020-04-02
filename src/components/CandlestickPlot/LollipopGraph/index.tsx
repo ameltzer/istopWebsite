@@ -271,9 +271,7 @@ class LollipopPlot extends React.Component<any, any> {
   render() {
     const width = Math.max(...this.props.lollipops.map(lollipop => this.geneX() + this.codonToX(lollipop.codon)));
     const maxCodon = Math.max(...this.props.lollipops.map(lollipop => this.codonToX(lollipop.codon)))
-    console.log(width)
-    console.log(maxCodon)
-    console.log(this.geneX())
+    console.log(this.props.proteinLength)
     const {options, domains, hugoGeneSymbol} = this.props
     return (
       <React.Fragment>
@@ -286,7 +284,7 @@ class LollipopPlot extends React.Component<any, any> {
             width={this.svgWidth()}
             height={this.svgHeight()}
           />
-          <text x={this.geneX() - 10} y={this.geneY()+12} fill="black">12</text>          
+          <text x={this.geneX() - 10} y={this.geneY()+12} fill="black">1</text>          
           <rect
             fill='#BABDB6'
             x={this.geneX()}
@@ -297,7 +295,7 @@ class LollipopPlot extends React.Component<any, any> {
               width - 70
             }
           />
-          <text x={width + 1} y={this.geneY()+12} fill="black">{Math.round(maxCodon)}</text>
+          <text x={width + 1} y={this.geneY()+12} fill="black">{this.props.proteinLength}</text>
           {this.lollipops()}
           {this.domains()}
           {this.renderLegend(options, domains)}

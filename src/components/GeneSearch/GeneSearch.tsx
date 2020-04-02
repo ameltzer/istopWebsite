@@ -85,7 +85,7 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
 
         Promise.all(failureInputGeneNamePromises).then((aliasResults:any) => {
             const genePromises = aliasResults.flatMap(aliasResult => aliasResult.data.byAlias.items.map(singleAlias => {
-              return API.graphql(graphqlOperation(queryParameters[0], {
+              return API.graphql(graphqlOperation(queriesParameters[0], {
                 limit: 1000000,
                 gene: singleAlias.gene
               }))
@@ -102,42 +102,6 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
                 this.filterAllValues(allResults, filterColumns(columns,this.state.filterState))
             })
         })
-
-      })
-      
-      const queryParameters = this.props.parameterBuilder(genes[0], this.state.type)
-      API.graphql(graphqlOperation(queryParameters[0], queryParameters[1]))
-        .then(result => {
-          var columns:string[] = this.state && this.state.type && tableToColumns && tableToColumns.has(this.state.type) ? tableToColumns.get(this.state.type) : tableToColumns.get("Homo Sapiens")
-          /*if(result.data.gene.items || result.data.gene.items.length ==0) {
-            console.log("alias route")
-            API.graphql(graphqlOperation(byAlias, { limit: 1000000,alias: queryParameters[1].gene}))
-            .then(aliasResult => {
-                const genePromises = aliasResult.data.byAlias.items.map(alias => {
-                  return API.graphql(graphqlOperation(queryParameters[0], {
-                      limit: 1000000,
-                      gene: alias.gene
-                    }))
-                })
-                Promise.all(genePromises).then(geneResults => {
-                  const genesFromAliasQuery = geneResults.map((geneResult:any) => geneResult.data.gene.items)
-                  const filteredColumns = filterColumns(columns, this.state.filterState)
-                  this.filterAllValues(genesFromAliasQuery, filteredColumns)
-                }).catch(err => {
-                  console.log(err)
-                })
-            }).catch(err => {
-              console.log(err)
-            })
-          } else {
-            console.log("gene route")
-            if (this.props.isCancerSearch) {
-              columns = tableToColumns.get('Homo Sapiens')
-            }
-            this.filterAllValues([result.data.gene.items], filterColumns(columns, this.state.filterState))
-          }*/
-        }).catch(err => {
-          console.log(err)
       })
     }
 

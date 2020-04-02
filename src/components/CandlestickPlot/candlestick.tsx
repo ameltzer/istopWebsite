@@ -14,6 +14,7 @@ interface CandlestickState {
     isInSearch:boolean
     curGeneList:string[]
     mockData:any
+    numberOfAAS:number
 }
 
 const geneList:string[] = ["BRCA1","BRCA2","BARD1","PALB2","BRIP1","RAD51C","RAD51D","XRCC3","NBN","MRE11A","RAD50","CHEK2","ATM","FANCA","FANCG","FANCC","FANCD2","FANCE","FANCF","FANCM","FANCI","FANCL","RECQL","ATR","BLM","WRN","CDK12","FAM175A","APTX","C17orf53","CDK5RAP2","CEP152","CEP63","ERCC8","ERCC6","DCLRE1C","DNA2","DONSON","ERCC1","ERCC4","LIG4","LMNA","MCM8","MCM9","MCPH1","MLH1","MSH2","MSH6","MUTYH","NIN","ORC1","ORC4","PCNT","PMS2","PNKP","POLE","POLH","PRKDC","RAD51","RBBP8","RECQL4","REV3L","RFWD3","RIF1","RNASEH2A","RNF168","RTEL1","SAMHD1","SETX","SLX4","SMARCAL1","TDP1","TP53BP1","TRAIP","TREX1","GTF2H5","UBE2T","UVSSA","NHEJ1","XPA","ERCC3","ERCC2","ERCC5","ZRANB3","TONSL","HLTF"]
@@ -259,7 +260,8 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                 hugoGeneSymbol: 'Log Fold Change',
                 lollipops: [],
                 domains: []
-              }
+              },
+              numberOfAAS:0
         }
     }
 
@@ -306,6 +308,13 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         };
         API.graphql(graphqlOperation(getGeneLollipopGraph2, query)).then(result => {
           const filteredLocations = this.filterLocations(result.data.getGeneLollipopGraph.lollipopLocations.items)
+          console.log(result)
+          this.setState(prevState => {
+            return {
+              ...prevState,
+              numberOfAAS: result.data.getGeneLollipopGraph.numberOfAAS
+            }
+          })
           this.updateState(filteredLocations)
         }).catch(err => {
           console.log(err)
@@ -351,10 +360,12 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     filterDropDown = (e) => {
         const substring:string = e.target.value
         const newGeneList = geneList.filter(gene => gene.startsWith(substring.toUpperCase()))
+        const newGene = newGeneList.length > 0 ? newGeneList[0] : this.state.gene
         this.setState(prevState => {
             return {
                 ...prevState,
-                curGeneList: newGeneList
+                curGeneList: newGeneList,
+                gene: newGene
             }
         })
 
@@ -402,22 +413,9 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     render() {
         console.log(this.state.mockData.lollipops)
         const lollipops = this.state.mockData.lollipops.map(lollipop => this.lollipopUIState(lollipop))
+        this.state.curGeneList.sort();
         const toDisplay = this.state.isInSearch ? 
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <h3>Gene Search</h3>
-                    <br/>
-                    Filter Box
-                    <br/>
-                    <input type="text" name="filter" onChange={this.filterDropDown}/>
-                    <select onChange={this.dropDownChange}> {this.state.curGeneList.map((typeName) => <option key={typeName}>{typeName}</option>)} </select>
-                    <br/>
-                    <input type="submit" value="Submit"/>
-                    <br/>
-                    Note the current drop down value will be used for search.
-                </form>
-                 
-            </div> :
+            <div></div> :
             <div>
                 <Button onClick={this.setTreatment("UNT")}>Untreated</Button>
                 <Button onClick={this.setTreatment("CISP")}>Cisplatin</Button>
@@ -436,6 +434,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                     xMax={this.state.mockData.xMax}
                     onLollipopClick={onLollipopClickHandler}
                     options={options}
+                    proteinLength={this.state.numberOfAAS}
                 />
                 <br/>
                 <TableViewer
@@ -454,6 +453,25 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                 <Button onClick={this.goBack}>Go Back</Button>
             </div>
 
-        return (<div>{toDisplay}</div>)
+        return (
+          <div>
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <h3>Gene Search</h3>
+                    <br/>
+                    Filter Box
+                    <br/>
+                    <input type="text" name="filter" onChange={this.filterDropDown}/>
+                    <select onChange={this.dropDownChange}> {this.state.curGeneList.map((typeName) => <option key={typeName}>{typeName}</option>)} </select>
+                    <br/>
+                    <input type="submit" value="Submit"/>
+                    <br/>
+                    Note the current drop down value will be used for search.
+                </form>
+                 
+            </div>
+            {toDisplay}  
+          </div>
+        )
     }
 }
