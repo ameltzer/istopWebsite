@@ -435,11 +435,11 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                     options={options}
                     proteinLength={this.state.numberOfAAS}
                 />
-                <Button className="rightSideButton" onClick={this.setTreatment("UNT")}>Untreated</Button>
-                <Button className="rightSideButton" onClick={this.setTreatment("CISP")}>Cisplatin</Button>
-                <Button className="rightSideButton" onClick={this.setTreatment("OLAP")}>Olaparib</Button>
-                <Button className="rightSideButton" onClick={this.setTreatment("DOX")}>Doxorubicin</Button>
-                <Button className="rightSideButton" onClick={this.setTreatment("CPT")}>Camptothecin</Button>
+                <input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")}>Untreated</input>
+                <input type="radio" className="rightSideButton" onClick={this.setTreatment("CISP")}>Cisplatin</input>
+                <input type="radio" className="rightSideButton" onClick={this.setTreatment("OLAP")}>Olaparib</input>
+                <input type="radio" className="rightSideButton" onClick={this.setTreatment("DOX")}>Doxorubicin</input>
+                <input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")}>Camptothecin</input>
                 <br/>
                 <TableViewer
                   title="Table"
