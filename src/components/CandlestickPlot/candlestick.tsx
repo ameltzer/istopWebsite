@@ -420,39 +420,36 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         const toDisplay = this.state.isInSearch ? 
             <div></div> :
             <div>
-                <div className="container">
-                  <div className="row">
-                    <div className="col-sm-4">
-                      {this.state.gene} {this.state.treatment}
-                      <br/>
-                      <h3>{this.translateTreatmentName()}</h3>
-                      <br/>
-                      <LollipopPlot
-                          domains={this.state.mockData.domains}
-                          lollipops={lollipops}
-                          vizWidth={665}
-                          vizHeight={500}
-                          hugoGeneSymbol={this.state.mockData.hugoGeneSymbol}
-                          xMax={this.state.mockData.xMax}
-                          onLollipopClick={onLollipopClickHandler}
-                          options={options}
-                          proteinLength={this.state.numberOfAAS}
-                      />
-                    </div>
-                    <div className="col-sm-4">
-                      <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")}/>Untreated</label>
-                      <br/>
-                      <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CISP")}/>Cisplatin</label>
-                      <br/>
-                      <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("OLAP")}/>Olaparib</label>
-                      <br/>
-                      <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("DOX")}/>Doxorubicin</label>
-                      <br/>
-                      <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")}/>Camptothecin</label>
-                      <br/>
-                    </div>
-                  </div>
+                
+                {this.state.gene} {this.state.treatment}
+                <br/>
+                <h3>{this.translateTreatmentName()}</h3>
+                <br/>
+                <div className="plotLeft">
+                  <LollipopPlot
+                      domains={this.state.mockData.domains}
+                      lollipops={lollipops}
+                      vizWidth={665}
+                      vizHeight={500}
+                      hugoGeneSymbol={this.state.mockData.hugoGeneSymbol}
+                      xMax={this.state.mockData.xMax}
+                      onLollipopClick={onLollipopClickHandler}
+                      options={options}
+                      proteinLength={this.state.numberOfAAS}
+                  />
                 </div>
+                <div className="radioRight">
+                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")}/>Untreated</label>
+                <br/>
+                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CISP")}/>Cisplatin</label>
+                <br/>
+                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("OLAP")}/>Olaparib</label>
+                <br/>
+                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("DOX")}/>Doxorubicin</label>
+                <br/>
+                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")}/>Camptothecin</label>
+                </div>
+                <br/>
                 <TableViewer
                   title="Table"
                   content={this.state.mockData.lollipops.map(lollipop => {

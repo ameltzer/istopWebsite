@@ -11,9 +11,14 @@ body
     font-family: Helvetica, Sans-Serif;
 }
 
-.rightSideButton
+.plotLeft
 {
-    align: right;
+    float: left;
+    height: 500px;
+}
+.radioRight
+{
+    height: 500px;
 }
 
 .sidenav {

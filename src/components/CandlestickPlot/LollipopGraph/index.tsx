@@ -328,7 +328,6 @@ class LollipopPlot extends React.Component<any, any> {
             rangeUpper={this.yMax()}
             ticks={this.yNegTicks()}
             vertical={true}
-            label={`${hugoGeneSymbol}`}
           />
           : ""
         }
