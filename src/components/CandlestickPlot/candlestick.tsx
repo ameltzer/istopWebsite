@@ -421,7 +421,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             <div></div> :
             <div>
                 
-                {this.state.gene} {this.state.treatment}
+                <p className="helvetica">{this.state.gene} {this.state.treatment}</p>
                 <br/>
                 <h3>{this.translateTreatmentName()}</h3>
                 <br/>

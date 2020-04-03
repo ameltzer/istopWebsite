@@ -144,6 +144,8 @@ class LollipopPlot extends React.Component<any, any> {
     return this.calculateTickInterval(yAxisCandidateTickIntervals, this.yMax(), 10)
   }
 
+
+
   calculateTicks = (tickInterval, rangeSize, labelEvenTicks) => {
     const ret = []
     let nextTick = tickInterval
@@ -179,20 +181,40 @@ class LollipopPlot extends React.Component<any, any> {
     return ret
   }
 
+  calculateYTickInterval = () => {
+    const pixelSpan = this.yMax() - this.geneY();
+    (this.props.lollipops.find(lollipop => (lollipop.count > this.yMax())) ? '>= ' : '') + this.yMax()
+  }
+
   yTicks = () => {
     let ret = []
     // Start and end, always there
-    ret.push({
+    /*ret.push({
       position: 0,
       label: '0'
     })
     ret.push({
       position: this.yMax(),
       label: this.yMaxLabel()
-    })
+    })*/
     // Intermediate ticks, unlabeled
-    ret = ret.concat(this.calculateTicks(this.yAxisTickInterval(), this.yMax(), false))
+    ret = this.calculateYTicks(0, 0.5, this.yMax())
+    //ret = ret.concat(this.calculateTicks(this.yAxisTickInterval(), this.yMax(), false))
     return ret
+  }
+
+  calculateYTicks = (start, stepSize, end) => {
+    const ret = []
+    let position = start;
+    console.log("v1")
+    while(position < end) {
+      ret.push({
+        position: position,
+        label: position + ''
+      })
+      position+=stepSize
+    }
+    return ret;
   }
 
   yMax = () => {
