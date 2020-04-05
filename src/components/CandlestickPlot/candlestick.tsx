@@ -75,7 +75,7 @@ const tableHeaders = ['gene','sgRNASequence','aapos','function','clinVar','lfcUN
 const tableHeaderTranslation = new Map(
   [
     ['gene', 'Gene'],
-    ['sgRNASequence','SG RNA Sequence'],
+    ['sgRNASequence','sgRNA Sequence'],
     ['aapos', 'AA Pos'],
     ['function', 'Function'],
     ['clinVar', 'Clinical Relevance'],
@@ -153,7 +153,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
       } else if(fun === "splice") {
         return "#FFA500"
       } else if(fun === "synonymous") {
-        return "##008000	"
+        return "#008000	"
       } else {
         return "#000000"
       }
