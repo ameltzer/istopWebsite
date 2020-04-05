@@ -353,8 +353,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             sort: true,
             order: 'asc',
             classes:(cell, row, rowIndex, colIndex) => {
-              console.log(colIndex)
-              console.log('-----')
               return colIndex == 1 ? 'breakAll' : 'breakWords';
             },
             sortFunc: (a,b,order,dataField,rowA,rowB) => {
@@ -436,6 +434,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                         <ExportCSVButton { ...props.csvProps }>Export CSV</ExportCSVButton>
                         <hr />
                         <BootstrapTable  tdStyle={{whiteSpace:'normal'}}
+                        wrapperClasses="table-responsive"
                           keyField='sgRNASequence' 
                           data={displayLollipops}
                           columns ={bootStrapHeaders}
