@@ -21,7 +21,7 @@ interface CandlestickState {
     radioChecked:Map<string, boolean>
     curPressed:string
     funCheckBoxChecked:Map<string, boolean>
-    pValueGreaterThan:Map<string, boolean>
+    pValueLessThan:Map<string, boolean>
     displayGene:string
     xMax:number
     lollipopsClicked:Map<string,boolean>
@@ -107,7 +107,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             lollipopsClicked: new Map<string, boolean>(),
             displayGene:"",
             funCheckBoxChecked: new Map<string, boolean>([["nonsense",false], ["missense",false],["splice",false],["synonymous",false],["other",false]]),
-            pValueGreaterThan: new Map<string, boolean>([["UNT",false],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]]),
+            pValueLessThan: new Map<string, boolean>([["UNT",false],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]]),
             radioChecked: new Map<string, boolean>([["UNT",true],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]]),
             curPressed: "UNT",
             gene: "",
@@ -277,14 +277,14 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
       }
     }
 
-    setPValueGreaterThan = (treatment:string) => {
+    setPValueLessThan = (treatment:string) => {
       return (e) => {
-        const curPValue = this.state.pValueGreaterThan;
+        const curPValue = this.state.pValueLessThan;
         curPValue.set(treatment, !curPValue.get(treatment))
         this.setState(prevState => {
           return {
             ...prevState,
-            pValueGreaterThan: curPValue,
+            pValueLessThan: curPValue,
           }
         })
       }
@@ -332,24 +332,21 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
 
     render() {
         var filteredLollipops = this.state.mockData.lollipops
-        console.log(filteredLollipops)
+       
         const funFilters:string[] = Array.from(this.state.funCheckBoxChecked).filter(funFilter => funFilter[1]).map(funFilter => funFilter[0])
         if (funFilters.length > 0) {
           filteredLollipops = filteredLollipops.filter(lollipop =>  funFilters.some(check => check === lollipop.function))
         }
 
-        const pValueFilters:string[] = Array.from(this.state.pValueGreaterThan).filter(pvalueFilter => pvalueFilter[1]).map(pvalueFilter => pvalueFilter[0])
+        const pValueFilters:string[] = Array.from(this.state.pValueLessThan).filter(pvalueFilter => pvalueFilter[1]).map(pvalueFilter => pvalueFilter[0])
         if (pValueFilters.length > 0) {
           for(var i=0; i<pValueFilters.length; i++) {
-            filteredLollipops = filteredLollipops.filter(lollipop => lollipop['pvalue'+pValueFilters[i]] > 0.01)
+            filteredLollipops = filteredLollipops.filter(lollipop => lollipop['pvalue'+pValueFilters[i]] < 0.01)
           }
         }
 
         const lollipops = filteredLollipops.map(lollipop => this.lollipopUIState(lollipop))
         this.state.curGeneList.sort();
-
-
-
 
         var tableLollipops = filteredLollipops.map(lollipop => {
           return {
@@ -357,13 +354,29 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             clinVar: lollipop.clinVar.replace("-1:","").replace("0:","").replace("1:","")
           }
         })
+
         tableLollipops = tableLollipops.map(filteredLollipop => {
           return {
             ...filteredLollipop,
-            aapos: parseInt(filteredLollipop.aapos)
+            aapos: Number(filteredLollipop.aapos),
+            lfcCISP: Number(filteredLollipop.lfcCISP),
+            lfcUNT: Number(filteredLollipop.lfcUNT),
+            pvalueUNT: Number(filteredLollipop.pvalueUNT),
+            fdrUNT: Number(filteredLollipop.pvalueUNT),
+            pvalueCISP: Number(filteredLollipop.pvalueCISP),
+            fdrCISP: Number(filteredLollipop.fdrCISP),
+            lfcCPT: Number(filteredLollipop.lfcCPT),
+            pvalueCPT: Number(filteredLollipop.pvalueCPT),
+            fdrCPT: Number(filteredLollipop.fdrCPT),
+            lfcDOX: Number(filteredLollipop.lfcDOX),
+            pvalueDOX: Number(filteredLollipop.pvalueDOX),
+            fdrDOX: Number(filteredLollipop.fdrDOX),
+            lfcOLAP: Number(filteredLollipop.lfcOLAP),
+            pvalueOLAP: Number(filteredLollipop.pvalueOLAP),
+            fdrOLAP: Number(filteredLollipop.fdrOLAP),
+
           }
         })
-
         const lollipopFilters:string[] = Array.from(this.state.lollipopsClicked).filter(lollipopFilter => lollipopFilter[1]).map(lollipopFilter => lollipopFilter[0])
         if (lollipopFilters.length > 0) {
           tableLollipops = tableLollipops.filter(lollipop => lollipopFilters.some(sgRNA => sgRNA === lollipop.sgRNASequence))
@@ -430,15 +443,15 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                   <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")} checked={this.state.radioChecked.get("CPT")}/>Camptothecin</label>
                   <br/>
                   <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("UNT")} checked={this.state.pValueGreaterThan.get("UNT")}></input>P-value >0.01 Untreated</label>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("UNT")} checked={this.state.pValueLessThan.get("UNT")}></input>{"P-value <0.01 Untreated"}</label>
                   <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("CISP")} checked={this.state.pValueGreaterThan.get("CISP")}></input>P-value >0.01 Cisplatin</label>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("CISP")} checked={this.state.pValueLessThan.get("CISP")}></input>{"P-value <0.01 Cisplatin"}</label>
                   <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("OLAP")} checked={this.state.pValueGreaterThan.get("OLAP")}></input>P-value >0.01 Olaparib</label>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("OLAP")} checked={this.state.pValueLessThan.get("OLAP")}></input>{"P-value <0.01 Olaparib"}</label>
                   <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("DOX")} checked={this.state.pValueGreaterThan.get("DOX")}></input>P-value >0.01 Doxorubicin</label>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("DOX")} checked={this.state.pValueLessThan.get("DOX")}></input>{"P-value <0.01 Doxorubicin"}</label>
                   <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("CPT")} checked={this.state.pValueGreaterThan.get("CPT")}></input>P-value >0.01 Camptothecin</label>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("CPT")} checked={this.state.pValueLessThan.get("CPT")}></input>{"P-value <0.01 Camptothecin"}</label>
 
                   <br/>
                   <br/>
