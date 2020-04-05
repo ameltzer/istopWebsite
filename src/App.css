@@ -6,6 +6,10 @@ header  {
     font-size: 14px;
 }
 
+div.overlfowAuto {
+    overflow:auto;
+}
+
 .helvetica
 {
     font-family: Helvetica, Sans-Serif;
@@ -64,4 +68,12 @@ p.inset {border-style: inset;}
 
 .overallContainer {
     margin:20px
+}
+
+td {
+    word-break: break-all
+}
+
+th {
+    word-break: break-all !important
 }

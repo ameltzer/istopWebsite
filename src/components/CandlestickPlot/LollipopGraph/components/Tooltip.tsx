@@ -19,6 +19,7 @@ class Tooltip extends React.Component<any,any> {
 
   render() {
     return (<ReactTooltip
+      place="right"
       id={this.props.id}
       html={true}
       getContent={this.getContentHandler}

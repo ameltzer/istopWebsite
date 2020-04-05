@@ -6,16 +6,24 @@ class SVGAxis extends React.Component<any,any> {
   }
 
   ticks = () => {
+    if(!this.props.vertical) {
+      console.log(this.props.ticks)
+    }
+    var i=0;
     return this.props.ticks.map(tick => {
+      if(!this.props.vertical) {
+        console.log("--------")
+        console.log(tick)
+      }
       const axisPosition = this.positionToAxisPosition(tick.position)
       const x1 = this.props.vertical ? this.props.x : (this.props.x + axisPosition)
-      const y1 = this.props.vertical ? (this.props.y + this.props.length - axisPosition) : this.props.y
+      const y1 = this.props.vertical ? (this.props.y - axisPosition) : this.props.y
       const x2 = this.props.vertical ? (this.props.x - this.props.tickLength) : (this.props.x + axisPosition)
-      const y2 = this.props.vertical ? (this.props.y + this.props.length - axisPosition) : (this.props.y + this.props.tickLength)
+      const y2 = this.props.vertical ? (this.props.y - axisPosition) : (this.props.y + this.props.tickLength)
       const labelPadding = 3
-
       let label = null
-      if (tick.label) {
+      if (tick.label && (!this.props.even || i%2==0)) {
+
         if (this.props.vertical) {
           label = (
             <text
@@ -47,8 +55,15 @@ class SVGAxis extends React.Component<any,any> {
               {tick.label}
             </text>
           )
+          console.log("x2: "+x2 +" y2: "+y2)
+          console.log(tick.label)
         }
       }
+      if(!this.props.vertical) {
+        console.log("axis position: "+axisPosition+" x1: "+x1+" x2: "+x2+" y1: "+y1+" y2: "+y2)
+        console.log(label)
+      }
+      i++
       return (
         <g key={axisPosition}>
           <line
@@ -102,7 +117,10 @@ class SVGAxis extends React.Component<any,any> {
 
   render() {
     const x2 = this.props.vertical ? this.props.x : (this.props.x + this.props.length)
-    const y2 = this.props.vertical ? (this.props.y + this.props.length) : this.props.y
+    const y2 = this.props.vertical ? this.props.y + this.props.length * this.props.isNegative : this.props.y
+
+    console.log(this.props.y)
+
     return (
       <g>
         <line

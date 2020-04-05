@@ -2,7 +2,9 @@ import * as React from "react";
 import LollipopPlot from './LollipopGraph'
 import Button from 'react-bootstrap/Button'
 import { API, graphqlOperation } from "aws-amplify";
-import TableViewer from 'react-js-table-with-csv-dl';
+import BootstrapTable from 'react-bootstrap-table-next'
+import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit';
+const { ExportCSVButton } = CSVExport;
 
 interface CandlestickProps {
 
@@ -16,170 +18,21 @@ interface CandlestickState {
     mockData:any
     numberOfAAS:number
     transcriptId:string
+    radioChecked:Map<string, boolean>
+    curPressed:string
+    funCheckBoxChecked:Map<string, boolean>
+    pValueGreaterThan:Map<string, boolean>
+    displayGene:string
+    xMax:number
 }
 
 const geneList:string[] = ["BRCA1","BRCA2","BARD1","PALB2","BRIP1","RAD51C","RAD51D","XRCC3","NBN","MRE11A","RAD50","CHEK2","ATM","FANCA","FANCG","FANCC","FANCD2","FANCE","FANCF","FANCM","FANCI","FANCL","RECQL","ATR","BLM","WRN","CDK12","FAM175A","APTX","C17orf53","CDK5RAP2","CEP152","CEP63","ERCC8","ERCC6","DCLRE1C","DNA2","DONSON","ERCC1","ERCC4","LIG4","LMNA","MCM8","MCM9","MCPH1","MLH1","MSH2","MSH6","MUTYH","NIN","ORC1","ORC4","PCNT","PMS2","PNKP","POLE","POLH","PRKDC","RAD51","RBBP8","RECQL4","REV3L","RFWD3","RIF1","RNASEH2A","RNF168","RTEL1","SAMHD1","SETX","SLX4","SMARCAL1","TDP1","TP53BP1","TRAIP","TREX1","GTF2H5","UBE2T","UVSSA","NHEJ1","XPA","ERCC3","ERCC2","ERCC5","ZRANB3","TONSL","HLTF"]
-
-const domains = [
-    {
-      'startCodon': 57,
-      'endCodon': 167,
-      'label': 'Recep_L_domain',
-      'color': '#2dcf00',
-      'tooltip': {
-        'header': 'Recep_L_domain',
-        'body': 'Recep_L_domain (57 - 167)'
-      }
-    },
-    {
-      'startCodon': 185,
-      'endCodon': 338,
-      'label': 'Furin-like',
-      'color': '#ff5353',
-      'tooltip': {
-        'header': 'Furin-like'
-      }
-    },
-    {
-      'startCodon': 361,
-      'endCodon': 480,
-      'label': 'Recep_L_domain',
-      'color': '#2dcf00'
-    },
-    {
-      'startCodon': 505,
-      'endCodon': 636,
-      'label': 'GF_recep_IV',
-      'color': '#5b5bff',
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      }
-    },
-    {
-      'startCodon': 713,
-      'endCodon': 965,
-      'label': 'Pkinase_Tyr',
-      'color': '#ebd61d',
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      }
-    }
-  ]
-
-  export const lollipops = [
-    {
-      'codon': 858,
-      'count': 10,
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      },
-      'color': '#008000',
-      'id': 'variant-id-001',
-      'label': {
-        'text': 'L858R',
-        'textAnchor': 'middle',
-        'fontSize': 10,
-        'fontFamily': 'arial'
-      },
-      'selected': true
-    },
-    {
-      'codon': 746,
-      'count': 17,
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      },
-      'color': '#993404',
-      'selected': true
-    },
-    {
-      'codon': 861,
-      'count': 5,
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      },
-      'color': '#008000'
-    },
-    {
-      'codon': 747,
-      'count': 5,
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      },
-      'color': '#993404',
-      'selected': false
-    },
-    {
-      'codon': 768,
-      'count': 3,
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      },
-      'color': '#008000'
-    },
-    {
-      'codon': 754,
-      'count': 3,
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      },
-      'color': '#008000'
-    },
-    {
-      'codon': 719,
-      'count': 3,
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      },
-      'color': '#008000'
-    },
-    {
-      'codon': 709,
-      'count': 3,
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      },
-      'color': '#993404'
-    },
-    {
-      'codon': 833,
-      'count': 2,
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      },
-      'color': '#008000'
-    },
-    {
-      'codon': 1,
-      'count': 1,
-      'tooltip': {
-        'header': 'Title',
-        'body': 'Description'
-      },
-      'color': '#cf58bc'
-    }
-  ]
-
 
 const options = {
   displayDomainLabel: false,
   displayLegend: true
 }
 
-const onLollipopClickHandler = (data) => {
-  console.log('onLollipopClick', data)
-}
 const getGeneLollipopGraph2 = /* GraphQL */ `
   query GetGeneLollipopGraph($id: ID!) {
     getGeneLollipopGraph(id: $id) {
@@ -218,7 +71,7 @@ const getGeneLollipopGraph2 = /* GraphQL */ `
   }
 `;
 
-const tableHeaders = ['gene','sgRNASequence','aapos','function','clinVar','lfcUNT','pvalueUNT','fdrUNT','lfcCISP','pvalueCISP','fdrCISP','lfcCPT','pvalueCPT','fdrCPT','lfcDOX','pvalueDOX','fdrDOX','lfcOLAP','pvalueOLAP','fdrOLAP']
+const tableHeaders = ['gene','sgRNASequence','aapos','function','clinVar','lfcUNT','pvalueUNT','fdrUNT','lfcCISP','pvalueCISP','fdrCISP','lfcCPT','pvalueCPT','fdrCPT','lfcDOX','pvalueDOX','fdrDOX','lfcOLAP','pvalueOLAP','fdrOLAP','aachg']
 const tableHeaderTranslation = new Map(
   [
     ['gene', 'Gene'],
@@ -240,7 +93,8 @@ const tableHeaderTranslation = new Map(
     ['fdrDOX', 'FDR Doxorubicin'],
     ['lfcOLAP', 'LFC Olaparib'],
     ['pvalueOLAP', 'PValue Olaparib'],
-    ['fdrOLAP', 'FDR Olaparib']
+    ['fdrOLAP', 'FDR Olaparib'],
+    ['aachg', 'AA Change']
   ]
 )
 
@@ -249,14 +103,19 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     constructor(props) {
         super(props)
         this.state = {
+            displayGene:"",
+            funCheckBoxChecked: new Map<string, boolean>([["nonsense",false], ["missense",false],["splice",false],["synonymous",false],["other",false]]),
+            pValueGreaterThan: new Map<string, boolean>([["UNT",false],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]]),
+            radioChecked: new Map<string, boolean>([["UNT",true],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]]),
+            curPressed: "UNT",
             gene: "",
             treatment: "UNT",
             isInSearch:true,
             curGeneList: geneList,
+            xMax: 1210,
             mockData: {
                 vizHeight: 130, // hardcoded
                 vizWidth: 665, // hardcoded
-                xMax: 1210, // protein length
                 yMax: 23, // max #mutations
                 hugoGeneSymbol: 'Log Fold Change',
                 lollipops: [],
@@ -293,8 +152,8 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         return "#800080"
       } else if(fun === "splice") {
         return "#FFA500"
-      } else if(fun === "silent") {
-        return "#0000FF"
+      } else if(fun === "synonymous") {
+        return "#66b3ff"
       } else {
         return "#000000"
       }
@@ -310,12 +169,15 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         };
         API.graphql(graphqlOperation(getGeneLollipopGraph2, query)).then(result => {
           const filteredLocations = this.filterLocations(result.data.getGeneLollipopGraph.lollipopLocations.items)
-          console.log(result)
+          const xMax:number = parseInt(result.data.getGeneLollipopGraph.numberOfAAS)
+
           this.setState(prevState => {
             return {
               ...prevState,
               numberOfAAS: result.data.getGeneLollipopGraph.numberOfAAS,
-              transcriptId: result.data.getGeneLollipopGraph.transcriptId
+              transcriptId: result.data.getGeneLollipopGraph.transcriptId,
+              displayGene: this.state.gene,
+              xMax: xMax,
             }
           })
           this.updateState(filteredLocations)
@@ -346,12 +208,10 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
           this.setState(prevState => {
             return {
                 ...prevState,
-                gene: "BRCA1",
                 isInSearch: false,
                 mockData: {
                     vizHeight: 130, // hardcoded
                     vizWidth: 665, // hardcoded
-                    xMax: 1210, // protein length
                     hugoGeneSymbol: 'Log Fold Change',
                     lollipops: filteredLocations,
                     domains: []
@@ -385,13 +245,46 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
 
     setTreatment = (treatment:string) => {
       return (e) => {
+        const curCheckedMap = this.state.radioChecked;
+        curCheckedMap.set(treatment, true)
+        curCheckedMap.set(this.state.curPressed, false)
         this.setState(prevState => {
           return {
             ...prevState,
-            treatment: treatment
+            treatment: treatment,
+            radioChecked: curCheckedMap,
+            curPressed: treatment
           }
         })
         this.updateState(this.state.mockData.lollipops)
+      }
+    }
+
+    setFun = (fun:string) => {
+      return (e) => {
+        var newFunCheckBoxChecked =  this.state.funCheckBoxChecked;
+        const curCheck:boolean = newFunCheckBoxChecked.get(fun)
+        newFunCheckBoxChecked.set(fun, !curCheck)
+        this.setState(prevState => {
+          return {
+            ...prevState,
+            funCheckBoxChecked:newFunCheckBoxChecked
+          }
+        })
+        
+      }
+    }
+
+    setPValueGreaterThan = (treatment:string) => {
+      return (e) => {
+        const curPValue = this.state.pValueGreaterThan;
+        curPValue.set(treatment, !curPValue.get(treatment))
+        this.setState(prevState => {
+          return {
+            ...prevState,
+            pValueGreaterThan: curPValue,
+          }
+        })
       }
     }
 
@@ -413,57 +306,154 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
       }
     }
 
+    orCombination = (value:string, checks:string[]) => {
+      return checks.some(check => check === value)
+    }
+
     render() {
-        console.log(this.state.mockData.lollipops)
-        const lollipops = this.state.mockData.lollipops.map(lollipop => this.lollipopUIState(lollipop))
+        console.log(this.state)
+        var filteredLollipops = this.state.mockData.lollipops
+        const funFilters:string[] = Array.from(this.state.funCheckBoxChecked).filter(funFilter => funFilter[1]).map(funFilter => funFilter[0])
+        if (funFilters.length > 0) {
+          filteredLollipops = filteredLollipops.filter(lollipop =>  funFilters.some(check => check === lollipop.function))
+        }
+
+        const pValueFilters:string[] = Array.from(this.state.pValueGreaterThan).filter(pvalueFilter => pvalueFilter[1]).map(pvalueFilter => pvalueFilter[0])
+        if (pValueFilters.length > 0) {
+          for(var i=0; i<pValueFilters.length; i++) {
+            filteredLollipops = filteredLollipops.filter(lollipop => lollipop['pvalue'+pValueFilters[i]] > 0.01)
+          }
+        }
+
+        const lollipops = filteredLollipops.map(lollipop => this.lollipopUIState(lollipop))
+        console.log(filteredLollipops)
+        console.log(lollipops)
         this.state.curGeneList.sort();
+
+
+        var tableLollipops = filteredLollipops.map(lollipop => {
+          return {
+            ...lollipop,
+            clinVar: lollipop.clinVar.replace("-1:","").replace("0:","").replace("1:","")
+          }
+        })
+        tableLollipops = tableLollipops.map(filteredLollipop => {
+          return {
+            ...filteredLollipop,
+            aapos: parseInt(filteredLollipop.aapos)
+          }
+        })
+        const displayLollipops = tableLollipops.map(lollipop => {
+          var newObj = {}
+          tableHeaders.forEach(el => newObj[el] = lollipop[el])
+          return newObj
+        })
+
+        const bootStrapHeaders = tableHeaders.map(header => {
+          return {
+            dataField: header,
+            text: tableHeaderTranslation.get(header),
+            sort: true,
+            order: 'asc',
+            sortFunc: (a,b,order,dataField,rowA,rowB) => {
+                if (order === 'asc') {
+                  const result:number = a > b ? 1 : -1
+                  return result
+                }
+                const result:number = a > b ? -1 : 1
+                return result
+             
+            }
+          }
+        })
+
         const toDisplay = this.state.isInSearch ? 
             <div></div> :
             <div>
-                
-                <p className="helvetica">{this.state.gene} {this.state.treatment}</p>
+            <div>
                 <br/>
+                <p className="helvetica">{this.state.displayGene} {this.state.transcriptId}</p>
                 <h3>{this.translateTreatmentName()}</h3>
                 <br/>
                 <div className="plotLeft">
                   <LollipopPlot
                       domains={this.state.mockData.domains}
                       lollipops={lollipops}
-                      vizWidth={665}
+                      vizWidth={765}
                       vizHeight={500}
                       hugoGeneSymbol={this.state.mockData.hugoGeneSymbol}
-                      xMax={this.state.mockData.xMax}
-                      onLollipopClick={onLollipopClickHandler}
+                      xMax={this.state.xMax}
                       options={options}
                       proteinLength={this.state.numberOfAAS}
                   />
                 </div>
-                <div className="radioRight">
-                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")}/>Untreated</label>
-                <br/>
-                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CISP")}/>Cisplatin</label>
-                <br/>
-                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("OLAP")}/>Olaparib</label>
-                <br/>
-                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("DOX")}/>Doxorubicin</label>
-                <br/>
-                <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")}/>Camptothecin</label>
+                <div className="radioRight overlfowAuto">
+                  <h3>Filters</h3>
+                  <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")} checked={this.state.radioChecked.get("UNT")}/>Untreated</label>
+                  <br/>
+                  <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CISP")} checked={this.state.radioChecked.get("CISP")}/>Cisplatin</label>
+                  <br/>
+                  <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("OLAP")} checked={this.state.radioChecked.get("OLAP")}/>Olaparib</label>
+                  <br/>
+                  <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("DOX")} checked={this.state.radioChecked.get("DOX")}/>Doxorubicin</label>
+                  <br/>
+                  <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")} checked={this.state.radioChecked.get("CPT")}/>Camptothecin</label>
+                  <br/>
+                  <br/>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("UNT")} checked={this.state.pValueGreaterThan.get("UNT")}></input>Pvalue >0.01 Untreated</label>
+                  <br/>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("CISP")} checked={this.state.pValueGreaterThan.get("CISP")}></input>Pvalue >0.01 Cisplatin</label>
+                  <br/>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("OLAP")} checked={this.state.pValueGreaterThan.get("OLAP")}></input>Pvalue >0.01 Olaparib</label>
+                  <br/>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("DOX")} checked={this.state.pValueGreaterThan.get("DOX")}></input>Pvalue >0.01 Doxorubicin</label>
+                  <br/>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("CPT")} checked={this.state.pValueGreaterThan.get("CPT")}></input>Pvalue >0.01 Camptothecin</label>
+
+                  <br/>
+                  <br/>
+                  <b>Legend</b>
+                  <br/>
+                  <label style = {{color:"#FF0000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("nonsense")} checked={this.state.funCheckBoxChecked.get("nonsense")}/>Nonsense</label>
+                  <label style = {{color:"#800080"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("missense")} checked={this.state.funCheckBoxChecked.get("missense")}/>Missense</label>
+                  <br/>
+                  <label style = {{color:"#FFA500"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("splice")} checked={this.state.funCheckBoxChecked.get("splice")}/>Splice</label>
+                  <label style = {{color:"#66b3ff"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("synonymous")} checked={this.state.funCheckBoxChecked.get("synonymous")}/>Silent</label>
+                  <label style = {{color:"#000000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("other")} checked={this.state.funCheckBoxChecked.get("other")}/>Other</label>
                 </div>
                 <br/>
-                <TableViewer
-                  title="Table"
-                  content={this.state.mockData.lollipops.map(lollipop => {
-                    var newObj = {}
-                    tableHeaders.forEach(el => newObj[el] = lollipop[el])
-                    return newObj
-                  })}
-                  headers = {tableHeaders}
-                  minHeight={0}
-                  maxHeigh={400}
-                  activateDownloadButton={true}
-                />
                 <br/>
-                <Button onClick={this.goBack}>Go Back</Button>
+                <br/>
+              </div>
+              <div>
+                <div> 
+                <ToolkitProvider>
+                  {
+                    props => (
+                      <div>
+                        <ExportCSVButton { ...props.csvProps }>Export CSV</ExportCSVButton>
+                        <hr />
+                        <BootstrapTable  tdStyle={{whiteSpace:'normal'}}
+                          keyField='sgRNASequence' 
+                          data={displayLollipops}
+                          columns ={bootStrapHeaders}
+                          bootstrap4={true}
+                          striped
+                          defaultSorted = {
+                            [
+                              {
+                                dataField:'aapos',
+                                order: 'asc'
+                              }
+                            ]} />
+                      </div>
+                    )
+                  }
+                </ToolkitProvider>
+                  <br/>
+                  <Button onClick={this.goBack}>Go Back</Button>
+                </div>
+            </div>
             </div>
 
         return (

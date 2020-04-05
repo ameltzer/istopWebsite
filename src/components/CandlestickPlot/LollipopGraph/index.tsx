@@ -23,7 +23,9 @@ const domainHeight = 24
 
 class LollipopPlot extends React.Component<any, any> {
   codonToX = (codon) => {
-    return (codon / this.props.xMax) * (this.props.vizWidth-110)
+    //console.log("codon: "+codon+ " xMax: "+this.props.xMax+" propsVizWidth: 855")
+    //console.log("codonX: "+(codon / this.props.xMax) * 855)
+    return (codon / this.props.xMax) * 855
   }
 
   countToHeight = count => {
@@ -166,48 +168,22 @@ class LollipopPlot extends React.Component<any, any> {
   }
 
   xTicks = () => {
-    let ret = []
-    // Start and end, always there
-    ret.push({
-      position: 0,
-      label: '0'
-    })
-    ret.push({
-      position: this.props.xMax,
-      label: this.props.xMax + 'aa'
-    })
-    // Intermediate ticks, every other one labeled
-    ret = ret.concat(this.calculateTicks(this.xAxisTickInterval(), this.props.xMax, true))
-    return ret
-  }
-
-  calculateYTickInterval = () => {
-    const pixelSpan = this.yMax() - this.geneY();
-    (this.props.lollipops.find(lollipop => (lollipop.count > this.yMax())) ? '>= ' : '') + this.yMax()
+    return this.calculateYTicks(0, 50, this.props.xMax, (position, end) => position < end)
   }
 
   yTicks = () => {
-    let ret = []
-    // Start and end, always there
-    /*ret.push({
-      position: 0,
-      label: '0'
-    })
-    ret.push({
-      position: this.yMax(),
-      label: this.yMaxLabel()
-    })*/
-    // Intermediate ticks, unlabeled
-    ret = this.calculateYTicks(0, 0.5, this.yMax())
-    //ret = ret.concat(this.calculateTicks(this.yAxisTickInterval(), this.yMax(), false))
-    return ret
+    return this.calculateYTicks(0, 0.5, this.yMax(), (position, end) => position < end)
   }
 
-  calculateYTicks = (start, stepSize, end) => {
+  yNegTicks = () => {
+    const negTicks = this.calculateYTicks(0, -0.5, this.yMin(), (position, end) => position > end)
+    return negTicks
+  }
+
+  calculateYTicks = (start, stepSize, end, comparisonOperator) => {
     const ret = []
-    let position = start;
-    console.log("v1")
-    while(position < end) {
+    let position = start +stepSize;
+    while(comparisonOperator(position, end)) {
       ret.push({
         position: position,
         label: position + ''
@@ -225,22 +201,6 @@ class LollipopPlot extends React.Component<any, any> {
 
   yMaxLabel = () => {
     return (this.props.lollipops.find(lollipop => (lollipop.count > this.yMax())) ? '>= ' : '') + this.yMax()
-  }
-
-  yNegTicks = () => {
-    let ret = []
-    // Start and end, always there
-    ret.push({
-      position: 0,
-      label: this.yMinLabel()
-    })
-    ret.push({
-      position: this.yMax(),
-      label: '0'
-    })
-    // Intermediate ticks, unlabeled
-    ret = ret.concat(this.calculateTicks(this.yAxisTickInterval(), this.yMax(), false))
-    return ret
   }
 
   yMin = () => {
@@ -291,10 +251,7 @@ class LollipopPlot extends React.Component<any, any> {
   }
 
   render() {
-    const width = Math.max(...this.props.lollipops.map(lollipop => this.geneX() + this.codonToX(lollipop.codon)));
-    const maxCodon = Math.max(...this.props.lollipops.map(lollipop => this.codonToX(lollipop.codon)))
-    console.log(this.props.proteinLength)
-    const {options, domains, hugoGeneSymbol} = this.props
+    const width = 925
     return (
       <React.Fragment>
         <svg xmlns='http://www.w3.org/2000/svg' width={this.svgWidth() + 200} height={this.svgHeight()}
@@ -317,23 +274,37 @@ class LollipopPlot extends React.Component<any, any> {
               width - 70
             }
           />
-          <text x={width + 1} y={this.geneY()+12} fill="black">{this.props.proteinLength}</text>
+          <text x={width + 1} y={this.geneY()+12} fill="black">{parseInt(this.props.proteinLength)}</text>
+          <text
+              textAnchor='middle'
+              style={{
+                fontFamily: 'arial',
+                fontSize: '12px',
+                fontWeight: 'normal'
+              }}
+              fill='#2E3436'
+              x={this.geneX() - 47}
+              y={this.geneY()}
+              transform={`rotate(270,${this.geneX() - 47},${this.geneY()})`}
+            >
+          {"log fold change"}
+        </text>
+          
           {this.lollipops()}
-          {this.domains()}
-          {this.renderLegend(options, domains)}
           {
             this.props.lollipops.some(lollipop => lollipop.count >= 0) ?
             <SVGAxis
               key='vert'
               x={this.geneX() - 10}
-              y={this.geneY() - lollipopZeroHeight - this.yAxisHeight()}
+              y={this.geneY() - lollipopZeroHeight}
               length={this.yAxisHeight()}
               tickLength={7}
               rangeLower={0}
               rangeUpper={this.yMax()}
               ticks={this.yTicks()}
               vertical={true}
-              label={`${hugoGeneSymbol}`}
+              isNegative={-1}
+              even={false}
             />
             :""
           }
@@ -347,12 +318,28 @@ class LollipopPlot extends React.Component<any, any> {
             length={this.yAxisHeight()}
             tickLength={7}
             rangeLower={0}
-            rangeUpper={this.yMax()}
+            rangeUpper={this.yMin() * -1}
             ticks={this.yNegTicks()}
             vertical={true}
+            isNegative={1}
+            even={false}
           />
           : ""
         }
+        <SVGAxis 
+          isNeg={false}
+          key='horiz'
+          x={this.geneX()}
+          y={this.svgHeight()-30}
+          length={width-70}
+          tickLength={7}
+          rangeLower={0}
+          rangeUpper={this.props.xMax}
+          ticks={this.xTicks()}
+          vertical={false}
+          isNegative={-1}
+          even={true}
+          />
         </svg>
         <Tooltip id='domainTooltip' />
         <Tooltip id='lollipopTooltip' />
