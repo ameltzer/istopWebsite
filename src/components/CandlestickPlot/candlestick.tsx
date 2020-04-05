@@ -78,21 +78,21 @@ const tableHeaderTranslation = new Map(
     ['sgRNASequence','SG RNA Sequence'],
     ['aapos', 'AA Pos'],
     ['function', 'Function'],
-    ['clinVar', 'Clinical Relevence'],
+    ['clinVar', 'Clinical Relevance'],
     ['lfcUNT', 'LFC Untreated'],
-    ['pvalueUNT', 'PValue Untreated'],
+    ['pvalueUNT', 'P-Value Untreated'],
     ['fdrUNT', 'FDR Untreated'],
     ['lfcCISP', 'LDFC Cisplatin'],
-    ['pvalueCISP', 'PValue Cisplatin'],
+    ['pvalueCISP', 'P-Value Cisplatin'],
     ['fdrCISP', 'FDR Cisplatin'],
     ['lfcCPT', 'LFC Camptothecin'],
-    ['pvalueCPT', 'PValue Camptothecin'],
+    ['pvalueCPT', 'P-Value Camptothecin'],
     ['fdrCPT', 'FDR Camptothecin'],
     ['lfcDOX', 'LFC Doxorubicin'],
-    ['pvalueDOX', 'PValue Doxorubicin'],
+    ['pvalueDOX', 'P-Value Doxorubicin'],
     ['fdrDOX', 'FDR Doxorubicin'],
     ['lfcOLAP', 'LFC Olaparib'],
-    ['pvalueOLAP', 'PValue Olaparib'],
+    ['pvalueOLAP', 'P-Value Olaparib'],
     ['fdrOLAP', 'FDR Olaparib'],
     ['aachg', 'AA Change']
   ]
@@ -153,7 +153,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
       } else if(fun === "splice") {
         return "#FFA500"
       } else if(fun === "synonymous") {
-        return "#66b3ff"
+        return "##008000	"
       } else {
         return "#000000"
       }
@@ -400,26 +400,26 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                   <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")} checked={this.state.radioChecked.get("CPT")}/>Camptothecin</label>
                   <br/>
                   <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("UNT")} checked={this.state.pValueGreaterThan.get("UNT")}></input>Pvalue >0.01 Untreated</label>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("UNT")} checked={this.state.pValueGreaterThan.get("UNT")}></input>P-value >0.01 Untreated</label>
                   <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("CISP")} checked={this.state.pValueGreaterThan.get("CISP")}></input>Pvalue >0.01 Cisplatin</label>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("CISP")} checked={this.state.pValueGreaterThan.get("CISP")}></input>P-value >0.01 Cisplatin</label>
                   <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("OLAP")} checked={this.state.pValueGreaterThan.get("OLAP")}></input>Pvalue >0.01 Olaparib</label>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("OLAP")} checked={this.state.pValueGreaterThan.get("OLAP")}></input>P-value >0.01 Olaparib</label>
                   <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("DOX")} checked={this.state.pValueGreaterThan.get("DOX")}></input>Pvalue >0.01 Doxorubicin</label>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("DOX")} checked={this.state.pValueGreaterThan.get("DOX")}></input>P-value >0.01 Doxorubicin</label>
                   <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("CPT")} checked={this.state.pValueGreaterThan.get("CPT")}></input>Pvalue >0.01 Camptothecin</label>
+                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueGreaterThan("CPT")} checked={this.state.pValueGreaterThan.get("CPT")}></input>P-value >0.01 Camptothecin</label>
 
                   <br/>
                   <br/>
                   <b>Legend</b>
                   <br/>
-                  <label style = {{color:"#FF0000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("nonsense")} checked={this.state.funCheckBoxChecked.get("nonsense")}/>Nonsense</label>
-                  <label style = {{color:"#800080"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("missense")} checked={this.state.funCheckBoxChecked.get("missense")}/>Missense</label>
+                  <label style = {{margin: "2px", color:"#FF0000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("nonsense")} checked={this.state.funCheckBoxChecked.get("nonsense")}/>Nonsense</label>
+                  <label style = {{margin: "2px", color:"#800080"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("missense")} checked={this.state.funCheckBoxChecked.get("missense")}/>Missense</label>
                   <br/>
-                  <label style = {{color:"#FFA500"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("splice")} checked={this.state.funCheckBoxChecked.get("splice")}/>Splice</label>
-                  <label style = {{color:"#66b3ff"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("synonymous")} checked={this.state.funCheckBoxChecked.get("synonymous")}/>Silent</label>
-                  <label style = {{color:"#000000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("other")} checked={this.state.funCheckBoxChecked.get("other")}/>Other</label>
+                  <label style = {{margin: "2px", color:"#FFA500"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("splice")} checked={this.state.funCheckBoxChecked.get("splice")}/>Splice</label>
+                  <label style = {{margin: "2px", color:"#008000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("synonymous")} checked={this.state.funCheckBoxChecked.get("synonymous")}/>Silent</label>
+                 <label style = {{margin: "2px", color:"#000000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("other")} checked={this.state.funCheckBoxChecked.get("other")}/>Other</label>
                 </div>
                 <br/>
                 <br/>
@@ -439,6 +439,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                           columns ={bootStrapHeaders}
                           bootstrap4={true}
                           striped
+                          condensed={true}
                           defaultSorted = {
                             [
                               {
