@@ -498,10 +498,10 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                     <br/>
                     Filter Box
                     <br/>
-                    Write the initial characters of the gene name and select it from the drop down list.
+                    Write the initial characters of the gene name and select it from the drop down list
                     <br/>
                     <input className="smallerInput" type="text" name="filter" onChange={this.filterDropDown}/>
-                    <select onChange={this.dropDownChange}> {this.state.curGeneList.map((typeName) => <option key={typeName}>{typeName}</option>)} </select>
+                    <select className="submitAlign" onChange={this.dropDownChange}> {this.state.curGeneList.map((typeName) => <option key={typeName}>{typeName}</option>)} </select>
                     <br/>
                     <input type="submit" value="Submit"/>
                     <br/>

@@ -107,7 +107,11 @@ button {
 }
 
 .smallerInput {
-    width: 150px;
+    width: 80px;
     font-size: 8pt;
-    margin:5px;
+    margin-bottom: 5x;
+}
+
+.submitAlign {
+    margin-left:5px;
 }
