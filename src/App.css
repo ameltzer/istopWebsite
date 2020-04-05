@@ -94,3 +94,14 @@ th {
 .legendPad {
     margin-left: 1px
 }
+
+.btn-primary {
+    color: #fff !important;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+
+button {
+    background-color: #e7e7e7 !important; 
+    color: black !important;
+}
