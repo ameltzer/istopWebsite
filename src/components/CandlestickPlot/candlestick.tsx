@@ -24,6 +24,7 @@ interface CandlestickState {
     pValueGreaterThan:Map<string, boolean>
     displayGene:string
     xMax:number
+    lollipopsClicked:Map<string,boolean>
 }
 
 const geneList:string[] = ["BRCA1","BRCA2","BARD1","PALB2","BRIP1","RAD51C","RAD51D","XRCC3","NBN","MRE11A","RAD50","CHEK2","ATM","FANCA","FANCG","FANCC","FANCD2","FANCE","FANCF","FANCM","FANCI","FANCL","RECQL","ATR","BLM","WRN","CDK12","FAM175A","APTX","C17orf53","CDK5RAP2","CEP152","CEP63","ERCC8","ERCC6","DCLRE1C","DNA2","DONSON","ERCC1","ERCC4","LIG4","LMNA","MCM8","MCM9","MCPH1","MLH1","MSH2","MSH6","MUTYH","NIN","ORC1","ORC4","PCNT","PMS2","PNKP","POLE","POLH","PRKDC","RAD51","RBBP8","RECQL4","REV3L","RFWD3","RIF1","RNASEH2A","RNF168","RTEL1","SAMHD1","SETX","SLX4","SMARCAL1","TDP1","TP53BP1","TRAIP","TREX1","GTF2H5","UBE2T","UVSSA","NHEJ1","XPA","ERCC3","ERCC2","ERCC5","ZRANB3","TONSL","HLTF"]
@@ -103,6 +104,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     constructor(props) {
         super(props)
         this.state = {
+            lollipopsClicked: new Map<string, boolean>(),
             displayGene:"",
             funCheckBoxChecked: new Map<string, boolean>([["nonsense",false], ["missense",false],["splice",false],["synonymous",false],["other",false]]),
             pValueGreaterThan: new Map<string, boolean>([["UNT",false],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]]),
@@ -310,8 +312,27 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
       return checks.some(check => check === value)
     }
 
+    lollipopClickCallback = (sgRNA:string) => {
+      console.log("received: "+sgRNA)
+      const mapCopy:Map<string, boolean> = this.state.lollipopsClicked;
+      if(this.state.lollipopsClicked.has(sgRNA)) {
+        const curState:boolean = this.state.lollipopsClicked.get(sgRNA)
+        mapCopy.set(sgRNA, !curState)
+      } else {
+        mapCopy.set(sgRNA, true)
+      }
+      console.log(mapCopy)
+      this.setState(prevState => {
+        return {
+          ...prevState,
+          lollipopsClicked:mapCopy
+        }
+      })
+    }
+
     render() {
         var filteredLollipops = this.state.mockData.lollipops
+        console.log(filteredLollipops)
         const funFilters:string[] = Array.from(this.state.funCheckBoxChecked).filter(funFilter => funFilter[1]).map(funFilter => funFilter[0])
         if (funFilters.length > 0) {
           filteredLollipops = filteredLollipops.filter(lollipop =>  funFilters.some(check => check === lollipop.function))
@@ -328,6 +349,8 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         this.state.curGeneList.sort();
 
 
+
+
         var tableLollipops = filteredLollipops.map(lollipop => {
           return {
             ...lollipop,
@@ -340,6 +363,12 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             aapos: parseInt(filteredLollipop.aapos)
           }
         })
+
+        const lollipopFilters:string[] = Array.from(this.state.lollipopsClicked).filter(lollipopFilter => lollipopFilter[1]).map(lollipopFilter => lollipopFilter[0])
+        if (lollipopFilters.length > 0) {
+          tableLollipops = tableLollipops.filter(lollipop => lollipopFilters.some(sgRNA => sgRNA === lollipop.sgRNASequence))
+        }
+
         const displayLollipops = tableLollipops.map(lollipop => {
           var newObj = {}
           tableHeaders.forEach(el => newObj[el] = lollipop[el])
@@ -385,6 +414,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                       xMax={this.state.xMax}
                       options={options}
                       proteinLength={this.state.numberOfAAS}
+                      onLollipopClick = {this.lollipopClickCallback.bind(this)}
                   />
                 </div>
                 <div className="radioRight overlfowAuto">
@@ -462,16 +492,20 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
           <div>
             <div>
                 <form onSubmit={this.handleSubmit}>
+                    <h2>Functional analysis of nucleotide variants in DDR genes</h2>
+                    <br/>
                     <h3>Gene Search</h3>
                     <br/>
                     Filter Box
                     <br/>
-                    <input type="text" name="filter" onChange={this.filterDropDown}/>
+                    Write the initial characters of the gene name and select it from the drop down list.
+                    <br/>
+                    <input className="smallerInput" type="text" name="filter" onChange={this.filterDropDown}/>
                     <select onChange={this.dropDownChange}> {this.state.curGeneList.map((typeName) => <option key={typeName}>{typeName}</option>)} </select>
                     <br/>
                     <input type="submit" value="Submit"/>
                     <br/>
-                    Note the current drop down value will be used for search.
+                   
                 </form>
                  
             </div>

@@ -32,7 +32,11 @@ class Lollipop extends React.Component<any,any> {
 
   onClickHandler = (e) => {
     if (this.props.onClick) {
-      this.props.onClick(this.props)
+      const toolTipContent = getTooltipContent(this.props.tooltip)
+      const sgRNA = toolTipContent.split(":")[1].split("<")[0]
+      console.log(toolTipContent)
+      console.log(sgRNA)
+      this.props.onClick(sgRNA)
     }
     this.setState({
       isSelected: !this.state.isSelected

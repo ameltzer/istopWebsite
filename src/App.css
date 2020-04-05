@@ -105,3 +105,9 @@ button {
     background-color: #e7e7e7 !important; 
     color: black !important;
 }
+
+.smallerInput {
+    width: 150px;
+    font-size: 8pt;
+    margin:5px;
+}
