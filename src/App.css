@@ -73,11 +73,10 @@ p.inset {border-style: inset;}
 td {
     word-break: break-all;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 7pt;
+    font-size: 10pt;
 }
 
 th {
-    word-break: break-all !important;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 6pt;
 }
