@@ -23,8 +23,6 @@ const domainHeight = 24
 
 class LollipopPlot extends React.Component<any, any> {
   codonToX = (codon) => {
-    //console.log("codon: "+codon+ " xMax: "+this.props.xMax+" propsVizWidth: 855")
-    //console.log("codonX: "+(codon / this.props.xMax) * 855)
     return (codon / this.props.xMax) * 855
   }
 

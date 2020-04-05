@@ -311,7 +311,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     }
 
     render() {
-        console.log(this.state)
         var filteredLollipops = this.state.mockData.lollipops
         const funFilters:string[] = Array.from(this.state.funCheckBoxChecked).filter(funFilter => funFilter[1]).map(funFilter => funFilter[0])
         if (funFilters.length > 0) {
@@ -326,8 +325,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         }
 
         const lollipops = filteredLollipops.map(lollipop => this.lollipopUIState(lollipop))
-        console.log(filteredLollipops)
-        console.log(lollipops)
         this.state.curGeneList.sort();
 
 
@@ -355,6 +352,11 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             text: tableHeaderTranslation.get(header),
             sort: true,
             order: 'asc',
+            classes:(cell, row, rowIndex, colIndex) => {
+              console.log(colIndex)
+              console.log('-----')
+              return colIndex == 1 ? 'breakAll' : 'breakWords';
+            },
             sortFunc: (a,b,order,dataField,rowA,rowB) => {
                 if (order === 'asc') {
                   const result:number = a > b ? 1 : -1
