@@ -1061,6 +1061,19 @@ export const createGeneLollipopGraph = /* GraphQL */ `
         }
         nextToken
       }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -1101,6 +1114,19 @@ export const updateGeneLollipopGraph = /* GraphQL */ `
         }
         nextToken
       }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -1138,6 +1164,19 @@ export const deleteGeneLollipopGraph = /* GraphQL */ `
           fdrCPT
           clinVar
           aachg
+        }
+        nextToken
+      }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
         }
         nextToken
       }
@@ -1234,6 +1273,57 @@ export const deleteLollipopLocations = /* GraphQL */ `
       fdrCPT
       clinVar
       aachg
+    }
+  }
+`;
+export const createDomain = /* GraphQL */ `
+  mutation CreateDomain(
+    $input: CreateDomainInput!
+    $condition: ModelDomainConditionInput
+  ) {
+    createDomain(input: $input, condition: $condition) {
+      id
+      accessionNumber
+      type
+      start
+      end
+      gene
+      identifier
+      color
+    }
+  }
+`;
+export const updateDomain = /* GraphQL */ `
+  mutation UpdateDomain(
+    $input: UpdateDomainInput!
+    $condition: ModelDomainConditionInput
+  ) {
+    updateDomain(input: $input, condition: $condition) {
+      id
+      accessionNumber
+      type
+      start
+      end
+      gene
+      identifier
+      color
+    }
+  }
+`;
+export const deleteDomain = /* GraphQL */ `
+  mutation DeleteDomain(
+    $input: DeleteDomainInput!
+    $condition: ModelDomainConditionInput
+  ) {
+    deleteDomain(input: $input, condition: $condition) {
+      id
+      accessionNumber
+      type
+      start
+      end
+      gene
+      identifier
+      color
     }
   }
 `;

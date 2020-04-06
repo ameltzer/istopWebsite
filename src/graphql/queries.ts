@@ -726,6 +726,19 @@ export const getGeneLollipopGraph = /* GraphQL */ `
         }
         nextToken
       }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -746,6 +759,9 @@ export const listGeneLollipopGraphs = /* GraphQL */ `
         transcriptId2
         numberOfAAS
         lollipopLocations {
+          nextToken
+        }
+        domains {
           nextToken
         }
       }
@@ -815,6 +831,41 @@ export const listLollipopLocationss = /* GraphQL */ `
         fdrCPT
         clinVar
         aachg
+      }
+      nextToken
+    }
+  }
+`;
+export const getDomain = /* GraphQL */ `
+  query GetDomain($id: ID!) {
+    getDomain(id: $id) {
+      id
+      accessionNumber
+      type
+      start
+      end
+      gene
+      identifier
+      color
+    }
+  }
+`;
+export const listDomains = /* GraphQL */ `
+  query ListDomains(
+    $filter: ModelDomainFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDomains(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        accessionNumber
+        type
+        start
+        end
+        gene
+        identifier
+        color
       }
       nextToken
     }

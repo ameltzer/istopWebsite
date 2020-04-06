@@ -285,6 +285,7 @@ type GeneLollipopGraph @model {
   transcriptId2: String
   numberOfAAS: String
   lollipopLocations: [LollipopLocations]  @connection(keyName: "byGeneLollipopLocation", fields:["id"])
+  domains: [Domain] @connection(keyName: "domainByGene", fields:["id"])
 }
 
 type LollipopLocations @model @key(name: "byGeneLollipopLocation", fields:["gene"]) {
@@ -310,6 +311,17 @@ type LollipopLocations @model @key(name: "byGeneLollipopLocation", fields:["gene
   fdrCPT: String
   clinVar: String
   aachg: String
+}
+
+type Domain @model @key(name: "domainByGene", fields:["gene"]){
+  id: ID!
+  accessionNumber: String
+  type: String
+  start: String
+  end: String
+  gene: ID!
+  identifier: String
+  color: String
 }
 
 type Auth @model {

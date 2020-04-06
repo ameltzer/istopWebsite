@@ -87,6 +87,7 @@ class LollipopPlot extends React.Component<any, any> {
         tooltip={lollipop.tooltip}
         selected={lollipop.selected}
         onClick={onLollipopClick}
+        sgRNA={lollipop.sgRNA}
       />
       )
     })
@@ -338,9 +339,9 @@ class LollipopPlot extends React.Component<any, any> {
           isNegative={-1}
           even={true}
           />
+        {this.domains()}
+
         </svg>
-        <Tooltip id='domainTooltip' />
-        <Tooltip id='lollipopTooltip' />
       </React.Fragment>
     )
   }

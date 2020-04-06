@@ -1,5 +1,6 @@
 import * as React from 'react'
-import {getTooltipContent} from './Tooltip'
+import {getTooltipContent, getTooltipContentOld} from './Tooltip'
+import {Tooltip} from '@material-ui/core'
 
 class Lollipop extends React.Component<any,any> {
   constructor(props) {
@@ -32,10 +33,9 @@ class Lollipop extends React.Component<any,any> {
 
   onClickHandler = (e) => {
     if (this.props.onClick) {
-      const toolTipContent = getTooltipContent(this.props.tooltip)
-      const sgRNA = toolTipContent.split(":")[1].split("<")[0]
-      console.log(toolTipContent)
+      const sgRNA = this.props.sgRNA
       console.log(sgRNA)
+      console.log(this.props)
       this.props.onClick(sgRNA)
     }
     this.setState({
@@ -61,6 +61,8 @@ class Lollipop extends React.Component<any,any> {
         </text>
       )
     }
+
+    const toolTipContents = getTooltipContent(this.props.tooltip)
     return (
       <g>
         <line
@@ -71,17 +73,19 @@ class Lollipop extends React.Component<any,any> {
           y1={this.props.stickBaseY}
           y2={this.props.stickBaseY - this.props.stickHeight}
         />
-        <circle
-          stroke='#BABDB6'
-          strokeWidth='0.5'
-          fill={this.props.headColor || '#000000'}
-          r={this.headRadius()}
-          cx={this.circleX()}
-          cy={this.circleY()}
-          data-tip={getTooltipContent(this.props.tooltip)}
-          data-for='lollipopTooltip'
-          onClick={this.onClickHandler}
-        />
+        <Tooltip 
+        placement="right"
+        title={toolTipContents}>
+          <circle
+            stroke='#BABDB6'
+            strokeWidth='0.5'
+            fill={this.props.headColor || '#000000'}
+            r={this.headRadius()}
+            cx={this.circleX()}
+            cy={this.circleY()}
+            onClick={this.onClickHandler}
+          />
+        </Tooltip>
         {label}
       </g>
     )

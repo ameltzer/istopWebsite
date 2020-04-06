@@ -5,6 +5,7 @@ import { API, graphqlOperation } from "aws-amplify";
 import BootstrapTable from 'react-bootstrap-table-next'
 import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit';
 const { ExportCSVButton } = CSVExport;
+import ReactTooltip from 'react-tooltip'
 
 interface CandlestickProps {
 
@@ -25,7 +26,11 @@ interface CandlestickState {
     displayGene:string
     xMax:number
     lollipopsClicked:Map<string,boolean>
+    domains:object[]
 }
+
+
+
 
 const geneList:string[] = ["BRCA1","BRCA2","BARD1","PALB2","BRIP1","RAD51C","RAD51D","XRCC3","NBN","MRE11A","RAD50","CHEK2","ATM","FANCA","FANCG","FANCC","FANCD2","FANCE","FANCF","FANCM","FANCI","FANCL","RECQL","ATR","BLM","WRN","CDK12","FAM175A","APTX","C17orf53","CDK5RAP2","CEP152","CEP63","ERCC8","ERCC6","DCLRE1C","DNA2","DONSON","ERCC1","ERCC4","LIG4","LMNA","MCM8","MCM9","MCPH1","MLH1","MSH2","MSH6","MUTYH","NIN","ORC1","ORC4","PCNT","PMS2","PNKP","POLE","POLH","PRKDC","RAD51","RBBP8","RECQL4","REV3L","RFWD3","RIF1","RNASEH2A","RNF168","RTEL1","SAMHD1","SETX","SLX4","SMARCAL1","TDP1","TP53BP1","TRAIP","TREX1","GTF2H5","UBE2T","UVSSA","NHEJ1","XPA","ERCC3","ERCC2","ERCC5","ZRANB3","TONSL","HLTF"]
 
@@ -65,6 +70,19 @@ const getGeneLollipopGraph2 = /* GraphQL */ `
           fdrCPT
           clinVar
           aachg
+        }
+        nextToken
+      }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
         }
         nextToken
       }
@@ -121,8 +139,8 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                 yMax: 23, // max #mutations
                 hugoGeneSymbol: 'Log Fold Change',
                 lollipops: [],
-                domains: []
               },
+              domains: [],
               numberOfAAS:0,
               transcriptId:""
         }
@@ -172,13 +190,32 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         API.graphql(graphqlOperation(getGeneLollipopGraph2, query)).then(result => {
           const filteredLocations = this.filterLocations(result.data.getGeneLollipopGraph.lollipopLocations.items)
           const xMax:number = parseInt(result.data.getGeneLollipopGraph.numberOfAAS)
-
+          const domains = result.data.getGeneLollipopGraph.domains.items.map(domain => {
+            return {
+              startCodon: domain.start,
+              endCodon: domain.end,
+              label: domain.identifier,
+              color: domain.color,
+              tooltip: {
+                header:domain.identifier,
+                body: (<div>Identifier: {domain.identifier}<br/>Start: {domain.start}<br/>End: {domain.end}</div>)
+              }
+            }
+          })
+          const sortedDomains = domains.sort((domain1, domain2) => {
+            const startDiff:number = domain1.startCodon - domain2.startCodon
+            if(startDiff==0) {
+              return domain1.endCodon - domain2.endCodon;
+            }
+            return -1;
+          })
           this.setState(prevState => {
             return {
               ...prevState,
               numberOfAAS: result.data.getGeneLollipopGraph.numberOfAAS,
               transcriptId: result.data.getGeneLollipopGraph.transcriptId,
               displayGene: this.state.gene,
+              domains: sortedDomains,
               xMax: xMax,
             }
           })
@@ -190,19 +227,20 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
 
     lollipopUIState = (location) => {
       return {
-        'codon': location.aapos,
-        'count': location['lfc'+this.state.treatment],
-        'tooltip': {
-          'body': 'sgRNA_sequence:'+location.sgRNASequence+
-          '<br/>lcf_'+this.state.treatment+':'+location['lfc'+this.state.treatment]+
-          '<br/>pvalue_'+this.state.treatment+':'+location['pvalue'+this.state.treatment]+
-          '<br/>fdr_'+this.state.treatment+':'+location['fdr'+this.state.treatment]+
-          '<br/>aachg'+this.state.treatment+':'+location.aachg+
-          '<br/>clinVar'+this.state.treatment+':'+location.clinVar
+        codon: location.aapos,
+        count: location['lfc'+this.state.treatment],
+        tooltip: {
+          body: (<div>sgRNA_sequence: {location.sgRNASequence}
+          <br/>lcf_{this.state.treatment}:{location['lfc'+this.state.treatment]}
+          <br/>pvalue_{this.state.treatment}:{location['pvalue'+this.state.treatment]}
+          <br/>fdr_{this.state.treatment}:{location['fdr'+this.state.treatment]}
+          <br/>aachg{this.state.treatment}:{location.aachg}
+          <br/>clinVar{this.state.treatment}:{location.clinVar}</div>)
         },
-        'color': this.colorCode(location.function),
-        'id': location.id,
-        'selected': true
+        color: this.colorCode(location.function),
+        id: location.id,
+        selected: true,
+        sgRNA: location.sgRNASequence
       }
     }
 
@@ -215,8 +253,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                     vizHeight: 130, // hardcoded
                     vizWidth: 665, // hardcoded
                     hugoGeneSymbol: 'Log Fold Change',
-                    lollipops: filteredLocations,
-                    domains: []
+                    lollipops: filteredLocations
                   }
             }
     })
@@ -313,7 +350,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     }
 
     lollipopClickCallback = (sgRNA:string) => {
-      console.log("received: "+sgRNA)
       const mapCopy:Map<string, boolean> = this.state.lollipopsClicked;
       if(this.state.lollipopsClicked.has(sgRNA)) {
         const curState:boolean = this.state.lollipopsClicked.get(sgRNA)
@@ -321,7 +357,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
       } else {
         mapCopy.set(sgRNA, true)
       }
-      console.log(mapCopy)
       this.setState(prevState => {
         return {
           ...prevState,
@@ -331,6 +366,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     }
 
     render() {
+
         var filteredLollipops = this.state.mockData.lollipops
        
         const funFilters:string[] = Array.from(this.state.funCheckBoxChecked).filter(funFilter => funFilter[1]).map(funFilter => funFilter[0])
@@ -344,7 +380,8 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             filteredLollipops = filteredLollipops.filter(lollipop => lollipop['pvalue'+pValueFilters[i]] < 0.01)
           }
         }
-
+        console.log('+++++')
+        console.log(filteredLollipops)
         const lollipops = filteredLollipops.map(lollipop => this.lollipopUIState(lollipop))
         this.state.curGeneList.sort();
 
@@ -408,7 +445,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             }
           }
         })
-
         const toDisplay = this.state.isInSearch ? 
             <div></div> :
             <div>
@@ -419,7 +455,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                 <br/>
                 <div className="plotLeft">
                   <LollipopPlot
-                      domains={this.state.mockData.domains}
+                      domains={this.state.domains}
                       lollipops={lollipops}
                       vizWidth={765}
                       vizHeight={500}

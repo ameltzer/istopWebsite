@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {getTooltipContent} from './Tooltip'
+import {Tooltip} from '@material-ui/core'
 
 
 class Domain extends React.Component<any,any> {
@@ -59,6 +60,7 @@ class Domain extends React.Component<any,any> {
   }
 
   render() {
+    const domainToolTip = getTooltipContent(this.props.tooltip)
     return (
       <g>
         <rect
@@ -70,15 +72,16 @@ class Domain extends React.Component<any,any> {
         />
         {this.makeTextElement(true)}
         {this.makeTextElement(false)}
+        <Tooltip 
+        placement="top"
+        title={domainToolTip}>
         <rect
           x={this.props.x}
           y={this.props.y}
           width={this.props.width}
           height={this.props.height}
           style={{opacity: 0}}
-          data-tip={getTooltipContent(this.props.tooltip)}
-          data-for='domainTooltip'
-        />
+        /></Tooltip>
       </g>
     )
   }

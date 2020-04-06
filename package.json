@@ -14,6 +14,7 @@
   "author": "dengthatsgood",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.9.9",
     "@types/node": "^12.0.0",
     "@types/react": "^16.8.15",
     "@types/react-dom": "^16.8.4",

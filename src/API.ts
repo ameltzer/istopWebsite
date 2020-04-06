@@ -1081,6 +1081,45 @@ export type DeleteLollipopLocationsInput = {
   id?: string | null,
 };
 
+export type CreateDomainInput = {
+  id?: string | null,
+  accessionNumber?: string | null,
+  type?: string | null,
+  start?: string | null,
+  end?: string | null,
+  gene: string,
+  identifier?: string | null,
+  color?: string | null,
+};
+
+export type ModelDomainConditionInput = {
+  accessionNumber?: ModelStringInput | null,
+  type?: ModelStringInput | null,
+  start?: ModelStringInput | null,
+  end?: ModelStringInput | null,
+  gene?: ModelIDInput | null,
+  identifier?: ModelStringInput | null,
+  color?: ModelStringInput | null,
+  and?: Array< ModelDomainConditionInput | null > | null,
+  or?: Array< ModelDomainConditionInput | null > | null,
+  not?: ModelDomainConditionInput | null,
+};
+
+export type UpdateDomainInput = {
+  id: string,
+  accessionNumber?: string | null,
+  type?: string | null,
+  start?: string | null,
+  end?: string | null,
+  gene?: string | null,
+  identifier?: string | null,
+  color?: string | null,
+};
+
+export type DeleteDomainInput = {
+  id?: string | null,
+};
+
 export type CreateAuthInput = {
   id?: string | null,
 };
@@ -1449,6 +1488,20 @@ export type ModelLollipopLocationsFilterInput = {
   and?: Array< ModelLollipopLocationsFilterInput | null > | null,
   or?: Array< ModelLollipopLocationsFilterInput | null > | null,
   not?: ModelLollipopLocationsFilterInput | null,
+};
+
+export type ModelDomainFilterInput = {
+  id?: ModelIDInput | null,
+  accessionNumber?: ModelStringInput | null,
+  type?: ModelStringInput | null,
+  start?: ModelStringInput | null,
+  end?: ModelStringInput | null,
+  gene?: ModelIDInput | null,
+  identifier?: ModelStringInput | null,
+  color?: ModelStringInput | null,
+  and?: Array< ModelDomainFilterInput | null > | null,
+  or?: Array< ModelDomainFilterInput | null > | null,
+  not?: ModelDomainFilterInput | null,
 };
 
 export type ModelAuthFilterInput = {
@@ -2582,6 +2635,21 @@ export type CreateGeneLollipopGraphMutation = {
       } | null > | null,
       nextToken: string | null,
     } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -2626,6 +2694,21 @@ export type UpdateGeneLollipopGraphMutation = {
       } | null > | null,
       nextToken: string | null,
     } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -2667,6 +2750,21 @@ export type DeleteGeneLollipopGraphMutation = {
         fdrCPT: string | null,
         clinVar: string | null,
         aachg: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -2769,6 +2867,63 @@ export type DeleteLollipopLocationsMutation = {
     fdrCPT: string | null,
     clinVar: string | null,
     aachg: string | null,
+  } | null,
+};
+
+export type CreateDomainMutationVariables = {
+  input: CreateDomainInput,
+  condition?: ModelDomainConditionInput | null,
+};
+
+export type CreateDomainMutation = {
+  createDomain:  {
+    __typename: "Domain",
+    id: string,
+    accessionNumber: string | null,
+    type: string | null,
+    start: string | null,
+    end: string | null,
+    gene: string,
+    identifier: string | null,
+    color: string | null,
+  } | null,
+};
+
+export type UpdateDomainMutationVariables = {
+  input: UpdateDomainInput,
+  condition?: ModelDomainConditionInput | null,
+};
+
+export type UpdateDomainMutation = {
+  updateDomain:  {
+    __typename: "Domain",
+    id: string,
+    accessionNumber: string | null,
+    type: string | null,
+    start: string | null,
+    end: string | null,
+    gene: string,
+    identifier: string | null,
+    color: string | null,
+  } | null,
+};
+
+export type DeleteDomainMutationVariables = {
+  input: DeleteDomainInput,
+  condition?: ModelDomainConditionInput | null,
+};
+
+export type DeleteDomainMutation = {
+  deleteDomain:  {
+    __typename: "Domain",
+    id: string,
+    accessionNumber: string | null,
+    type: string | null,
+    start: string | null,
+    end: string | null,
+    gene: string,
+    identifier: string | null,
+    color: string | null,
   } | null,
 };
 
@@ -3602,6 +3757,21 @@ export type GetGeneLollipopGraphQuery = {
       } | null > | null,
       nextToken: string | null,
     } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -3622,6 +3792,10 @@ export type ListGeneLollipopGraphsQuery = {
       numberOfAAS: string | null,
       lollipopLocations:  {
         __typename: "ModelLollipopLocationsConnection",
+        nextToken: string | null,
+      } | null,
+      domains:  {
+        __typename: "ModelDomainConnection",
         nextToken: string | null,
       } | null,
     } | null > | null,
@@ -3694,6 +3868,48 @@ export type ListLollipopLocationssQuery = {
       fdrCPT: string | null,
       clinVar: string | null,
       aachg: string | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetDomainQueryVariables = {
+  id: string,
+};
+
+export type GetDomainQuery = {
+  getDomain:  {
+    __typename: "Domain",
+    id: string,
+    accessionNumber: string | null,
+    type: string | null,
+    start: string | null,
+    end: string | null,
+    gene: string,
+    identifier: string | null,
+    color: string | null,
+  } | null,
+};
+
+export type ListDomainsQueryVariables = {
+  filter?: ModelDomainFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListDomainsQuery = {
+  listDomains:  {
+    __typename: "ModelDomainConnection",
+    items:  Array< {
+      __typename: "Domain",
+      id: string,
+      accessionNumber: string | null,
+      type: string | null,
+      start: string | null,
+      end: string | null,
+      gene: string,
+      identifier: string | null,
+      color: string | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -5178,6 +5394,21 @@ export type OnCreateGeneLollipopGraphSubscription = {
       } | null > | null,
       nextToken: string | null,
     } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -5217,6 +5448,21 @@ export type OnUpdateGeneLollipopGraphSubscription = {
       } | null > | null,
       nextToken: string | null,
     } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -5253,6 +5499,21 @@ export type OnDeleteGeneLollipopGraphSubscription = {
         fdrCPT: string | null,
         clinVar: string | null,
         aachg: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -5340,6 +5601,48 @@ export type OnDeleteLollipopLocationsSubscription = {
     fdrCPT: string | null,
     clinVar: string | null,
     aachg: string | null,
+  } | null,
+};
+
+export type OnCreateDomainSubscription = {
+  onCreateDomain:  {
+    __typename: "Domain",
+    id: string,
+    accessionNumber: string | null,
+    type: string | null,
+    start: string | null,
+    end: string | null,
+    gene: string,
+    identifier: string | null,
+    color: string | null,
+  } | null,
+};
+
+export type OnUpdateDomainSubscription = {
+  onUpdateDomain:  {
+    __typename: "Domain",
+    id: string,
+    accessionNumber: string | null,
+    type: string | null,
+    start: string | null,
+    end: string | null,
+    gene: string,
+    identifier: string | null,
+    color: string | null,
+  } | null,
+};
+
+export type OnDeleteDomainSubscription = {
+  onDeleteDomain:  {
+    __typename: "Domain",
+    id: string,
+    accessionNumber: string | null,
+    type: string | null,
+    start: string | null,
+    end: string | null,
+    gene: string,
+    identifier: string | null,
+    color: string | null,
   } | null,
 };
 

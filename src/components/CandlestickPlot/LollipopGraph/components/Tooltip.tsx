@@ -2,6 +2,13 @@ import * as React from 'react'
 import ReactTooltip from 'react-tooltip'
 
 export const getTooltipContent = (tooltip) => {
+  const header = (tooltip || {}).header ? <div>{tooltip.header}</div> : ''
+  const body = (tooltip || {}).body ? <div>{tooltip.body}</div> : ''
+  return (<div>{header}{body}</div>)
+}
+
+export const getTooltipContentOld = (tooltip) => {
+  console.log(tooltip)
   const header = (tooltip || {}).header ? `<div>${tooltip.header}</div>` : ''
   const body = (tooltip || {}).body ? `<div>${tooltip.body}</div>` : ''
   return (`<div>${header}${body}</div>`)
@@ -21,12 +28,14 @@ var dispatchGlobalEvent = function dispatchGlobalEvent(eventName, opts) {
     event.initEvent(eventName, false, true);
     event.detail = opts;
   }
-
+  console.log("idpsatching event")
+  console.log(event)
   window.dispatchEvent(event);
 };
 
 class Tooltip extends React.Component<any,any> {
   componentDidUpdate() {
+    console.log("rebuilding tooltip!")
     dispatchGlobalEvent("__react_tooltip_rebuild_even", {});
   }
 

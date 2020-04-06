@@ -977,6 +977,19 @@ export const onCreateGeneLollipopGraph = /* GraphQL */ `
         }
         nextToken
       }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -1014,6 +1027,19 @@ export const onUpdateGeneLollipopGraph = /* GraphQL */ `
         }
         nextToken
       }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -1048,6 +1074,19 @@ export const onDeleteGeneLollipopGraph = /* GraphQL */ `
           fdrCPT
           clinVar
           aachg
+        }
+        nextToken
+      }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
         }
         nextToken
       }
@@ -1135,6 +1174,48 @@ export const onDeleteLollipopLocations = /* GraphQL */ `
       fdrCPT
       clinVar
       aachg
+    }
+  }
+`;
+export const onCreateDomain = /* GraphQL */ `
+  subscription OnCreateDomain {
+    onCreateDomain {
+      id
+      accessionNumber
+      type
+      start
+      end
+      gene
+      identifier
+      color
+    }
+  }
+`;
+export const onUpdateDomain = /* GraphQL */ `
+  subscription OnUpdateDomain {
+    onUpdateDomain {
+      id
+      accessionNumber
+      type
+      start
+      end
+      gene
+      identifier
+      color
+    }
+  }
+`;
+export const onDeleteDomain = /* GraphQL */ `
+  subscription OnDeleteDomain {
+    onDeleteDomain {
+      id
+      accessionNumber
+      type
+      start
+      end
+      gene
+      identifier
+      color
     }
   }
 `;
