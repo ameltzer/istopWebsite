@@ -26,6 +26,14 @@ class LollipopPlot extends React.Component<any, any> {
     return (codon / this.props.xMax) * 855
   }
 
+  codonToYMax = (codon) => {
+    return (codon / this.props.Ymax) * this.yAxisHeight()
+  }
+
+  codonToYMin = (codon) => {
+    return (codon / this.props.Ymin) * this.yAxisHeight()
+  }
+
   countToHeight = count => {
     return lollipopZeroHeight + (Math.max(0.06, Math.min(1, (count / this.yMax()))) * this.yAxisHeight())
   }
@@ -122,30 +130,6 @@ class LollipopPlot extends React.Component<any, any> {
   yAxisHeight = () => {
     return this.props.vizHeight - this.domainY() - lollipopZeroHeight
   }
-
-  calculateTickInterval = (candidates, rangeSize, maxTickCount) => {
-    let ret
-    const tickInterval = candidates.find(c => ((rangeSize / c) < (maxTickCount - 1)))
-    if (!tickInterval) {
-      ret = 10
-      while ((rangeSize / ret) > (maxTickCount - 1)) {
-        ret *= 10
-      }
-    } else {
-      ret = tickInterval
-    }
-    return ret
-  }
-
-  xAxisTickInterval = () => {
-    return this.calculateTickInterval(xAxisCandidateTickIntervals, this.props.xMax, 16)
-  }
-
-  yAxisTickInterval = () => {
-    return this.calculateTickInterval(yAxisCandidateTickIntervals, this.yMax(), 10)
-  }
-
-
 
   calculateTicks = (tickInterval, rangeSize, labelEvenTicks) => {
     const ret = []
@@ -251,15 +235,16 @@ class LollipopPlot extends React.Component<any, any> {
 
   render() {
     const width = 925
+    const geneWidth = width -70
     return (
       <React.Fragment>
-        <svg xmlns='http://www.w3.org/2000/svg' width={this.svgWidth() + 200} height={this.svgHeight()}
+        <svg xmlns='http://www.w3.org/2000/svg' width={this.svgWidth() + 110} height={this.svgHeight()}
           className='lollipop-svgnode' id='lollipop-svgnode'>
           <rect
             fill='#FFFFFF'
             x={0}
             y={0}
-            width={this.svgWidth()}
+            width={width+5}
             height={this.svgHeight()}
           />
           <text x={this.geneX() - 10} y={this.geneY()+12} fill="black">1</text>          
@@ -270,7 +255,7 @@ class LollipopPlot extends React.Component<any, any> {
             height={geneHeight}
             width={
               // the x-axis start from 0, so the rectangle size should be (width + 1)
-              width - 70
+              geneWidth
             }
           />
           <text x={width + 1} y={this.geneY()+12} fill="black">{parseInt(this.props.proteinLength)}</text>
@@ -278,7 +263,7 @@ class LollipopPlot extends React.Component<any, any> {
               textAnchor='middle'
               style={{
                 fontFamily: 'arial',
-                fontSize: '12px',
+                fontSize: '16px',
                 fontWeight: 'normal'
               }}
               fill='#2E3436'
@@ -286,7 +271,7 @@ class LollipopPlot extends React.Component<any, any> {
               y={this.geneY()}
               transform={`rotate(270,${this.geneX() - 47},${this.geneY()})`}
             >
-          {"log2-fold change"}
+          <tspan>log<tspan baseline-shift="sub">2</tspan>-fold change</tspan>
         </text>
           
           {this.lollipops()}
@@ -330,7 +315,7 @@ class LollipopPlot extends React.Component<any, any> {
           key='horiz'
           x={this.geneX()}
           y={this.svgHeight()-30}
-          length={width-70}
+          length={geneWidth}
           tickLength={7}
           rangeLower={0}
           rangeUpper={this.props.xMax}

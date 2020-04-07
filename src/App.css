@@ -12,7 +12,7 @@ div.overlfowAuto {
 
 .helvetica
 {
-    font-family: Helvetica, Sans-Serif;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 
 .plotLeft
@@ -72,23 +72,42 @@ p.inset {border-style: inset;}
 
 td {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 6pt;
+    font-size: 10pt;
 }
 
 .breakWords {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 6pt;
+    font-size: 10pt;
 }
 
 .breakAll {
     word-break: break-all;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 6pt;
+    font-size: 10pt;
 }
 
 th {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 6pt;
+    background-color: black;
+    color:white
+}
+
+.filterHeaderMain
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+}
+
+.filterHeader
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+}
+
+.filterBody
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
 }
 
 .legendPad {
@@ -114,4 +133,22 @@ button {
 
 .submitAlign {
     margin-left:5px;
+}
+
+.filterColumn {
+  float: left;
+  width: 50%;
+}
+
+.secondFilterRow {
+    width:300px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+  
+  /* Clear floats after the columns */
+.filterRow:after {
+  content: "";
+  display: table;
+  clear: both;
 }

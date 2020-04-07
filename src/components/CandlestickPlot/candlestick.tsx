@@ -3,9 +3,13 @@ import LollipopPlot from './LollipopGraph'
 import Button from 'react-bootstrap/Button'
 import { API, graphqlOperation } from "aws-amplify";
 import BootstrapTable from 'react-bootstrap-table-next'
-import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit';
+import ToolkitProvider, { CSVExport, ColumnToggle } from 'react-bootstrap-table2-toolkit';
 const { ExportCSVButton } = CSVExport;
-import ReactTooltip from 'react-tooltip'
+import { HashRouter as Router} from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+
+const {ToggleList} = ColumnToggle;
 
 interface CandlestickProps {
 
@@ -89,7 +93,7 @@ const getGeneLollipopGraph2 = /* GraphQL */ `
     }
   }
 `;
-
+const defaultHiddenHeaders = ['pvalueCISP','fdrCISP','pvalueCPT','fdrCPT','pvalueDOX','fdrDOX']
 const tableHeaders = ['gene','sgRNASequence','aapos','function','clinVar','lfcUNT','pvalueUNT','fdrUNT','lfcCISP','pvalueCISP','fdrCISP','lfcCPT','pvalueCPT','fdrCPT','lfcDOX','pvalueDOX','fdrDOX','lfcOLAP','pvalueOLAP','fdrOLAP','aachg']
 const tableHeaderTranslation = new Map(
   [
@@ -366,7 +370,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     }
 
     render() {
-
         var filteredLollipops = this.state.mockData.lollipops
        
         const funFilters:string[] = Array.from(this.state.funCheckBoxChecked).filter(funFilter => funFilter[1]).map(funFilter => funFilter[0])
@@ -380,8 +383,8 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             filteredLollipops = filteredLollipops.filter(lollipop => lollipop['pvalue'+pValueFilters[i]] < 0.01)
           }
         }
-        console.log('+++++')
-        console.log(filteredLollipops)
+
+
         const lollipops = filteredLollipops.map(lollipop => this.lollipopUIState(lollipop))
         this.state.curGeneList.sort();
 
@@ -431,8 +434,9 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             text: tableHeaderTranslation.get(header),
             sort: true,
             order: 'asc',
+            hidden: defaultHiddenHeaders.some(defaultHiddenHeader => defaultHiddenHeader === header),
             classes:(cell, row, rowIndex, colIndex) => {
-              return colIndex == 1 ? 'breakAll' : 'breakWords';
+              return colIndex == 1 ? 'breakAll helvetica' : 'breakWords helvetica';
             },
             sortFunc: (a,b,order,dataField,rowA,rowB) => {
                 if (order === 'asc') {
@@ -450,8 +454,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             <div>
             <div>
                 <br/>
-                <p className="helvetica">{this.state.displayGene} {this.state.transcriptId}</p>
-                <h3>{this.translateTreatmentName()}</h3>
+                <h5 className="helvetica">{this.state.displayGene} {this.state.transcriptId}</h5>
                 <br/>
                 <div className="plotLeft">
                   <LollipopPlot
@@ -467,38 +470,77 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                   />
                 </div>
                 <div className="radioRight overlfowAuto">
-                  <h3>Filters</h3>
-                  <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")} checked={this.state.radioChecked.get("UNT")}/>Untreated</label>
+                  <label className="filterHeaderMain">{"Filters"}</label>
                   <br/>
-                  <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CISP")} checked={this.state.radioChecked.get("CISP")}/>Cisplatin</label>
-                  <br/>
-                  <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("OLAP")} checked={this.state.radioChecked.get("OLAP")}/>Olaparib</label>
-                  <br/>
-                  <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("DOX")} checked={this.state.radioChecked.get("DOX")}/>Doxorubicin</label>
-                  <br/>
-                  <label><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")} checked={this.state.radioChecked.get("CPT")}/>Camptothecin</label>
-                  <br/>
-                  <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("UNT")} checked={this.state.pValueLessThan.get("UNT")}></input>{"P-value <0.01 Untreated"}</label>
-                  <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("CISP")} checked={this.state.pValueLessThan.get("CISP")}></input>{"P-value <0.01 Cisplatin"}</label>
-                  <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("OLAP")} checked={this.state.pValueLessThan.get("OLAP")}></input>{"P-value <0.01 Olaparib"}</label>
-                  <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("DOX")} checked={this.state.pValueLessThan.get("DOX")}></input>{"P-value <0.01 Doxorubicin"}</label>
-                  <br/>
-                  <label><input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("CPT")} checked={this.state.pValueLessThan.get("CPT")}></input>{"P-value <0.01 Camptothecin"}</label>
+                  <div className="filterBox">
+                    <div className="filterRow secondFilterRow">
+                      <div className="filterColumn">
+                        <p className="filterHeader">Treatment</p>
+                      </div>
+                      <div className="filterColumn">
+                        <p className="filterHeader">{"P<0.01"}</p>
+                      </div>
+                    </div>
+
+                    <div className="filterRow secondFilterRow">
+                      <div className="filterColumn">
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")} checked={this.state.radioChecked.get("UNT")}/>Untreated</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("UNT")} checked={this.state.pValueLessThan.get("UNT")}></input>
+                      </div>
+                    </div>
+
+                    <div className="filterRow secondFilterRow">
+                      <div className="filterColumn">
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("CISP")} checked={this.state.radioChecked.get("CISP")}/>Cisplatin</label>
+                      </div>
+                      <div className="filterColumn">
+                        <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("CISP")} checked={this.state.pValueLessThan.get("CISP")}></input>
+                      </div>
+                    </div>
+                    
+                    <div className="filterRow secondFilterRow">
+                      <div className="filterColumn">
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("OLAP")} checked={this.state.radioChecked.get("OLAP")}/>Olaparib</label>
+                      </div>
+                      <div className="filterColumn">
+                        <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("OLAP")} checked={this.state.pValueLessThan.get("OLAP")}></input>
+                      </div>
+                    </div>
+                    
+                    <div className="filterRow secondFilterRow">
+                      <div className="filterColumn">
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("DOX")} checked={this.state.radioChecked.get("DOX")}/>Doxorubicin</label>
+                      </div>
+                      <div className="filterColumn">
+                        <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("DOX")} checked={this.state.pValueLessThan.get("DOX")}></input>
+                      </div>
+                    </div>
+                    
+                    <div className="filterRow secondFilterRow">
+                      <div className="filterColumn">
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")} checked={this.state.radioChecked.get("CPT")}/>Camptothecin</label>
+                      </div>
+                      <div className="filterColumn">
+                        <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("CPT")} checked={this.state.pValueLessThan.get("CPT")}></input>
+                      </div>
+                    </div>
+                  </div>
 
                   <br/>
                   <br/>
-                  <b>Legend</b>
+                  <b>Mutational outcome</b>
                   <br/>
                   <label style = {{margin: "2px", color:"#FF0000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("nonsense")} checked={this.state.funCheckBoxChecked.get("nonsense")}/>Nonsense</label>
+                  <br/>
                   <label style = {{margin: "2px", color:"#800080"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("missense")} checked={this.state.funCheckBoxChecked.get("missense")}/>Missense</label>
                   <br/>
                   <label style = {{margin: "2px", color:"#FFA500"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("splice")} checked={this.state.funCheckBoxChecked.get("splice")}/>Splice</label>
+                  <br/>
                   <label style = {{margin: "2px", color:"#008000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("synonymous")} checked={this.state.funCheckBoxChecked.get("synonymous")}/>Silent</label>
-                 <label style = {{margin: "2px", color:"#000000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("other")} checked={this.state.funCheckBoxChecked.get("other")}/>Other</label>
+                  <br/>
+                  <label style = {{margin: "2px", color:"#000000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("other")} checked={this.state.funCheckBoxChecked.get("other")}/>Other</label>
                 </div>
                 <br/>
                 <br/>
@@ -506,27 +548,31 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
               </div>
               <div>
                 <div> 
-                <ToolkitProvider>
+                <ToolkitProvider
+                  columnToggle
+                  keyField='sgRNASequence' 
+                  columns ={bootStrapHeaders}
+                  data={displayLollipops}
+                  bootstrap4={true}
+                  striped
+                  condensed={true}
+                  defaultSorted = {
+                    [
+                      {
+                        dataField:'aapos',
+                        order: 'asc'
+                      }
+                    ]}
+                >
                   {
                     props => (
                       <div>
                         <ExportCSVButton { ...props.csvProps }>Export CSV</ExportCSVButton>
                         <hr />
-                        <BootstrapTable  tdStyle={{whiteSpace:'normal'}}
-                        wrapperClasses="table-responsive"
-                          keyField='sgRNASequence' 
-                          data={displayLollipops}
-                          columns ={bootStrapHeaders}
-                          bootstrap4={true}
-                          striped
-                          condensed={true}
-                          defaultSorted = {
-                            [
-                              {
-                                dataField:'aapos',
-                                order: 'asc'
-                              }
-                            ]} />
+                        <ToggleList { ...props.columnToggleProps}/>
+                        <hr />
+                        <BootstrapTable tdStyle={{whiteSpace:'normal'}}
+                          {...props.baseProps}/>
                       </div>
                     )
                   }
@@ -539,24 +585,33 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
 
         return (
           <div>
+            <Router>
+              <header>
+                <h1>Welcome! </h1>
+                <h2> A database of sgRNAs for analyzing  nucleotide variants in DDR genes</h2>
+              </header>
+              <Navbar bg="dark" variant="dark">
+                <Nav className="ml-auto">
+                  <Nav.Link href="https://www.ciccialab.com">
+                    <i className="glyphicon glyphicon-home"></i> Ciccia Lab
+                  </Nav.Link>
+                </Nav>
+              </Navbar>
+            </Router>
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <h2>Functional analysis of nucleotide variants in DDR genes</h2>
+                    <h2 className="helvetica">Functional analysis of nucleotide variants in DDR genes</h2>
                     <br/>
-                    <h3>Gene Search</h3>
+                    <h3 className="helvetica">Gene Search</h3>
                     <br/>
-                    Filter Box
-                    <br/>
-                    Write the initial characters of the gene name and select it from the drop down list
-                    <br/>
+                    <b><p className="helvetica">Filter Box</p></b>
+                    <p className="helvetica">Write the initial characters of the gene name and select it from the drop down list</p>
                     <input className="smallerInput" type="text" name="filter" onChange={this.filterDropDown}/>
                     <select className="submitAlign" onChange={this.dropDownChange}> {this.state.curGeneList.map((typeName) => <option key={typeName}>{typeName}</option>)} </select>
                     <br/>
                     <input type="submit" value="Submit"/>
                     <br/>
-                   
                 </form>
-                 
             </div>
             {toDisplay}  
           </div>
