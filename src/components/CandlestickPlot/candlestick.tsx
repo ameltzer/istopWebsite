@@ -194,10 +194,13 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         API.graphql(graphqlOperation(getGeneLollipopGraph2, query)).then(result => {
           const filteredLocations = this.filterLocations(result.data.getGeneLollipopGraph.lollipopLocations.items)
           const xMax:number = parseInt(result.data.getGeneLollipopGraph.numberOfAAS)
+          console.log("xmax")
+          console.log(xMax)
+          console.log(result.data.getGeneLollipopGraph.domains.items)
           const domains = result.data.getGeneLollipopGraph.domains.items.map(domain => {
             return {
               startCodon: domain.start,
-              endCodon: domain.end,
+              endCodon: domain.end<= xMax ? domain.end : xMax,
               label: domain.identifier,
               color: domain.color,
               tooltip: {
@@ -213,6 +216,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             }
             return -1;
           })
+          console.log(sortedDomains)
           this.setState(prevState => {
             return {
               ...prevState,
