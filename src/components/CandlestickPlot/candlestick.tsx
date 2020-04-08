@@ -3,13 +3,12 @@ import LollipopPlot from './LollipopGraph'
 import Button from 'react-bootstrap/Button'
 import { API, graphqlOperation } from "aws-amplify";
 import BootstrapTable from 'react-bootstrap-table-next'
-import ToolkitProvider, { CSVExport, ColumnToggle } from 'react-bootstrap-table2-toolkit';
+import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit';
 const { ExportCSVButton } = CSVExport;
 import { HashRouter as Router} from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
-const {ToggleList} = ColumnToggle;
 
 interface CandlestickProps {
 
@@ -93,7 +92,7 @@ const getGeneLollipopGraph2 = /* GraphQL */ `
     }
   }
 `;
-const defaultHiddenHeaders = ['pvalueCISP','fdrCISP','pvalueCPT','fdrCPT','pvalueDOX','fdrDOX']
+const defaultHiddenHeaders = []
 const tableHeaders = ['gene','sgRNASequence','aapos','function','clinVar','lfcUNT','pvalueUNT','fdrUNT','lfcCISP','pvalueCISP','fdrCISP','lfcCPT','pvalueCPT','fdrCPT','lfcDOX','pvalueDOX','fdrDOX','lfcOLAP','pvalueOLAP','fdrOLAP','aachg']
 const tableHeaderTranslation = new Map(
   [
@@ -194,18 +193,25 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         API.graphql(graphqlOperation(getGeneLollipopGraph2, query)).then(result => {
           const filteredLocations = this.filterLocations(result.data.getGeneLollipopGraph.lollipopLocations.items)
           const xMax:number = parseInt(result.data.getGeneLollipopGraph.numberOfAAS)
-          console.log("xmax")
-          console.log(xMax)
-          console.log(result.data.getGeneLollipopGraph.domains.items)
+
           const domains = result.data.getGeneLollipopGraph.domains.items.map(domain => {
+            var domainEnd = domain.end;
+            var domainStart = domain.start;
+            
+            if (domain.end > xMax) {
+              const shift = domain.end - xMax;
+              domainEnd = domainEnd - shift;
+              domainStart = domainStart - shift;
+            }
+
             return {
-              startCodon: domain.start,
-              endCodon: domain.end<= xMax ? domain.end : xMax,
+              startCodon: domainStart,
+              endCodon: domainEnd,
               label: domain.identifier,
               color: domain.color,
               tooltip: {
                 header:domain.identifier,
-                body: (<div>Identifier: {domain.identifier}<br/>Start: {domain.start}<br/>End: {domain.end}</div>)
+                body: (<div>Identifier: {domain.identifier}<br/>Start: {domainStart}<br/>End: {domainEnd}</div>)
               }
             }
           })
@@ -458,7 +464,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             <div>
             <div>
                 <br/>
-                <h5 className="helvetica">{this.state.displayGene} {this.state.transcriptId}</h5>
+                <b>{this.state.displayGene}</b> <i>{this.state.transcriptId}</i>
                 <br/>
                 <div className="plotLeft">
                   <LollipopPlot
@@ -474,15 +480,14 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                   />
                 </div>
                 <div className="radioRight overlfowAuto">
-                  <label className="filterHeaderMain">{"Filters"}</label>
-                  <br/>
+                  <p className="filterHeaderMain"><b>{"Filters"}</b></p>
                   <div className="filterBox">
                     <div className="filterRow secondFilterRow">
                       <div className="filterColumn">
-                        <p className="filterHeader">Treatment</p>
+                        <label className="filterHeader"><b>Treatment</b></label>
                       </div>
                       <div className="filterColumn">
-                        <p className="filterHeader">{"P<0.01"}</p>
+                        <label className="filterHeader"><b>{"p<0.01"}</b></label>
                       </div>
                     </div>
 
@@ -553,7 +558,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
               <div>
                 <div> 
                 <ToolkitProvider
-                  columnToggle
                   keyField='sgRNASequence' 
                   columns ={bootStrapHeaders}
                   data={displayLollipops}
@@ -573,8 +577,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                       <div>
                         <ExportCSVButton { ...props.csvProps }>Export CSV</ExportCSVButton>
                         <hr />
-                        <ToggleList { ...props.columnToggleProps}/>
-                        <hr />
                         <BootstrapTable tdStyle={{whiteSpace:'normal'}}
                           {...props.baseProps}/>
                       </div>
@@ -591,8 +593,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
           <div>
             <Router>
               <header>
-                <h1>Welcome! </h1>
-                <h2> A database of sgRNAs for analyzing  nucleotide variants in DDR genes</h2>
+                <h1>Ciccia lab</h1>
               </header>
               <Navbar bg="dark" variant="dark">
                 <Nav className="ml-auto">
@@ -606,10 +607,9 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                 <form onSubmit={this.handleSubmit}>
                     <h2 className="helvetica">Functional analysis of nucleotide variants in DDR genes</h2>
                     <br/>
-                    <h3 className="helvetica">Gene Search</h3>
-                    <br/>
-                    <b><p className="helvetica">Filter Box</p></b>
-                    <p className="helvetica">Write the initial characters of the gene name and select it from the drop down list</p>
+                    <p className="filterHeaderMain">Gene Search</p>
+                    <b><p className="helvetica reducedMargin">Filter Box</p></b>
+                    <p className="helvetica reducedMargin">Write the initial characters of the gene name and select it from the drop down list</p>
                     <input className="smallerInput" type="text" name="filter" onChange={this.filterDropDown}/>
                     <select className="submitAlign" onChange={this.dropDownChange}> {this.state.curGeneList.map((typeName) => <option key={typeName}>{typeName}</option>)} </select>
                     <br/>

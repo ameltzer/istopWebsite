@@ -72,24 +72,25 @@ p.inset {border-style: inset;}
 
 td {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10pt;
+    font-size: 6pt;
 }
 
 .breakWords {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10pt;
+    font-size: 6pt;
 }
 
 .breakAll {
     word-break: break-all;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10pt;
+    font-size: 6pt;
 }
 
 th {
     font-family: Arial, Helvetica, sans-serif;
     background-color: black;
-    color:white
+    color:white;
+    font-size: 6pt;
 }
 
 .filterHeaderMain
@@ -151,4 +152,9 @@ button {
   content: "";
   display: table;
   clear: both;
+}
+
+.reducedMargin {
+    margin-bottom: 0px;
+    margin-top: 0px;
 }

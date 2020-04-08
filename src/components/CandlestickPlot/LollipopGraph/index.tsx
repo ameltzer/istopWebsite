@@ -18,7 +18,7 @@ const lollipopZeroHeight = 10
 const xAxisHeight = 30
 const yAxisWidth = 50
 const geneHeight = 14
-const domainHeight = 24
+const domainHeight = 12
 
 
 class LollipopPlot extends React.Component<any, any> {
@@ -238,7 +238,7 @@ class LollipopPlot extends React.Component<any, any> {
     const geneWidth = width -70
     return (
       <React.Fragment>
-        <svg xmlns='http://www.w3.org/2000/svg' width={this.svgWidth() + 110} height={this.svgHeight()}
+        <svg xmlns='http://www.w3.org/2000/svg' width={this.svgWidth() + 110} height={this.svgHeight()+40}
           className='lollipop-svgnode' id='lollipop-svgnode'>
           <rect
             fill='#FFFFFF'
@@ -273,6 +273,7 @@ class LollipopPlot extends React.Component<any, any> {
             >
           <tspan>log<tspan baseline-shift="sub">2</tspan>-fold change</tspan>
         </text>
+       
           
           {this.lollipops()}
           {
@@ -324,7 +325,22 @@ class LollipopPlot extends React.Component<any, any> {
           isNegative={-1}
           even={true}
           />
+
         {this.domains()}
+        <text
+              textAnchor='middle'
+              style={{
+                fontFamily: 'arial',
+                fontSize: '16px',
+                fontWeight: 'bold'
+              }}
+              fill='#2E3436'
+              x={geneWidth - 5}
+              y={this.svgHeight()+10}
+              
+            >
+            Amino acid position
+        </text>
 
         </svg>
       </React.Fragment>
