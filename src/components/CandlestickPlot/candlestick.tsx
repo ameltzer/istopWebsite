@@ -104,7 +104,7 @@ const tableHeaderTranslation = new Map(
     ['lfcUNT', 'LFC Untreated'],
     ['pvalueUNT', 'P-Value Untreated'],
     ['fdrUNT', 'FDR Untreated'],
-    ['lfcCISP', 'LDFC Cisplatin'],
+    ['lfcCISP', 'LFC Cisplatin'],
     ['pvalueCISP', 'P-Value Cisplatin'],
     ['fdrCISP', 'FDR Cisplatin'],
     ['lfcCPT', 'LFC Camptothecin'],
