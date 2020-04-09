@@ -588,9 +588,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         return (
           <div>
             <Router>
-              <header>
-                <h1>Ciccia lab</h1>
-              </header>
               <Navbar bg="dark" variant="dark">
                 <Nav className="ml-auto">
                   <Nav.Link href="https://www.ciccialab.com">
