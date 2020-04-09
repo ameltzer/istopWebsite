@@ -195,23 +195,17 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
           const xMax:number = parseInt(result.data.getGeneLollipopGraph.numberOfAAS)
 
           const domains = result.data.getGeneLollipopGraph.domains.items.map(domain => {
-            var domainEnd = domain.end;
-            var domainStart = domain.start;
-            
-            if (domain.end > xMax) {
-              const shift = domain.end - xMax;
-              domainEnd = domainEnd - shift;
-              domainStart = domainStart - shift;
-            }
+            var domainEnd = domain.end > xMax ? xMax : domain.end;
+  
 
             return {
-              startCodon: domainStart,
+              startCodon: domain.start,
               endCodon: domainEnd,
               label: domain.identifier,
               color: domain.color,
               tooltip: {
                 header:domain.identifier,
-                body: (<div>Identifier: {domain.identifier}<br/>Start: {domainStart}<br/>End: {domainEnd}</div>)
+                body: (<div>Identifier: {domain.identifier}<br/>Start: {domain.start}<br/>End: {domainEnd}</div>)
               }
             }
           })
@@ -298,6 +292,9 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
 
     setTreatment = (treatment:string) => {
       return (e) => {
+        if(treatment === this.state.curPressed) {
+          return;
+        }
         const curCheckedMap = this.state.radioChecked;
         curCheckedMap.set(treatment, true)
         curCheckedMap.set(this.state.curPressed, false)
@@ -424,7 +421,6 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             lfcOLAP: Number(filteredLollipop.lfcOLAP),
             pvalueOLAP: Number(filteredLollipop.pvalueOLAP),
             fdrOLAP: Number(filteredLollipop.fdrOLAP),
-
           }
         })
         const lollipopFilters:string[] = Array.from(this.state.lollipopsClicked).filter(lollipopFilter => lollipopFilter[1]).map(lollipopFilter => lollipopFilter[0])
@@ -577,7 +573,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                       <div>
                         <ExportCSVButton { ...props.csvProps }>Export CSV</ExportCSVButton>
                         <hr />
-                        <BootstrapTable tdStyle={{whiteSpace:'normal'}}
+                        <BootstrapTable classes ="table-responsive scrollBarTable" tdStyle={{whiteSpace:'normal'}}
                           {...props.baseProps}/>
                       </div>
                     )

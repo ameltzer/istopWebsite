@@ -158,3 +158,12 @@ button {
     margin-bottom: 0px;
     margin-top: 0px;
 }
+
+.expanded-container{
+    overflow-x: auto;
+}
+
+.scrollBarTable {
+    overflow-x: auto;
+    display: inline;
+}
