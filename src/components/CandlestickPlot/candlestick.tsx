@@ -239,7 +239,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         count: location['lfc'+this.state.treatment],
         tooltip: {
           body: (<div>sgRNA_sequence: {location.sgRNASequence}
-          <br/>lcf_{this.state.treatment}:{location['lfc'+this.state.treatment]}
+          <br/>lfc_{this.state.treatment}:{location['lfc'+this.state.treatment]}
           <br/>pvalue_{this.state.treatment}:{location['pvalue'+this.state.treatment]}
           <br/>fdr_{this.state.treatment}:{location['fdr'+this.state.treatment]}
           <br/>aachg{this.state.treatment}:{location.aachg}
