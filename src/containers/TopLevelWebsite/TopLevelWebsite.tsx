@@ -4,7 +4,12 @@ import Button from 'react-bootstrap/Button'
 import { API, graphqlOperation } from "aws-amplify";
 import { getAuth } from "../../graphql/queries";
 import { ISTOPWebsite } from "../SearchContainer/iSTOPWebsite/iSTOPWebsite";
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 interface TopLevelProps {
 
 }
@@ -111,6 +116,23 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                <Button onClick={this.setMode(0)}>Go back to home page </Button>
            </div>
         }
-        return (<div>{toDisplay}</div>)
+        return (
+            <div>
+                <Router>
+                    <Switch>
+                        <Route exact path="/istop">
+                            <ISTOPWebsite/>
+                            <Button onClick={this.setMode(0)}>Go back to home page </Button>
+                        </Route>
+                    </Switch>
+                    <Switch>
+                        <Route exact path="/">
+                            <div>{toDisplay}</div>
+                        </Route>
+                    </Switch>
+                </Router>
+                
+        </div>
+        )
     }
 }
