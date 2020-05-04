@@ -91,7 +91,7 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
         if (this.state.mode == 0) {
             toDisplay = 
                 <div className="overallContainer">
-                        <Button onClick={this.setMode(1)}>Go to istop (Under Construction)</Button>
+                        <Button onClick={this.setMode(1)}>Go to istop</Button>
                         
                         <br/>
                         <br/>
