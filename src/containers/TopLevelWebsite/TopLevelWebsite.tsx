@@ -1,6 +1,5 @@
 import * as React from "react";
 import { CandlestickResults } from "../../components/CandlestickPlot"
-
 import Button from 'react-bootstrap/Button'
 import { API, graphqlOperation } from "aws-amplify";
 import { getAuth } from "../../graphql/queries";
