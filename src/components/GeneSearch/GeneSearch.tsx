@@ -74,10 +74,6 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
             failureInputGeneNames.push(queriesParameters[i][1].gene)
           }
         }
-       
-        console.log("check")
-        console.log(failureInputGeneNames)
-        console.log(successValues)
 
         const failureInputGeneNamePromises = failureInputGeneNames.map(failureInputGeneName => {
           return API.graphql(graphqlOperation(byAlias, {limit:100000, alias:failureInputGeneName}))
@@ -97,8 +93,6 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
                   return geneResult.data.gene.items
                 })
                 const allResults = resolvedGeneValues.concat(successValues)
-                console.log(resolvedGeneValues)
-                console.log(allResults)
                 this.filterAllValues(allResults, filterColumns(columns,this.state.filterState))
             })
         })
@@ -151,6 +145,8 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
                 <br/>
                 Gene:
                 <textarea onChange={this.textAreaChange} value={this.state.genes}/>
+                <br/>
+                Add different genes on different lines to search for multiple genes.
               </label>
               <FilterSearch setFilterState={this.filterCallback}/>
               <input type="submit" value="Submit" disabled={this.state.disabled}/>
