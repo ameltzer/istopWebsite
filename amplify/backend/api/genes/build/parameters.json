@@ -1,0 +1,8 @@
+{
+    "CreateAPIKey": 1,
+    "AppSyncApiName": "genes",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "S3DeploymentBucket": "amplify-ciccia-lab-website-ciccia-202110-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/d2d8477ae5675659d24cf11d093174a4dde63551"
+}

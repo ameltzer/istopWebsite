@@ -1,0 +1,2067 @@
+type HomoSapiens {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String!
+  genome_coord: String!
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+  cancer_type: String
+}
+
+type Yeast {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Loss: String
+  rFLP_Gain: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+type Fish {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  strand: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+}
+
+type Mouse {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_cord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+type Fly {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+type Nematode {
+  aa_target: String
+  chr: String
+  codon: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  gene: String
+}
+
+type Plant {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Loss: String
+  rFLP_Gain: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+type Rat {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+type Alias {
+  id: String!
+  alias: String!
+  gene: String
+  speciesName: String
+}
+
+type GeneLollipopGraph {
+  id: ID!
+  transcriptId: String!
+  transcriptId2: String
+  numberOfAAS: String
+  lollipopLocations(filter: ModelLollipopLocationsFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelLollipopLocationsConnection
+  domains(filter: ModelDomainFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelDomainConnection
+}
+
+type LollipopLocations {
+  id: ID!
+  gene: ID!
+  sgRNASequence: String
+  function: String!
+  aapos: String
+  lfcUNT: String
+  pvalueUNT: String
+  fdrUNT: String
+  lfcCISP: String
+  pvalueCISP: String
+  fdrCISP: String
+  lfcOLAP: String
+  pvalueOLAP: String
+  fdrOLAP: String
+  lfcDOX: String
+  pvalueDOX: String
+  fdrDOX: String
+  lfcCPT: String
+  pvalueCPT: String
+  fdrCPT: String
+  clinVar: String
+  aachg: String
+}
+
+type Domain {
+  id: ID!
+  accessionNumber: String
+  type: String
+  start: String
+  end: String
+  gene: ID!
+  identifier: String
+  color: String
+}
+
+type Auth {
+  id: ID!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelHomoSapiensConnection {
+  items: [HomoSapiens]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelHomoSapiensFilterInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  id: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  cancer_type: ModelStringInput
+  and: [ModelHomoSapiensFilterInput]
+  or: [ModelHomoSapiensFilterInput]
+  not: ModelHomoSapiensFilterInput
+}
+
+type Query {
+  getHomoSapiens(id: ID!): HomoSapiens
+  listHomoSapienss(filter: ModelHomoSapiensFilterInput, limit: Int, nextToken: String): ModelHomoSapiensConnection
+  getYeast(id: ID!): Yeast
+  listYeasts(filter: ModelYeastFilterInput, limit: Int, nextToken: String): ModelYeastConnection
+  getFish(id: ID!): Fish
+  listFishs(filter: ModelFishFilterInput, limit: Int, nextToken: String): ModelFishConnection
+  getMouse(id: ID!): Mouse
+  listMouses(filter: ModelMouseFilterInput, limit: Int, nextToken: String): ModelMouseConnection
+  getFly(id: ID!): Fly
+  listFlys(filter: ModelFlyFilterInput, limit: Int, nextToken: String): ModelFlyConnection
+  getNematode(id: ID!): Nematode
+  listNematodes(filter: ModelNematodeFilterInput, limit: Int, nextToken: String): ModelNematodeConnection
+  getPlant(id: ID!): Plant
+  listPlants(filter: ModelPlantFilterInput, limit: Int, nextToken: String): ModelPlantConnection
+  getRat(id: ID!): Rat
+  listRats(filter: ModelRatFilterInput, limit: Int, nextToken: String): ModelRatConnection
+  getAlias(id: ID!): Alias
+  listAliass(filter: ModelAliasFilterInput, limit: Int, nextToken: String): ModelAliasConnection
+  getGeneLollipopGraph(id: ID!): GeneLollipopGraph
+  listGeneLollipopGraphs(filter: ModelGeneLollipopGraphFilterInput, limit: Int, nextToken: String): ModelGeneLollipopGraphConnection
+  getLollipopLocations(id: ID!): LollipopLocations
+  listLollipopLocationss(filter: ModelLollipopLocationsFilterInput, limit: Int, nextToken: String): ModelLollipopLocationsConnection
+  getDomain(id: ID!): Domain
+  listDomains(filter: ModelDomainFilterInput, limit: Int, nextToken: String): ModelDomainConnection
+  getAuth(id: ID!): Auth
+  listAuths(filter: ModelAuthFilterInput, limit: Int, nextToken: String): ModelAuthConnection
+  gene(gene: String, sortDirection: ModelSortDirection, filter: ModelHomoSapiensFilterInput, limit: Int, nextToken: String): ModelHomoSapiensConnection
+  newCancerType(cancer_type: String, sortDirection: ModelSortDirection, filter: ModelHomoSapiensFilterInput, limit: Int, nextToken: String): ModelHomoSapiensConnection
+  geneYeast(gene: String, sortDirection: ModelSortDirection, filter: ModelYeastFilterInput, limit: Int, nextToken: String): ModelYeastConnection
+  geneFish(gene: String, sortDirection: ModelSortDirection, filter: ModelFishFilterInput, limit: Int, nextToken: String): ModelFishConnection
+  geneMouse(gene: String, sortDirection: ModelSortDirection, filter: ModelMouseFilterInput, limit: Int, nextToken: String): ModelMouseConnection
+  geneFly(gene: String, sortDirection: ModelSortDirection, filter: ModelFlyFilterInput, limit: Int, nextToken: String): ModelFlyConnection
+  geneNematode(gene: String, sortDirection: ModelSortDirection, filter: ModelNematodeFilterInput, limit: Int, nextToken: String): ModelNematodeConnection
+  genePlant(gene: String, sortDirection: ModelSortDirection, filter: ModelPlantFilterInput, limit: Int, nextToken: String): ModelPlantConnection
+  geneRat(gene: String, sortDirection: ModelSortDirection, filter: ModelRatFilterInput, limit: Int, nextToken: String): ModelRatConnection
+  byAlias(alias: String, sortDirection: ModelSortDirection, filter: ModelAliasFilterInput, limit: Int, nextToken: String): ModelAliasConnection
+}
+
+input CreateHomoSapiensInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String!
+  genome_coord: String!
+  id: ID
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+  cancer_type: String
+}
+
+input UpdateHomoSapiensInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String!
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+  cancer_type: String
+}
+
+input DeleteHomoSapiensInput {
+  id: ID
+}
+
+type Mutation {
+  createHomoSapiens(input: CreateHomoSapiensInput!, condition: ModelHomoSapiensConditionInput): HomoSapiens
+  updateHomoSapiens(input: UpdateHomoSapiensInput!, condition: ModelHomoSapiensConditionInput): HomoSapiens
+  deleteHomoSapiens(input: DeleteHomoSapiensInput!, condition: ModelHomoSapiensConditionInput): HomoSapiens
+  createYeast(input: CreateYeastInput!, condition: ModelYeastConditionInput): Yeast
+  updateYeast(input: UpdateYeastInput!, condition: ModelYeastConditionInput): Yeast
+  deleteYeast(input: DeleteYeastInput!, condition: ModelYeastConditionInput): Yeast
+  createFish(input: CreateFishInput!, condition: ModelFishConditionInput): Fish
+  updateFish(input: UpdateFishInput!, condition: ModelFishConditionInput): Fish
+  deleteFish(input: DeleteFishInput!, condition: ModelFishConditionInput): Fish
+  createMouse(input: CreateMouseInput!, condition: ModelMouseConditionInput): Mouse
+  updateMouse(input: UpdateMouseInput!, condition: ModelMouseConditionInput): Mouse
+  deleteMouse(input: DeleteMouseInput!, condition: ModelMouseConditionInput): Mouse
+  createFly(input: CreateFlyInput!, condition: ModelFlyConditionInput): Fly
+  updateFly(input: UpdateFlyInput!, condition: ModelFlyConditionInput): Fly
+  deleteFly(input: DeleteFlyInput!, condition: ModelFlyConditionInput): Fly
+  createNematode(input: CreateNematodeInput!, condition: ModelNematodeConditionInput): Nematode
+  updateNematode(input: UpdateNematodeInput!, condition: ModelNematodeConditionInput): Nematode
+  deleteNematode(input: DeleteNematodeInput!, condition: ModelNematodeConditionInput): Nematode
+  createPlant(input: CreatePlantInput!, condition: ModelPlantConditionInput): Plant
+  updatePlant(input: UpdatePlantInput!, condition: ModelPlantConditionInput): Plant
+  deletePlant(input: DeletePlantInput!, condition: ModelPlantConditionInput): Plant
+  createRat(input: CreateRatInput!, condition: ModelRatConditionInput): Rat
+  updateRat(input: UpdateRatInput!, condition: ModelRatConditionInput): Rat
+  deleteRat(input: DeleteRatInput!, condition: ModelRatConditionInput): Rat
+  createAlias(input: CreateAliasInput!, condition: ModelAliasConditionInput): Alias
+  updateAlias(input: UpdateAliasInput!, condition: ModelAliasConditionInput): Alias
+  deleteAlias(input: DeleteAliasInput!, condition: ModelAliasConditionInput): Alias
+  createGeneLollipopGraph(input: CreateGeneLollipopGraphInput!, condition: ModelGeneLollipopGraphConditionInput): GeneLollipopGraph
+  updateGeneLollipopGraph(input: UpdateGeneLollipopGraphInput!, condition: ModelGeneLollipopGraphConditionInput): GeneLollipopGraph
+  deleteGeneLollipopGraph(input: DeleteGeneLollipopGraphInput!, condition: ModelGeneLollipopGraphConditionInput): GeneLollipopGraph
+  createLollipopLocations(input: CreateLollipopLocationsInput!, condition: ModelLollipopLocationsConditionInput): LollipopLocations
+  updateLollipopLocations(input: UpdateLollipopLocationsInput!, condition: ModelLollipopLocationsConditionInput): LollipopLocations
+  deleteLollipopLocations(input: DeleteLollipopLocationsInput!, condition: ModelLollipopLocationsConditionInput): LollipopLocations
+  createDomain(input: CreateDomainInput!, condition: ModelDomainConditionInput): Domain
+  updateDomain(input: UpdateDomainInput!, condition: ModelDomainConditionInput): Domain
+  deleteDomain(input: DeleteDomainInput!, condition: ModelDomainConditionInput): Domain
+  createAuth(input: CreateAuthInput!, condition: ModelAuthConditionInput): Auth
+  updateAuth(input: UpdateAuthInput!, condition: ModelAuthConditionInput): Auth
+  deleteAuth(input: DeleteAuthInput!, condition: ModelAuthConditionInput): Auth
+}
+
+input ModelHomoSapiensConditionInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  cancer_type: ModelStringInput
+  and: [ModelHomoSapiensConditionInput]
+  or: [ModelHomoSapiensConditionInput]
+  not: ModelHomoSapiensConditionInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Subscription {
+  onCreateHomoSapiens: HomoSapiens @aws_subscribe(mutations: ["createHomoSapiens"])
+  onUpdateHomoSapiens: HomoSapiens @aws_subscribe(mutations: ["updateHomoSapiens"])
+  onDeleteHomoSapiens: HomoSapiens @aws_subscribe(mutations: ["deleteHomoSapiens"])
+  onCreateYeast: Yeast @aws_subscribe(mutations: ["createYeast"])
+  onUpdateYeast: Yeast @aws_subscribe(mutations: ["updateYeast"])
+  onDeleteYeast: Yeast @aws_subscribe(mutations: ["deleteYeast"])
+  onCreateFish: Fish @aws_subscribe(mutations: ["createFish"])
+  onUpdateFish: Fish @aws_subscribe(mutations: ["updateFish"])
+  onDeleteFish: Fish @aws_subscribe(mutations: ["deleteFish"])
+  onCreateMouse: Mouse @aws_subscribe(mutations: ["createMouse"])
+  onUpdateMouse: Mouse @aws_subscribe(mutations: ["updateMouse"])
+  onDeleteMouse: Mouse @aws_subscribe(mutations: ["deleteMouse"])
+  onCreateFly: Fly @aws_subscribe(mutations: ["createFly"])
+  onUpdateFly: Fly @aws_subscribe(mutations: ["updateFly"])
+  onDeleteFly: Fly @aws_subscribe(mutations: ["deleteFly"])
+  onCreateNematode: Nematode @aws_subscribe(mutations: ["createNematode"])
+  onUpdateNematode: Nematode @aws_subscribe(mutations: ["updateNematode"])
+  onDeleteNematode: Nematode @aws_subscribe(mutations: ["deleteNematode"])
+  onCreatePlant: Plant @aws_subscribe(mutations: ["createPlant"])
+  onUpdatePlant: Plant @aws_subscribe(mutations: ["updatePlant"])
+  onDeletePlant: Plant @aws_subscribe(mutations: ["deletePlant"])
+  onCreateRat: Rat @aws_subscribe(mutations: ["createRat"])
+  onUpdateRat: Rat @aws_subscribe(mutations: ["updateRat"])
+  onDeleteRat: Rat @aws_subscribe(mutations: ["deleteRat"])
+  onCreateAlias: Alias @aws_subscribe(mutations: ["createAlias"])
+  onUpdateAlias: Alias @aws_subscribe(mutations: ["updateAlias"])
+  onDeleteAlias: Alias @aws_subscribe(mutations: ["deleteAlias"])
+  onCreateGeneLollipopGraph: GeneLollipopGraph @aws_subscribe(mutations: ["createGeneLollipopGraph"])
+  onUpdateGeneLollipopGraph: GeneLollipopGraph @aws_subscribe(mutations: ["updateGeneLollipopGraph"])
+  onDeleteGeneLollipopGraph: GeneLollipopGraph @aws_subscribe(mutations: ["deleteGeneLollipopGraph"])
+  onCreateLollipopLocations: LollipopLocations @aws_subscribe(mutations: ["createLollipopLocations"])
+  onUpdateLollipopLocations: LollipopLocations @aws_subscribe(mutations: ["updateLollipopLocations"])
+  onDeleteLollipopLocations: LollipopLocations @aws_subscribe(mutations: ["deleteLollipopLocations"])
+  onCreateDomain: Domain @aws_subscribe(mutations: ["createDomain"])
+  onUpdateDomain: Domain @aws_subscribe(mutations: ["updateDomain"])
+  onDeleteDomain: Domain @aws_subscribe(mutations: ["deleteDomain"])
+  onCreateAuth: Auth @aws_subscribe(mutations: ["createAuth"])
+  onUpdateAuth: Auth @aws_subscribe(mutations: ["updateAuth"])
+  onDeleteAuth: Auth @aws_subscribe(mutations: ["deleteAuth"])
+}
+
+type ModelYeastConnection {
+  items: [Yeast]
+  nextToken: String
+}
+
+input ModelYeastFilterInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  id: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  and: [ModelYeastFilterInput]
+  or: [ModelYeastFilterInput]
+  not: ModelYeastFilterInput
+}
+
+input CreateYeastInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: ID
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Loss: String
+  rFLP_Gain: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+input UpdateYeastInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String!
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Loss: String
+  rFLP_Gain: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+input DeleteYeastInput {
+  id: ID
+}
+
+input ModelYeastConditionInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  and: [ModelYeastConditionInput]
+  or: [ModelYeastConditionInput]
+  not: ModelYeastConditionInput
+}
+
+type ModelFishConnection {
+  items: [Fish]
+  nextToken: String
+}
+
+input ModelFishFilterInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  id: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  strand: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  and: [ModelFishFilterInput]
+  or: [ModelFishFilterInput]
+  not: ModelFishFilterInput
+}
+
+input CreateFishInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: ID
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  strand: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+}
+
+input UpdateFishInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String!
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  strand: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+}
+
+input DeleteFishInput {
+  id: ID
+}
+
+input ModelFishConditionInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  strand: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  and: [ModelFishConditionInput]
+  or: [ModelFishConditionInput]
+  not: ModelFishConditionInput
+}
+
+type ModelMouseConnection {
+  items: [Mouse]
+  nextToken: String
+}
+
+input ModelMouseFilterInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_cord: ModelStringInput
+  id: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  and: [ModelMouseFilterInput]
+  or: [ModelMouseFilterInput]
+  not: ModelMouseFilterInput
+}
+
+input CreateMouseInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_cord: String
+  id: ID
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+input UpdateMouseInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_cord: String
+  id: String!
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+input DeleteMouseInput {
+  id: ID
+}
+
+input ModelMouseConditionInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_cord: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  and: [ModelMouseConditionInput]
+  or: [ModelMouseConditionInput]
+  not: ModelMouseConditionInput
+}
+
+type ModelFlyConnection {
+  items: [Fly]
+  nextToken: String
+}
+
+input ModelFlyFilterInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  id: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  and: [ModelFlyFilterInput]
+  or: [ModelFlyFilterInput]
+  not: ModelFlyFilterInput
+}
+
+input CreateFlyInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: ID
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+input UpdateFlyInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String!
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+input DeleteFlyInput {
+  id: ID
+}
+
+input ModelFlyConditionInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  and: [ModelFlyConditionInput]
+  or: [ModelFlyConditionInput]
+  not: ModelFlyConditionInput
+}
+
+type ModelNematodeConnection {
+  items: [Nematode]
+  nextToken: String
+}
+
+input ModelNematodeFilterInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  genome_coord: ModelStringInput
+  id: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  gene: ModelStringInput
+  and: [ModelNematodeFilterInput]
+  or: [ModelNematodeFilterInput]
+  not: ModelNematodeFilterInput
+}
+
+input CreateNematodeInput {
+  aa_target: String
+  chr: String
+  codon: String
+  genome_coord: String
+  id: ID
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  gene: String
+}
+
+input UpdateNematodeInput {
+  aa_target: String
+  chr: String
+  codon: String
+  genome_coord: String
+  id: String!
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  gene: String
+}
+
+input DeleteNematodeInput {
+  id: ID
+}
+
+input ModelNematodeConditionInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  genome_coord: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  gene: ModelStringInput
+  and: [ModelNematodeConditionInput]
+  or: [ModelNematodeConditionInput]
+  not: ModelNematodeConditionInput
+}
+
+type ModelPlantConnection {
+  items: [Plant]
+  nextToken: String
+}
+
+input ModelPlantFilterInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  id: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  and: [ModelPlantFilterInput]
+  or: [ModelPlantFilterInput]
+  not: ModelPlantFilterInput
+}
+
+input CreatePlantInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: ID
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Loss: String
+  rFLP_Gain: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+input UpdatePlantInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String!
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Loss: String
+  rFLP_Gain: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+input DeletePlantInput {
+  id: ID
+}
+
+input ModelPlantConditionInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  and: [ModelPlantConditionInput]
+  or: [ModelPlantConditionInput]
+  not: ModelPlantConditionInput
+}
+
+type ModelRatConnection {
+  items: [Rat]
+  nextToken: String
+}
+
+input ModelRatFilterInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  id: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  and: [ModelRatFilterInput]
+  or: [ModelRatFilterInput]
+  not: ModelRatFilterInput
+}
+
+input CreateRatInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: ID
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+input UpdateRatInput {
+  aa_target: String
+  chr: String
+  codon: String
+  gene: String
+  genome_coord: String
+  id: String!
+  n_tx_in_gene: String
+  no_upstream_G: String
+  percent_NMD: String
+  percent_tx: String
+  rel_pos_largest_isoform: String
+  rFLP_Gain: String
+  rFLP_Loss: String
+  sgNGG: String
+  sgNGG_matches: String
+  sgNGG_spacing: String
+  sgNGA: String
+  sgNGA_matches: String
+  sgNGA_spacing: String
+  sgNGAG: String
+  sgNGAG_matches: String
+  sgNGAG_spacing: String
+  sgNGCG: String
+  sgNGCG_matches: String
+  sgNGCG_spacing: String
+  sgNNGRRT: String
+  sgNNGRRT_matches: String
+  sgNNGRRT_spacing: String
+  sgNNNRRT: String
+  sgNNNRRT_matches: String
+  sgNNNRRT_spacing: String
+  strand: String
+}
+
+input DeleteRatInput {
+  id: ID
+}
+
+input ModelRatConditionInput {
+  aa_target: ModelStringInput
+  chr: ModelStringInput
+  codon: ModelStringInput
+  gene: ModelStringInput
+  genome_coord: ModelStringInput
+  n_tx_in_gene: ModelStringInput
+  no_upstream_G: ModelStringInput
+  percent_NMD: ModelStringInput
+  percent_tx: ModelStringInput
+  rel_pos_largest_isoform: ModelStringInput
+  rFLP_Gain: ModelStringInput
+  rFLP_Loss: ModelStringInput
+  sgNGG: ModelStringInput
+  sgNGG_matches: ModelStringInput
+  sgNGG_spacing: ModelStringInput
+  sgNGA: ModelStringInput
+  sgNGA_matches: ModelStringInput
+  sgNGA_spacing: ModelStringInput
+  sgNGAG: ModelStringInput
+  sgNGAG_matches: ModelStringInput
+  sgNGAG_spacing: ModelStringInput
+  sgNGCG: ModelStringInput
+  sgNGCG_matches: ModelStringInput
+  sgNGCG_spacing: ModelStringInput
+  sgNNGRRT: ModelStringInput
+  sgNNGRRT_matches: ModelStringInput
+  sgNNGRRT_spacing: ModelStringInput
+  sgNNNRRT: ModelStringInput
+  sgNNNRRT_matches: ModelStringInput
+  sgNNNRRT_spacing: ModelStringInput
+  strand: ModelStringInput
+  and: [ModelRatConditionInput]
+  or: [ModelRatConditionInput]
+  not: ModelRatConditionInput
+}
+
+type ModelAliasConnection {
+  items: [Alias]
+  nextToken: String
+}
+
+input ModelAliasFilterInput {
+  id: ModelStringInput
+  alias: ModelStringInput
+  gene: ModelStringInput
+  speciesName: ModelStringInput
+  and: [ModelAliasFilterInput]
+  or: [ModelAliasFilterInput]
+  not: ModelAliasFilterInput
+}
+
+input CreateAliasInput {
+  id: ID
+  alias: String!
+  gene: String
+  speciesName: String
+}
+
+input UpdateAliasInput {
+  id: String!
+  alias: String
+  gene: String
+  speciesName: String
+}
+
+input DeleteAliasInput {
+  id: ID
+}
+
+input ModelAliasConditionInput {
+  alias: ModelStringInput
+  gene: ModelStringInput
+  speciesName: ModelStringInput
+  and: [ModelAliasConditionInput]
+  or: [ModelAliasConditionInput]
+  not: ModelAliasConditionInput
+}
+
+type ModelGeneLollipopGraphConnection {
+  items: [GeneLollipopGraph]
+  nextToken: String
+}
+
+input ModelGeneLollipopGraphFilterInput {
+  id: ModelIDInput
+  transcriptId: ModelStringInput
+  transcriptId2: ModelStringInput
+  numberOfAAS: ModelStringInput
+  and: [ModelGeneLollipopGraphFilterInput]
+  or: [ModelGeneLollipopGraphFilterInput]
+  not: ModelGeneLollipopGraphFilterInput
+}
+
+input CreateGeneLollipopGraphInput {
+  id: ID
+  transcriptId: String!
+  transcriptId2: String
+  numberOfAAS: String
+}
+
+input UpdateGeneLollipopGraphInput {
+  id: ID!
+  transcriptId: String
+  transcriptId2: String
+  numberOfAAS: String
+}
+
+input DeleteGeneLollipopGraphInput {
+  id: ID
+}
+
+input ModelGeneLollipopGraphConditionInput {
+  transcriptId: ModelStringInput
+  transcriptId2: ModelStringInput
+  numberOfAAS: ModelStringInput
+  and: [ModelGeneLollipopGraphConditionInput]
+  or: [ModelGeneLollipopGraphConditionInput]
+  not: ModelGeneLollipopGraphConditionInput
+}
+
+type ModelLollipopLocationsConnection {
+  items: [LollipopLocations]
+  nextToken: String
+}
+
+input ModelLollipopLocationsFilterInput {
+  id: ModelIDInput
+  gene: ModelIDInput
+  sgRNASequence: ModelStringInput
+  function: ModelStringInput
+  aapos: ModelStringInput
+  lfcUNT: ModelStringInput
+  pvalueUNT: ModelStringInput
+  fdrUNT: ModelStringInput
+  lfcCISP: ModelStringInput
+  pvalueCISP: ModelStringInput
+  fdrCISP: ModelStringInput
+  lfcOLAP: ModelStringInput
+  pvalueOLAP: ModelStringInput
+  fdrOLAP: ModelStringInput
+  lfcDOX: ModelStringInput
+  pvalueDOX: ModelStringInput
+  fdrDOX: ModelStringInput
+  lfcCPT: ModelStringInput
+  pvalueCPT: ModelStringInput
+  fdrCPT: ModelStringInput
+  clinVar: ModelStringInput
+  aachg: ModelStringInput
+  and: [ModelLollipopLocationsFilterInput]
+  or: [ModelLollipopLocationsFilterInput]
+  not: ModelLollipopLocationsFilterInput
+}
+
+input CreateLollipopLocationsInput {
+  id: ID
+  gene: ID!
+  sgRNASequence: String
+  function: String!
+  aapos: String
+  lfcUNT: String
+  pvalueUNT: String
+  fdrUNT: String
+  lfcCISP: String
+  pvalueCISP: String
+  fdrCISP: String
+  lfcOLAP: String
+  pvalueOLAP: String
+  fdrOLAP: String
+  lfcDOX: String
+  pvalueDOX: String
+  fdrDOX: String
+  lfcCPT: String
+  pvalueCPT: String
+  fdrCPT: String
+  clinVar: String
+  aachg: String
+}
+
+input UpdateLollipopLocationsInput {
+  id: ID!
+  gene: ID
+  sgRNASequence: String
+  function: String
+  aapos: String
+  lfcUNT: String
+  pvalueUNT: String
+  fdrUNT: String
+  lfcCISP: String
+  pvalueCISP: String
+  fdrCISP: String
+  lfcOLAP: String
+  pvalueOLAP: String
+  fdrOLAP: String
+  lfcDOX: String
+  pvalueDOX: String
+  fdrDOX: String
+  lfcCPT: String
+  pvalueCPT: String
+  fdrCPT: String
+  clinVar: String
+  aachg: String
+}
+
+input DeleteLollipopLocationsInput {
+  id: ID
+}
+
+input ModelLollipopLocationsConditionInput {
+  gene: ModelIDInput
+  sgRNASequence: ModelStringInput
+  function: ModelStringInput
+  aapos: ModelStringInput
+  lfcUNT: ModelStringInput
+  pvalueUNT: ModelStringInput
+  fdrUNT: ModelStringInput
+  lfcCISP: ModelStringInput
+  pvalueCISP: ModelStringInput
+  fdrCISP: ModelStringInput
+  lfcOLAP: ModelStringInput
+  pvalueOLAP: ModelStringInput
+  fdrOLAP: ModelStringInput
+  lfcDOX: ModelStringInput
+  pvalueDOX: ModelStringInput
+  fdrDOX: ModelStringInput
+  lfcCPT: ModelStringInput
+  pvalueCPT: ModelStringInput
+  fdrCPT: ModelStringInput
+  clinVar: ModelStringInput
+  aachg: ModelStringInput
+  and: [ModelLollipopLocationsConditionInput]
+  or: [ModelLollipopLocationsConditionInput]
+  not: ModelLollipopLocationsConditionInput
+}
+
+type ModelDomainConnection {
+  items: [Domain]
+  nextToken: String
+}
+
+input ModelDomainFilterInput {
+  id: ModelIDInput
+  accessionNumber: ModelStringInput
+  type: ModelStringInput
+  start: ModelStringInput
+  end: ModelStringInput
+  gene: ModelIDInput
+  identifier: ModelStringInput
+  color: ModelStringInput
+  and: [ModelDomainFilterInput]
+  or: [ModelDomainFilterInput]
+  not: ModelDomainFilterInput
+}
+
+input CreateDomainInput {
+  id: ID
+  accessionNumber: String
+  type: String
+  start: String
+  end: String
+  gene: ID!
+  identifier: String
+  color: String
+}
+
+input UpdateDomainInput {
+  id: ID!
+  accessionNumber: String
+  type: String
+  start: String
+  end: String
+  gene: ID
+  identifier: String
+  color: String
+}
+
+input DeleteDomainInput {
+  id: ID
+}
+
+input ModelDomainConditionInput {
+  accessionNumber: ModelStringInput
+  type: ModelStringInput
+  start: ModelStringInput
+  end: ModelStringInput
+  gene: ModelIDInput
+  identifier: ModelStringInput
+  color: ModelStringInput
+  and: [ModelDomainConditionInput]
+  or: [ModelDomainConditionInput]
+  not: ModelDomainConditionInput
+}
+
+type ModelAuthConnection {
+  items: [Auth]
+  nextToken: String
+}
+
+input ModelAuthFilterInput {
+  id: ModelIDInput
+  and: [ModelAuthFilterInput]
+  or: [ModelAuthFilterInput]
+  not: ModelAuthFilterInput
+}
+
+input CreateAuthInput {
+  id: ID
+}
+
+input UpdateAuthInput {
+  id: ID!
+}
+
+input DeleteAuthInput {
+  id: ID
+}
+
+input ModelAuthConditionInput {
+  and: [ModelAuthConditionInput]
+  or: [ModelAuthConditionInput]
+  not: ModelAuthConditionInput
+}

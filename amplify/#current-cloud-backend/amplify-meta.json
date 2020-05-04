@@ -1,0 +1,64 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-ciccia-lab-website-ciccia-202110-authRole",
+			"UnauthRoleArn": "arn:aws:iam::333032867409:role/amplify-ciccia-lab-website-ciccia-202110-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::333032867409:role/amplify-ciccia-lab-website-ciccia-202110-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "amplify-ciccia-lab-website-ciccia-202110-deployment",
+			"UnauthRoleName": "amplify-ciccia-lab-website-ciccia-202110-unauthRole",
+			"StackName": "amplify-ciccia-lab-website-ciccia-202110",
+			"StackId": "arn:aws:cloudformation:us-east-1:333032867409:stack/amplify-ciccia-lab-website-ciccia-202110/dff29570-6652-11ea-a7ad-126c97cb5bc1",
+			"AmplifyAppId": "d2q8dmq4hh6f50"
+		}
+	},
+	"api": {
+		"genes": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [],
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "365",
+							"apiKeyExpirationDays": "365"
+						}
+					}
+				},
+				"GraphQLAPIIdOutput": "rxv6qeuesrbaro3elpednbayni",
+				"GraphQLAPIEndpointOutput": "https://ehxork5cdjgwjpokwsprojv5be.appsync-api.us-east-1.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-62qhbzlvsjcb7a2jaskuq6dwgu"
+			},
+			"lastPushTimeStamp": "2020-05-04T23:11:44.346Z",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apigenes"
+			},
+			"lastPushDirHash": "0+y/Iu0hOX93wZUKbDwMPRJbuCE="
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"CloudFrontSecureURL": "https://d1jnv7oo30532i.cloudfront.net",
+				"S3BucketSecureURL": "https://ciccia-lab-website-20200329193752-hostingbucket-ciccia.s3.amazonaws.com",
+				"CloudFrontOriginAccessIdentity": "E2HMLK5GXFE4M2",
+				"WebsiteURL": "http://ciccia-lab-website-20200329193752-hostingbucket-ciccia.s3-website-us-east-1.amazonaws.com",
+				"CloudFrontDistributionID": "E8KT34Z6C5VDT",
+				"Region": "us-east-1",
+				"HostingBucketName": "ciccia-lab-website-20200329193752-hostingbucket-ciccia",
+				"CloudFrontDomainName": "d1jnv7oo30532i.cloudfront.net"
+			},
+			"lastPushTimeStamp": "2020-05-04T23:11:44.346Z",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushDirHash": "AD6vVYd4A5ZHhhwhuTL1owMx1qg="
+		}
+	}
+}

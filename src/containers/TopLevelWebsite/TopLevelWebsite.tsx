@@ -102,6 +102,7 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                         <Button onClick={this.setMode(2)}>Go to lollipop query</Button>
                         <br/>
                         {this.state.errorMessage}
+                        
                    </div>
         } else if (this.state.mode == 1) {
            toDisplay = 
@@ -122,7 +123,9 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                     <Switch>
                         <Route exact path="/istop">
                             <ISTOPWebsite/>
-                            <Button onClick={this.setMode(0)}>Go back to home page </Button>
+                            <Link to="/">
+                                <Button onClick={this.setMode(0)}>Go back to home page </Button>
+                            </Link>
                         </Route>
                     </Switch>
                     <Switch>
