@@ -4,12 +4,6 @@ import Button from 'react-bootstrap/Button'
 import { API, graphqlOperation } from "aws-amplify";
 import { getAuth } from "../../graphql/queries";
 import { ISTOPWebsite } from "../SearchContainer/iSTOPWebsite/iSTOPWebsite";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
 
 interface TopLevelProps {
 
@@ -86,6 +80,18 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
         })
       }
 
+      componentWillMount() {
+          console.log("firing will mount")
+          if(window.location.href && window.location.href.toLowerCase().includes("istop")){
+            this.setState(prevState => {
+                return {
+                    ...prevState,
+                    mode:1
+                }
+            })
+           }
+      }
+
     render() {
         console.log('-------')
         console.log('-------')
@@ -121,24 +127,7 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
            </div>
         }
         return (
-            <div>
-                <Router basename="/">
-                    <Switch>
-                        <Route exact path="/istop">
-                            <ISTOPWebsite/>
-                            <Link to="/">
-                                <Button onClick={this.setMode(0)}>Go back to home page </Button>
-                            </Link>
-                        </Route>
-                    </Switch>
-                    <Switch>
-                        <Route exact path="/">
-                            <div>{toDisplay}</div>
-                        </Route>
-                    </Switch>
-                </Router>
-                
-        </div>
+                <div>{toDisplay}</div>
         )
     }
 }
