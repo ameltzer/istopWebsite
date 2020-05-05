@@ -10,8 +10,6 @@ import {
     Route,
     Link
   } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-
 interface TopLevelProps {
 
 }
@@ -20,7 +18,6 @@ interface TopLevelState {
     mode: number
     curpw:string
     errorMessage:string
-    history:any
 }
 
 
@@ -30,8 +27,7 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
         this.state = {
             mode:0,
             curpw:"",
-            errorMessage:"",
-            history:useHistory()
+            errorMessage:""
         }
     }
 
@@ -76,11 +72,6 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                 })
             }
         }
-    }
-
-    setModeAndPushHistory = (e) => {
-        this.state.history.push("/")
-        this.setMode(0)(e)
     }
 
     textAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -132,7 +123,9 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                     <Switch>
                         <Route exact path="/istop">
                             <ISTOPWebsite/>
-                            <Button onClick={this.setModeAndPushHistory}>Go back to home page </Button>
+                            <Link to="/">
+                                <Button onClick={this.setMode(0)}>Go back to home page </Button>
+                            </Link>
                         </Route>
                     </Switch>
                     <Switch>
