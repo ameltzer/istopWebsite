@@ -10,6 +10,7 @@ import {
     Route,
     Link
   } from "react-router-dom";
+
 interface TopLevelProps {
 
 }
@@ -27,7 +28,7 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
         this.state = {
             mode:0,
             curpw:"",
-            errorMessage:""
+            errorMessage:"",
         }
     }
 
@@ -86,8 +87,10 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
       }
 
     render() {
+        console.log('-------')
+        console.log('-------')
         var toDisplay = <div></div>;
-        console.log("mode: "+this.state.mode)
+        console.log("mode2: "+this.state.mode)
         if (this.state.mode == 0) {
             toDisplay = 
                 <div className="overallContainer">
@@ -119,7 +122,7 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
         }
         return (
             <div>
-                <Router>
+                <Router basename="/">
                     <Switch>
                         <Route exact path="/istop">
                             <ISTOPWebsite/>
