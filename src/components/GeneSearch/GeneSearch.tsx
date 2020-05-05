@@ -61,6 +61,7 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
       e.preventDefault()
       const genesPrior = this.state.genes.split("\n")
       const genes = genesPrior.map(gene => gene.toUpperCase()).map(gene => gene.trim())
+      console.log(genes)
       const queriesParameters = genes.map(gene => this.props.parameterBuilder(gene, this.state.type))
       const initialGeneSearchPromises = queriesParameters.map(queryParameters => API.graphql(graphqlOperation(queryParameters[0], queryParameters[1])))
       const columns:string[] = this.state && this.state.type && tableToColumns && tableToColumns.has(this.state.type) ? tableToColumns.get(this.state.type) : tableToColumns.get("Homo Sapiens")
