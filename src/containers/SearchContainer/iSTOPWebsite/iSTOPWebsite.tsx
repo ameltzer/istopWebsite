@@ -37,10 +37,10 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
             <Link to="/"/>
           </Navbar.Brand>
           <Navbar.Brand>
-            <Link to="/">Home</Link>
+            <Link to="/" className="bannerLink">Home</Link>
           </Navbar.Brand>
           <Navbar.Brand>
-            <Link to="/faq">FAQ</Link>
+            <Link to="/faq" className="bannerLink">FAQ</Link>
           </Navbar.Brand>
         </Nav>
         <Nav className="ml-auto">

@@ -6,6 +6,15 @@ header  {
     font-size: 14px;
 }
 
+
+a {
+    color: #0047ab;
+}
+
+.bannerLink {
+    color: grey;
+}
+
 div.overlfowAuto {
     overflow:auto;
 }
@@ -117,8 +126,8 @@ th {
 
 .btn-primary {
     color: #fff !important;
-    background-color: #007bff !important;
-    border-color: #007bff !important;
+    background-color: #0047ab !important;
+    border-color: #0047ab !important;
 }
 
 button {

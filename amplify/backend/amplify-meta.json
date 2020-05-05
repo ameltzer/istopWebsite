@@ -31,7 +31,7 @@
                 "GraphQLAPIEndpointOutput": "https://ehxork5cdjgwjpokwsprojv5be.appsync-api.us-east-1.amazonaws.com/graphql",
                 "GraphQLAPIKeyOutput": "da2-62qhbzlvsjcb7a2jaskuq6dwgu"
             },
-            "lastPushTimeStamp": "2020-05-05T21:03:30.631Z",
+            "lastPushTimeStamp": "2020-05-05T21:40:20.026Z",
             "providerMetadata": {
                 "s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/api/cloudformation-template.json",
                 "logicalId": "apigenes"
@@ -53,7 +53,7 @@
                 "HostingBucketName": "ciccia-lab-website-20200329193752-hostingbucket-ciccia",
                 "CloudFrontDomainName": "d1jnv7oo30532i.cloudfront.net"
             },
-            "lastPushTimeStamp": "2020-05-05T21:03:30.631Z",
+            "lastPushTimeStamp": "2020-05-05T21:40:20.027Z",
             "providerMetadata": {
                 "s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/hosting/template.json",
                 "logicalId": "hostingS3AndCloudFront"
