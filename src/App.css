@@ -176,3 +176,6 @@ button {
     overflow-x: auto;
     display: inline;
 }
+.queryResultsTable {
+    width:100% !important;
+}

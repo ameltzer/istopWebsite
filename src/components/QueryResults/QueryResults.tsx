@@ -117,7 +117,7 @@ export class QueryResults extends React.Component<QueryResultsProps>
   render() {
     const table = 
     <div className="table-responsive">
-      <table ref="main" id="dataTable" className="display table" cellSpacing="0">
+      <table ref="main" id="dataTable" className="display table queryResultsTable" cellSpacing="0">
         <thead>
           <tr>
               {this.props.columnDefinition.map(column => <th>{tableColumnTranslation.get(column)}</th>)}

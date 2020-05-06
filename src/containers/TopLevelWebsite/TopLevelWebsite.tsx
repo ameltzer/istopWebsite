@@ -104,11 +104,11 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                         
                         <br/>
                         <br/>
-                        The Lollipop Query is password protected. Please enter the password.
+                        The DDR variants query is password protected. Please enter the password.
                         <br/>
                         <textarea value={this.state.curpw} onChange={this.textAreaChange}/>
                         <br/>
-                        <Button onClick={this.setMode(2)}>Go to lollipop query</Button>
+                        <Button onClick={this.setMode(2)}>Go to DDR variants query</Button>
                         <br/>
                         {this.state.errorMessage}
                         
