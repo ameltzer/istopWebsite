@@ -116,6 +116,7 @@ export class QueryResults extends React.Component<QueryResultsProps>
 
   render() {
     const table = 
+    <div className="table-responsive">
       <table ref="main" id="dataTable" className="display table" cellSpacing="0">
         <thead>
           <tr>
@@ -145,7 +146,7 @@ export class QueryResults extends React.Component<QueryResultsProps>
           )
           }
         </tbody>
-      </table>;
+      </table></div>;
 
     return (
     <div>

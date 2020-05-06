@@ -1,7 +1,6 @@
 import * as React from "react";
 import { GeneSearch } from "../GeneSearch/GeneSearch"
 import { FilterSearch, FilterSearchState } from "../FilterSearch"
-import {SearchState} from '../../components/GeneSearch'
 import {gene,listHomoSapienss} from "../../graphql/queries"
 import {QueryResults} from '../../components/QueryResults'
 import Button from 'react-bootstrap/Button'

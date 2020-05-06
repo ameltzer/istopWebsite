@@ -115,27 +115,27 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
               </tr>
               <tr className="danger">
                     <td>Chromosome</td>
-                    <td>Chromosome Name/Number (hidden on website)</td>
+                    <td>Chromosome Name/Number</td>
                 </tr>
                 <tr className="danger">
                     <td>Strand</td>
-                    <td>Strand of the targeted base in the coding sequence (hidden on website)</td>
+                    <td>Strand of the targeted base in the coding sequence</td>
                 </tr>
                 <tr className="danger">
                     <td>Genomic Coordinate</td>
-                    <td>Genomic coordinate of the targeted base (hidden on website)</td>
+                    <td>Genomic coordinate of the targeted base</td>
                 </tr>
                 <tr className="danger">
                       <td>Targeted Codon</td>
-                      <td>Codon that is targeted (hidden on website)</td>
+                      <td>Codon that is targeted</td>
                 </tr>
                 <tr className="danger">
                     <td>Number of Isoforms</td>
-                    <td>Number of isoforms considered for the gene (hidden on the website)</td>
+                    <td>Number of isoforms considered for the gene</td>
                 </tr>
                 <tr className="danger">
                     <td>Percent Isoforms</td>
-                    <td>Percentage of the isoforms that are targeted at the coordinate of the targeted base (hidden on the website)</td>
+                    <td>Percentage of the isoforms that are targeted at the coordinate of the targeted base</td>
                 </tr>
               </tbody>
             </table> 
