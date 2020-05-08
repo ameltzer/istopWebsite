@@ -82,14 +82,14 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
 
       componentWillMount() {
           console.log("firing will mount")
-          if(window.location.href && window.location.href.toLowerCase().includes("istop")){
+          /*if(window.location.href && window.location.href.toLowerCase().includes("istop")){
             this.setState(prevState => {
                 return {
                     ...prevState,
                     mode:1
                 }
             })
-           }
+           }*/
       }
 
     render() {
