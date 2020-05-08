@@ -31,12 +31,12 @@
 				"GraphQLAPIEndpointOutput": "https://ehxork5cdjgwjpokwsprojv5be.appsync-api.us-east-1.amazonaws.com/graphql",
 				"GraphQLAPIKeyOutput": "da2-62qhbzlvsjcb7a2jaskuq6dwgu"
 			},
-			"lastPushTimeStamp": "2020-05-04T23:11:44.346Z",
+			"lastPushTimeStamp": "2020-05-08T02:49:17.290Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apigenes"
 			},
-			"lastPushDirHash": "0+y/Iu0hOX93wZUKbDwMPRJbuCE="
+			"lastPushDirHash": "xOTXjsM/4PR06wmR42tBC94qHFI="
 		}
 	},
 	"hosting": {
@@ -44,21 +44,21 @@
 			"service": "S3AndCloudFront",
 			"providerPlugin": "awscloudformation",
 			"output": {
-				"CloudFrontSecureURL": "https://d1jnv7oo30532i.cloudfront.net",
-				"S3BucketSecureURL": "https://ciccia-lab-website-20200329193752-hostingbucket-ciccia.s3.amazonaws.com",
-				"CloudFrontOriginAccessIdentity": "E2HMLK5GXFE4M2",
-				"WebsiteURL": "http://ciccia-lab-website-20200329193752-hostingbucket-ciccia.s3-website-us-east-1.amazonaws.com",
-				"CloudFrontDistributionID": "E8KT34Z6C5VDT",
+				"CloudFrontSecureURL": "https://d2gx88afjmmvf0.cloudfront.net",
+				"S3BucketSecureURL": "https://ciccia-lab-website-20200507221357-hostingbucket-ciccia.s3.amazonaws.com",
+				"CloudFrontOriginAccessIdentity": "E35EBIZUO1W9MH",
+				"WebsiteURL": "http://ciccia-lab-website-20200507221357-hostingbucket-ciccia.s3-website-us-east-1.amazonaws.com",
+				"CloudFrontDistributionID": "E3Y10MXHJZNAM",
 				"Region": "us-east-1",
-				"HostingBucketName": "ciccia-lab-website-20200329193752-hostingbucket-ciccia",
-				"CloudFrontDomainName": "d1jnv7oo30532i.cloudfront.net"
+				"HostingBucketName": "ciccia-lab-website-20200507221357-hostingbucket-ciccia",
+				"CloudFrontDomainName": "d2gx88afjmmvf0.cloudfront.net"
 			},
-			"lastPushTimeStamp": "2020-05-04T23:11:44.346Z",
+			"lastPushTimeStamp": "2020-05-08T02:49:17.292Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
 			},
-			"lastPushDirHash": "AD6vVYd4A5ZHhhwhuTL1owMx1qg="
+			"lastPushDirHash": "YzHw5P1HeJYpi2HSSdaE9B6jk24="
 		}
 	}
 }

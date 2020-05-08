@@ -88,7 +88,7 @@
 			"Properties": {
 				"TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/hosting/template.json",
 				"Parameters": {
-					"bucketName": "ciccia-lab-website-20200329193752-hostingbucket",
+					"bucketName": "ciccia-lab-website-20200507221357-hostingbucket",
 					"env": "ciccia"
 				}
 			}

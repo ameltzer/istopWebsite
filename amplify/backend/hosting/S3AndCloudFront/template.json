@@ -46,10 +46,6 @@
                         }
                     ]
                 },
-                "WebsiteConfiguration": {
-                    "IndexDocument": "index.html",
-                    "ErrorDocument": "index.html"
-                },
                 "CorsConfiguration": {
                     "CorsRules": [
                         {
@@ -66,46 +62,6 @@
                             "MaxAge": 3000
                         }
                     ]
-                }
-            }
-        },
-        "PrivateBucketPolicy": {
-            "Type": "AWS::S3::BucketPolicy",
-            "DependsOn": "OriginAccessIdentity",
-            "Properties": {
-                "PolicyDocument": {
-                    "Id": "MyPolicy",
-                    "Version": "2012-10-17",
-                    "Statement": [
-                        {
-                            "Sid": "APIReadForGetBucketObjects",
-                            "Effect": "Allow",
-                            "Principal": {
-                                "CanonicalUser": {
-                                    "Fn::GetAtt": [
-                                        "OriginAccessIdentity",
-                                        "S3CanonicalUserId"
-                                    ]
-                                }
-                            },
-                            "Action": "s3:GetObject",
-                            "Resource": {
-                                "Fn::Join": [
-                                    "",
-                                    [
-                                        "arn:aws:s3:::",
-                                        {
-                                            "Ref": "S3Bucket"
-                                        },
-                                        "/*"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "Bucket": {
-                    "Ref": "S3Bucket"
                 }
             }
         },
@@ -165,9 +121,9 @@
                             "QueryString": "false"
                         },
                         "ViewerProtocolPolicy": "redirect-to-https",
-                        "DefaultTTL": 86400,
-                        "MaxTTL": 31536000,
-                        "MinTTL": 60,
+                        "DefaultTTL": "10",
+                        "MaxTTL": "10",
+                        "MinTTL": "10",
                         "Compress": true
                     },
                     "DefaultRootObject": "index.html",
@@ -191,6 +147,46 @@
                             "ResponsePagePath": "/"
                         }
                     ]
+                }
+            }
+        },
+        "PrivateBucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "DependsOn": "OriginAccessIdentity",
+            "Properties": {
+                "PolicyDocument": {
+                    "Id": "MyPolicy",
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Sid": "APIReadForGetBucketObjects",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "CanonicalUser": {
+                                    "Fn::GetAtt": [
+                                        "OriginAccessIdentity",
+                                        "S3CanonicalUserId"
+                                    ]
+                                }
+                            },
+                            "Action": "s3:GetObject",
+                            "Resource": {
+                                "Fn::Join": [
+                                    "",
+                                    [
+                                        "arn:aws:s3:::",
+                                        {
+                                            "Ref": "S3Bucket"
+                                        },
+                                        "/*"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "Bucket": {
+                    "Ref": "S3Bucket"
                 }
             }
         }
