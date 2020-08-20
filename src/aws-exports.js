@@ -8,7 +8,12 @@ const awsmobile = {
     "aws_appsync_apiKey": "da2-62qhbzlvsjcb7a2jaskuq6dwgu",
     "aws_content_delivery_bucket": "ciccia-lab-website-20200507221357-hostingbucket-ciccia",
     "aws_content_delivery_bucket_region": "us-east-1",
-    "aws_content_delivery_url": "https://d2gx88afjmmvf0.cloudfront.net"
+    "aws_content_delivery_url": "https://d2gx88afjmmvf0.cloudfront.net",
+    "aws_cognito_identity_pool_id": "us-east-1:91fce81b-a7fd-4ce7-b23e-43f4e1983174",
+    "aws_cognito_region": "us-east-1",
+    "oauth": {},
+    "aws_mobile_analytics_app_id": "cfde2fbca1da41d9a3adb641ccf16268",
+    "aws_mobile_analytics_app_region": "us-east-1"
 };
 
 

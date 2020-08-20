@@ -10,6 +10,11 @@
             "StackName": "amplify-ciccia-lab-website-ciccia-202110",
             "StackId": "arn:aws:cloudformation:us-east-1:333032867409:stack/amplify-ciccia-lab-website-ciccia-202110/dff29570-6652-11ea-a7ad-126c97cb5bc1",
             "AmplifyAppId": "d2q8dmq4hh6f50"
+        },
+        "categories": {
+            "auth": {
+                "cognito2eeaa326": {}
+            }
         }
     }
 }

@@ -1,0 +1,20 @@
+{
+    "appName": "ciccialabwebsite",
+    "roleName": "pinpointLambdaRole129b3c56",
+    "cloudWatchPolicyName": "cloudWatchPolicy129b3c56",
+    "pinpointPolicyName": "pinpointPolicy129b3c56",
+    "authPolicyName": "pinpoint_amplify_129b3c56",
+    "unauthPolicyName": "pinpoint_amplify_129b3c56",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
