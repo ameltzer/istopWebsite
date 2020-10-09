@@ -97,7 +97,7 @@ export class CancerSearch extends React.Component<CancerProps, CancerSearchArgs>
             console.log("after query values1")
             console.log(queryValue["cancer_type"])
             console.log("after query values2")
-            return queryValue["cancer_type"] && (queryValue["cancer_type"].includes(type) || queryValue["cancer_type"].includes("Any"))
+            return queryValue["cancer_type"] && (queryValue["cancer_type"].includes(type) || type === "Any" || type === "any")
         }
         )
         this.setState((prevState) => { 
