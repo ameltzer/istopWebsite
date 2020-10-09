@@ -89,10 +89,15 @@ export class CancerSearch extends React.Component<CancerProps, CancerSearchArgs>
     }
 
     receiveState(queryValues:Object[], queryColumns:string[], type:string) {
-        console.log("type")
+        console.log("type1")
         console.log(type)
+        console.log(queryValues)
+        console.log("after query values")
         const filteredQueryValues:Object[] = queryValues.filter(queryValue =>{
-            return queryValue["cancer_type"] && queryValue["cancer_type"].includes(type)
+            console.log("after query values1")
+            console.log(queryValue["cancer_type"])
+            console.log("after query values2")
+            return queryValue["cancer_type"] && (queryValue["cancer_type"].includes(type) || queryValue["cancer_type"].includes("Any"))
         }
         )
         this.setState((prevState) => { 
@@ -162,7 +167,9 @@ export class CancerSearch extends React.Component<CancerProps, CancerSearchArgs>
             toDisplay =  <div className="rowflow">
                             <div>
                             <p>Search for sgSTOPs to model cancer-associated nonsense mutations in gene(s) of interest</p>
-                            <GeneSearch isCancerSearch={true} receiveState={this.receiveState.bind(this)} label="Cancer Types" types={cancerTypes} parameterBuilder={this.cancerCallBack} customDataPrune={result => result}/>
+                            <GeneSearch isCancerSearch={true} 
+                            receiveState={this.receiveState.bind(this)} label="Cancer Types" types={cancerTypes}
+                             parameterBuilder={this.cancerCallBack} customDataPrune={result => result}/>
                             </div>
                             <div className="ib2">
                             <p>Search for sgSTOPs to model nonsense mutations in cancer type(s) of interest</p>
