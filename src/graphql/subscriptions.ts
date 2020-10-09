@@ -37,6 +37,8 @@ export const onCreateHomoSapiens = /* GraphQL */ `
       sgNNNRRT_spacing
       strand
       cancer_type
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -76,6 +78,8 @@ export const onUpdateHomoSapiens = /* GraphQL */ `
       sgNNNRRT_spacing
       strand
       cancer_type
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -115,6 +119,8 @@ export const onDeleteHomoSapiens = /* GraphQL */ `
       sgNNNRRT_spacing
       strand
       cancer_type
+      createdAt
+      updatedAt
     }
   }
 `;

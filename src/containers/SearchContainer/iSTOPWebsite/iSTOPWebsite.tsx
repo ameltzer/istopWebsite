@@ -12,6 +12,10 @@ interface ISTOPWebsiteProps {
 
 }
 
+interface randomInterface {
+  
+}
+
 interface ISTOPWebsiteState {
 
 }

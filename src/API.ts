@@ -36,6 +36,8 @@ export type CreateHomoSapiensInput = {
   sgNNNRRT_spacing?: string | null,
   strand?: string | null,
   cancer_type?: string | null,
+  createdAt?: string | null,
+  updatedAt?: string | null,
 };
 
 export type ModelHomoSapiensConditionInput = {
@@ -71,6 +73,8 @@ export type ModelHomoSapiensConditionInput = {
   sgNNNRRT_spacing?: ModelStringInput | null,
   strand?: ModelStringInput | null,
   cancer_type?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
   and?: Array< ModelHomoSapiensConditionInput | null > | null,
   or?: Array< ModelHomoSapiensConditionInput | null > | null,
   not?: ModelHomoSapiensConditionInput | null,
@@ -150,6 +154,8 @@ export type UpdateHomoSapiensInput = {
   sgNNNRRT_spacing?: string | null,
   strand?: string | null,
   cancer_type?: string | null,
+  createdAt?: string | null,
+  updatedAt?: string | null,
 };
 
 export type DeleteHomoSapiensInput = {
@@ -1172,6 +1178,8 @@ export type ModelHomoSapiensFilterInput = {
   sgNNNRRT_spacing?: ModelStringInput | null,
   strand?: ModelStringInput | null,
   cancer_type?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
   and?: Array< ModelHomoSapiensFilterInput | null > | null,
   or?: Array< ModelHomoSapiensFilterInput | null > | null,
   not?: ModelHomoSapiensFilterInput | null,
@@ -1558,6 +1566,8 @@ export type CreateHomoSapiensMutation = {
     sgNNNRRT_spacing: string | null,
     strand: string | null,
     cancer_type: string | null,
+    createdAt: string | null,
+    updatedAt: string | null,
   } | null,
 };
 
@@ -1602,6 +1612,8 @@ export type UpdateHomoSapiensMutation = {
     sgNNNRRT_spacing: string | null,
     strand: string | null,
     cancer_type: string | null,
+    createdAt: string | null,
+    updatedAt: string | null,
   } | null,
 };
 
@@ -1646,6 +1658,8 @@ export type DeleteHomoSapiensMutation = {
     sgNNNRRT_spacing: string | null,
     strand: string | null,
     cancer_type: string | null,
+    createdAt: string | null,
+    updatedAt: string | null,
   } | null,
 };
 
@@ -3003,6 +3017,8 @@ export type GetHomoSapiensQuery = {
     sgNNNRRT_spacing: string | null,
     strand: string | null,
     cancer_type: string | null,
+    createdAt: string | null,
+    updatedAt: string | null,
   } | null,
 };
 
@@ -3050,6 +3066,8 @@ export type ListHomoSapienssQuery = {
       sgNNNRRT_spacing: string | null,
       strand: string | null,
       cancer_type: string | null,
+      createdAt: string | null,
+      updatedAt: string | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3989,6 +4007,8 @@ export type GeneQuery = {
       sgNNNRRT_spacing: string | null,
       strand: string | null,
       cancer_type: string | null,
+      createdAt: string | null,
+      updatedAt: string | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4040,6 +4060,8 @@ export type NewCancerTypeQuery = {
       sgNNNRRT_spacing: string | null,
       strand: string | null,
       cancer_type: string | null,
+      createdAt: string | null,
+      updatedAt: string | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4452,6 +4474,8 @@ export type OnCreateHomoSapiensSubscription = {
     sgNNNRRT_spacing: string | null,
     strand: string | null,
     cancer_type: string | null,
+    createdAt: string | null,
+    updatedAt: string | null,
   } | null,
 };
 
@@ -4491,6 +4515,8 @@ export type OnUpdateHomoSapiensSubscription = {
     sgNNNRRT_spacing: string | null,
     strand: string | null,
     cancer_type: string | null,
+    createdAt: string | null,
+    updatedAt: string | null,
   } | null,
 };
 
@@ -4530,6 +4556,8 @@ export type OnDeleteHomoSapiensSubscription = {
     sgNNNRRT_spacing: string | null,
     strand: string | null,
     cancer_type: string | null,
+    createdAt: string | null,
+    updatedAt: string | null,
   } | null,
 };
 

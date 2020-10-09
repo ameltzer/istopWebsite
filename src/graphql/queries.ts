@@ -37,6 +37,8 @@ export const getHomoSapiens = /* GraphQL */ `
       sgNNNRRT_spacing
       strand
       cancer_type
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -81,6 +83,8 @@ export const listHomoSapienss = /* GraphQL */ `
         sgNNNRRT_spacing
         strand
         cancer_type
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -941,6 +945,8 @@ export const gene = /* GraphQL */ `
         sgNNNRRT_spacing
         strand
         cancer_type
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -995,6 +1001,8 @@ export const newCancerType = /* GraphQL */ `
         sgNNNRRT_spacing
         strand
         cancer_type
+        createdAt
+        updatedAt
       }
       nextToken
     }

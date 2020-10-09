@@ -3,5 +3,15 @@
         "configLevel": "project",
         "useProfile": true,
         "profileName": "default"
+    },
+    "aciccia": {
+        "configLevel": "project",
+        "useProfile": true,
+        "profileName": "default"
+    },
+    "cicciac": {
+        "configLevel": "project",
+        "useProfile": true,
+        "profileName": "default"
     }
 }

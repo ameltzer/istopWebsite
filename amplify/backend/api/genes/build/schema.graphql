@@ -32,6 +32,8 @@ type HomoSapiens {
   sgNNNRRT_spacing: String
   strand: String
   cancer_type: String
+  createdAt: String
+  updatedAt: String
 }
 
 type Yeast {
@@ -451,6 +453,8 @@ input ModelHomoSapiensFilterInput {
   sgNNNRRT_spacing: ModelStringInput
   strand: ModelStringInput
   cancer_type: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
   and: [ModelHomoSapiensFilterInput]
   or: [ModelHomoSapiensFilterInput]
   not: ModelHomoSapiensFilterInput
@@ -529,6 +533,8 @@ input CreateHomoSapiensInput {
   sgNNNRRT_spacing: String
   strand: String
   cancer_type: String
+  createdAt: String
+  updatedAt: String
 }
 
 input UpdateHomoSapiensInput {
@@ -565,6 +571,8 @@ input UpdateHomoSapiensInput {
   sgNNNRRT_spacing: String
   strand: String
   cancer_type: String
+  createdAt: String
+  updatedAt: String
 }
 
 input DeleteHomoSapiensInput {
@@ -646,6 +654,8 @@ input ModelHomoSapiensConditionInput {
   sgNNNRRT_spacing: ModelStringInput
   strand: ModelStringInput
   cancer_type: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
   and: [ModelHomoSapiensConditionInput]
   or: [ModelHomoSapiensConditionInput]
   not: ModelHomoSapiensConditionInput

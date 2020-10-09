@@ -32,6 +32,8 @@ type HomoSapiens @model @key(name: "byGene", fields: ["gene"], queryField:"gene"
   sgNNNRRT_spacing: String
   strand: String
   cancer_type: String
+  createdAt: String
+  updatedAt: String
 }
 
 type Yeast @model @key(name: "byGeneYeast", fields: ["gene"], queryField:"geneYeast") {

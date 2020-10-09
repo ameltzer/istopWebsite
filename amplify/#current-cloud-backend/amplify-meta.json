@@ -1,15 +1,15 @@
 {
 	"providers": {
 		"awscloudformation": {
-			"AuthRoleName": "amplify-ciccia-lab-website-ciccia-202110-authRole",
-			"UnauthRoleArn": "arn:aws:iam::333032867409:role/amplify-ciccia-lab-website-ciccia-202110-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::333032867409:role/amplify-ciccia-lab-website-ciccia-202110-authRole",
+			"AuthRoleName": "amplify-ciccia-lab-website-cicciac-210811-authRole",
+			"UnauthRoleArn": "arn:aws:iam::345472211644:role/amplify-ciccia-lab-website-cicciac-210811-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::345472211644:role/amplify-ciccia-lab-website-cicciac-210811-authRole",
 			"Region": "us-east-1",
-			"DeploymentBucketName": "amplify-ciccia-lab-website-ciccia-202110-deployment",
-			"UnauthRoleName": "amplify-ciccia-lab-website-ciccia-202110-unauthRole",
-			"StackName": "amplify-ciccia-lab-website-ciccia-202110",
-			"StackId": "arn:aws:cloudformation:us-east-1:333032867409:stack/amplify-ciccia-lab-website-ciccia-202110/dff29570-6652-11ea-a7ad-126c97cb5bc1",
-			"AmplifyAppId": "d2q8dmq4hh6f50"
+			"DeploymentBucketName": "amplify-ciccia-lab-website-cicciac-210811-deployment",
+			"UnauthRoleName": "amplify-ciccia-lab-website-cicciac-210811-unauthRole",
+			"StackName": "amplify-ciccia-lab-website-cicciac-210811",
+			"StackId": "arn:aws:cloudformation:us-east-1:345472211644:stack/amplify-ciccia-lab-website-cicciac-210811/1b20be30-ee4b-11ea-b29f-1277bf9feb05",
+			"AmplifyAppId": "d2111u5sji5uw5"
 		}
 	},
 	"api": {
@@ -27,38 +27,38 @@
 						}
 					}
 				},
-				"GraphQLAPIIdOutput": "rxv6qeuesrbaro3elpednbayni",
-				"GraphQLAPIEndpointOutput": "https://ehxork5cdjgwjpokwsprojv5be.appsync-api.us-east-1.amazonaws.com/graphql",
-				"GraphQLAPIKeyOutput": "da2-62qhbzlvsjcb7a2jaskuq6dwgu"
+				"GraphQLAPIIdOutput": "fcjyse2b3fgljlfbpa5tsoe3gq",
+				"GraphQLAPIEndpointOutput": "https://fiqq5pqiqzbddnnlhuuva44dqm.appsync-api.us-east-1.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-fanwy746rvb5rlojqdugykgm7e"
 			},
-			"lastPushTimeStamp": "2020-07-23T01:54:52.862Z",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apigenes"
 			},
-			"lastPushDirHash": "xOTXjsM/4PR06wmR42tBC94qHFI="
+			"lastPushTimeStamp": "2020-09-04T01:14:46.347Z",
+			"lastPushDirHash": "ZHOQXYvnMvoOv7P/TasisSACRnE="
 		}
 	},
 	"hosting": {
 		"S3AndCloudFront": {
 			"service": "S3AndCloudFront",
 			"providerPlugin": "awscloudformation",
-			"output": {
-				"CloudFrontSecureURL": "https://d2gx88afjmmvf0.cloudfront.net",
-				"S3BucketSecureURL": "https://ciccia-lab-website-20200507221357-hostingbucket-ciccia.s3.amazonaws.com",
-				"CloudFrontOriginAccessIdentity": "E35EBIZUO1W9MH",
-				"WebsiteURL": "http://ciccia-lab-website-20200507221357-hostingbucket-ciccia.s3-website-us-east-1.amazonaws.com",
-				"CloudFrontDistributionID": "E3Y10MXHJZNAM",
-				"Region": "us-east-1",
-				"HostingBucketName": "ciccia-lab-website-20200507221357-hostingbucket-ciccia",
-				"CloudFrontDomainName": "d2gx88afjmmvf0.cloudfront.net"
-			},
-			"lastPushTimeStamp": "2020-07-23T01:54:52.864Z",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/hosting/template.json",
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
 			},
-			"lastPushDirHash": "YzHw5P1HeJYpi2HSSdaE9B6jk24="
+			"lastPushTimeStamp": "2020-09-04T01:14:46.347Z",
+			"output": {
+				"CloudFrontSecureURL": "https://d3aouq5s3rqf5t.cloudfront.net",
+				"S3BucketSecureURL": "https://ciccia-lab-website-20200507221357-hostingbucket-cicciac.s3.amazonaws.com",
+				"CloudFrontOriginAccessIdentity": "EAGT37D03NDH8",
+				"WebsiteURL": "http://ciccia-lab-website-20200507221357-hostingbucket-cicciac.s3-website-us-east-1.amazonaws.com",
+				"CloudFrontDistributionID": "E35G2RIBHMNC9O",
+				"Region": "us-east-1",
+				"HostingBucketName": "ciccia-lab-website-20200507221357-hostingbucket-cicciac",
+				"CloudFrontDomainName": "d3aouq5s3rqf5t.cloudfront.net"
+			},
+			"lastPushDirHash": "kAs5yve0S4b9gYmIpBMsUcmyYZY="
 		}
 	},
 	"auth": {
@@ -66,15 +66,15 @@
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/auth/cognito2eeaa326-cloudformation-template.yml",
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/auth/cognito2eeaa326-cloudformation-template.yml",
 				"logicalId": "authcognito2eeaa326"
 			},
-			"lastPushTimeStamp": "2020-07-23T01:54:52.873Z",
+			"lastPushTimeStamp": "2020-09-04T01:14:46.347Z",
 			"output": {
-				"IdentityPoolId": "us-east-1:91fce81b-a7fd-4ce7-b23e-43f4e1983174",
-				"IdentityPoolName": "ciccia_lab_website_identitypool_14af56c6__ciccia"
+				"IdentityPoolId": "us-east-1:6c8dc45b-43e0-4c2b-ad21-df8c4dbea3f0",
+				"IdentityPoolName": "ciccia_lab_website_identitypool_14af56c6__cicciac"
 			},
-			"lastPushDirHash": "b1w6DgnXGe9jXZ1d8A9utbS0tCg="
+			"lastPushDirHash": "m1pQPw937xgLMuFR+Ta7xoR9B5w="
 		}
 	},
 	"analytics": {
@@ -82,16 +82,16 @@
 			"service": "Pinpoint",
 			"providerPlugin": "awscloudformation",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
 				"logicalId": "analyticsciccialabwebsite"
 			},
-			"lastPushTimeStamp": "2020-07-23T01:54:52.873Z",
+			"lastPushTimeStamp": "2020-09-04T01:14:46.347Z",
 			"output": {
-				"appName": "ciccialabwebsite-ciccia",
+				"appName": "ciccialabwebsite-cicciac",
 				"Region": "us-east-1",
-				"Id": "cfde2fbca1da41d9a3adb641ccf16268"
+				"Id": "b74e3d7f47c948a087d9f21ef8e0e440"
 			},
-			"lastPushDirHash": "uEC4blXTOfLew6jVZDqYHw4LMGc="
+			"lastPushDirHash": "+sP/U2/K4I9PUmc1djSa7oExA5g="
 		}
 	}
 }

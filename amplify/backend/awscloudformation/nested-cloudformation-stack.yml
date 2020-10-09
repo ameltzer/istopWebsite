@@ -71,32 +71,32 @@
 		"apigenes": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"Parameters": {
 					"CreateAPIKey": 1,
 					"AppSyncApiName": "genes",
 					"DynamoDBBillingMode": "PAY_PER_REQUEST",
 					"DynamoDBEnableServerSideEncryption": "false",
-					"S3DeploymentBucket": "amplify-ciccia-lab-website-ciccia-202110-deployment",
-					"S3DeploymentRootKey": "amplify-appsync-files/d2d8477ae5675659d24cf11d093174a4dde63551",
-					"env": "ciccia"
+					"S3DeploymentBucket": "amplify-ciccia-lab-website-cicciac-210811-deployment",
+					"S3DeploymentRootKey": "amplify-appsync-files/b182e43b87f01c32f5f1bce48ac9aa13116e83c1",
+					"env": "cicciac"
 				}
 			}
 		},
 		"hostingS3AndCloudFront": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/hosting/template.json",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/hosting/template.json",
 				"Parameters": {
 					"bucketName": "ciccia-lab-website-20200507221357-hostingbucket",
-					"env": "ciccia"
+					"env": "cicciac"
 				}
 			}
 		},
 		"authcognito2eeaa326": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/auth/cognito2eeaa326-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/auth/cognito2eeaa326-cloudformation-template.yml",
 				"Parameters": {
 					"identityPoolName": "ciccia_lab_website_identitypool_14af56c6",
 					"allowUnauthenticatedIdentities": true,
@@ -114,14 +114,14 @@
 							"Arn"
 						]
 					},
-					"env": "ciccia"
+					"env": "cicciac"
 				}
 			}
 		},
 		"analyticsciccialabwebsite": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-ciccia-202110-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
 				"Parameters": {
 					"appName": "ciccialabwebsite",
 					"roleName": "pinpointLambdaRole129b3c56",
@@ -141,7 +141,7 @@
 							"Arn"
 						]
 					},
-					"env": "ciccia"
+					"env": "cicciac"
 				}
 			}
 		},
