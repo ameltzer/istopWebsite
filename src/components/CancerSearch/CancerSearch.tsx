@@ -136,7 +136,7 @@ export class CancerSearch extends React.Component<CancerProps, CancerSearchArgs>
         }
         const filter = {
             cancer_type: {
-                eq: filters[0]
+                contains: filters[0]
             }
         }
 

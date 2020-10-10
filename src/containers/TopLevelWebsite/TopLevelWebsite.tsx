@@ -80,7 +80,7 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
         })
       }
 
-      componentWillMount() {
+      /*componentWillMount() {
           console.log("firing will mount")
           if(window.location.href && window.location.href.toLowerCase().includes("istop")){
             this.setState(prevState => {
@@ -90,7 +90,7 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                 }
             })
            }
-      }
+      }*/
 
     render() {
         console.log('-------')
