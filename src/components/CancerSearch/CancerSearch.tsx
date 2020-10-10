@@ -95,11 +95,15 @@ export class CancerSearch extends React.Component<CancerProps, CancerSearchArgs>
         console.log("after query values")
         const filteredQueryValues:Object[] = queryValues.filter(queryValue =>{
             console.log("after query values1")
-            console.log(queryValue["cancer_type"])
+            console.log(queryValue)
+            console.log(queryValue["cancer_type"] && (queryValue["cancer_type"].includes(type) || type === "Any" || type === "any"))
             console.log("after query values2")
             return queryValue["cancer_type"] && (queryValue["cancer_type"].includes(type) || type === "Any" || type === "any")
         }
         )
+        console.log("filteredqueryvalues")
+        console.log(filteredQueryValues)
+        console.log("end filteredquery values")
         this.setState((prevState) => { 
             return {
                 ...prevState,
