@@ -409,7 +409,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             lfcCISP: Number(filteredLollipop.lfcCISP),
             lfcUNT: Number(filteredLollipop.lfcUNT),
             pvalueUNT: Number(filteredLollipop.pvalueUNT),
-            fdrUNT: Number(filteredLollipop.pvalueUNT),
+            fdrUNT: Number(filteredLollipop.fdrUNT),
             pvalueCISP: Number(filteredLollipop.pvalueCISP),
             fdrCISP: Number(filteredLollipop.fdrCISP),
             lfcCPT: Number(filteredLollipop.lfcCPT),
