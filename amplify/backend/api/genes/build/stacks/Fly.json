@@ -226,7 +226,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Fly",
+                                    "Fly63a6df",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -241,7 +241,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Fly",
+                                    "Flyc9b2b5",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"

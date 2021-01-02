@@ -226,7 +226,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Rat",
+                                    "Ratac07c6",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -241,7 +241,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Rat",
+                                    "Rated166f",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"

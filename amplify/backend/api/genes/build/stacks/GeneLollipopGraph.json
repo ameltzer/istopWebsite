@@ -192,7 +192,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "GeneLollipopGraph",
+                                    "GeneLollipopGrf09eaf",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -207,7 +207,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "GeneLollipopGraph",
+                                    "GeneLollipopGraph9072d6",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"

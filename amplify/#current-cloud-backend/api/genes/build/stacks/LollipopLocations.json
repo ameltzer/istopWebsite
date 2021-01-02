@@ -226,7 +226,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "LollipopLocations",
+                                    "LollipopLocatibcd100",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -241,7 +241,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "LollipopLocations",
+                                    "LollipopLocationsa1618e",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"

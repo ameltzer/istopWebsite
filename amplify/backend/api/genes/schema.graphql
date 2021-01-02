@@ -313,7 +313,43 @@ type LollipopLocations @model @key(name: "byGeneLollipopLocation", fields:["gene
   fdrCPT: String
   clinVar: String
   aachg: String
+  cellLine: String
 }
+type LollipopLocationsMCF7 @model @key(name: "byGeneLollipopLocationMCF7", fields:["gene"]) {
+  id: ID!
+  gene: ID!
+  sgRNASequence: String
+  function: String!
+  aapos: String
+  lfcUNT: String
+  pvalueUNT: String
+  fdrUNT: String
+  lfcCISP: String
+  pvalueCISP: String
+  fdrCISP: String
+  lfcOLAP: String
+  pvalueOLAP: String
+  fdrOLAP: String
+  lfcDOX: String
+  pvalueDOX:String
+  fdrDOX:String
+  lfcCPT: String
+  pvalueCPT: String
+  fdrCPT: String
+  clinVar: String
+  aachg: String
+  cellLine: String
+}
+
+type GeneLollipopGraphMCF7 @model {
+  id: ID!
+  transcriptId: String!
+  transcriptId2: String
+  numberOfAAS: String
+  lollipopLocations: [LollipopLocationsMCF7]  @connection(keyName: "byGeneLollipopLocationMCF7", fields:["id"])
+  domains: [Domain] @connection(keyName: "domainByGene", fields:["id"])
+}
+
 
 type Domain @model @key(name: "domainByGene", fields:["gene"]){
   id: ID!

@@ -226,7 +226,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Plant",
+                                    "Plant7b5efd",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -241,7 +241,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Plant",
+                                    "Plant06daae",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"

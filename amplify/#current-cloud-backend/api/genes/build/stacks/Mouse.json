@@ -226,7 +226,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Mouse",
+                                    "Mouse75dade",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -241,7 +241,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Mouse",
+                                    "Mouseb16aa1",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"

@@ -69,6 +69,8 @@ type Yeast {
   sgNNNRRT_matches: String
   sgNNNRRT_spacing: String
   strand: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type Fish {
@@ -104,6 +106,8 @@ type Fish {
   sgNNNRRT: String
   sgNNNRRT_matches: String
   sgNNNRRT_spacing: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type Mouse {
@@ -139,6 +143,8 @@ type Mouse {
   sgNNNRRT_matches: String
   sgNNNRRT_spacing: String
   strand: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type Fly {
@@ -174,6 +180,8 @@ type Fly {
   sgNNNRRT_matches: String
   sgNNNRRT_spacing: String
   strand: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type Nematode {
@@ -208,6 +216,8 @@ type Nematode {
   sgNNNRRT_matches: String
   sgNNNRRT_spacing: String
   gene: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type Plant {
@@ -243,6 +253,8 @@ type Plant {
   sgNNNRRT_matches: String
   sgNNNRRT_spacing: String
   strand: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type Rat {
@@ -278,6 +290,8 @@ type Rat {
   sgNNNRRT_matches: String
   sgNNNRRT_spacing: String
   strand: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type Alias {
@@ -285,6 +299,8 @@ type Alias {
   alias: String!
   gene: String
   speciesName: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type GeneLollipopGraph {
@@ -294,6 +310,8 @@ type GeneLollipopGraph {
   numberOfAAS: String
   lollipopLocations(filter: ModelLollipopLocationsFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelLollipopLocationsConnection
   domains(filter: ModelDomainFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelDomainConnection
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type LollipopLocations {
@@ -319,6 +337,48 @@ type LollipopLocations {
   fdrCPT: String
   clinVar: String
   aachg: String
+  cellLine: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type LollipopLocationsMCF7 {
+  id: ID!
+  gene: ID!
+  sgRNASequence: String
+  function: String!
+  aapos: String
+  lfcUNT: String
+  pvalueUNT: String
+  fdrUNT: String
+  lfcCISP: String
+  pvalueCISP: String
+  fdrCISP: String
+  lfcOLAP: String
+  pvalueOLAP: String
+  fdrOLAP: String
+  lfcDOX: String
+  pvalueDOX: String
+  fdrDOX: String
+  lfcCPT: String
+  pvalueCPT: String
+  fdrCPT: String
+  clinVar: String
+  aachg: String
+  cellLine: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type GeneLollipopGraphMCF7 {
+  id: ID!
+  transcriptId: String!
+  transcriptId2: String
+  numberOfAAS: String
+  lollipopLocations(filter: ModelLollipopLocationsMCF7FilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelLollipopLocationsMCF7Connection
+  domains(filter: ModelDomainFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelDomainConnection
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type Domain {
@@ -330,10 +390,14 @@ type Domain {
   gene: ID!
   identifier: String
   color: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 type Auth {
   id: ID!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
 
 enum ModelSortDirection {
@@ -460,6 +524,19 @@ input ModelHomoSapiensFilterInput {
   not: ModelHomoSapiensFilterInput
 }
 
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
 type Query {
   getHomoSapiens(id: ID!): HomoSapiens
   listHomoSapienss(filter: ModelHomoSapiensFilterInput, limit: Int, nextToken: String): ModelHomoSapiensConnection
@@ -483,6 +560,10 @@ type Query {
   listGeneLollipopGraphs(filter: ModelGeneLollipopGraphFilterInput, limit: Int, nextToken: String): ModelGeneLollipopGraphConnection
   getLollipopLocations(id: ID!): LollipopLocations
   listLollipopLocationss(filter: ModelLollipopLocationsFilterInput, limit: Int, nextToken: String): ModelLollipopLocationsConnection
+  getLollipopLocationsMCF7(id: ID!): LollipopLocationsMCF7
+  listLollipopLocationsMCF7s(filter: ModelLollipopLocationsMCF7FilterInput, limit: Int, nextToken: String): ModelLollipopLocationsMCF7Connection
+  getGeneLollipopGraphMCF7(id: ID!): GeneLollipopGraphMCF7
+  listGeneLollipopGraphMCF7s(filter: ModelGeneLollipopGraphMCF7FilterInput, limit: Int, nextToken: String): ModelGeneLollipopGraphMCF7Connection
   getDomain(id: ID!): Domain
   listDomains(filter: ModelDomainFilterInput, limit: Int, nextToken: String): ModelDomainConnection
   getAuth(id: ID!): Auth
@@ -505,7 +586,7 @@ input CreateHomoSapiensInput {
   codon: String
   gene: String!
   genome_coord: String!
-  id: ID
+  id: String
   n_tx_in_gene: String
   no_upstream_G: String
   percent_NMD: String
@@ -613,6 +694,12 @@ type Mutation {
   createLollipopLocations(input: CreateLollipopLocationsInput!, condition: ModelLollipopLocationsConditionInput): LollipopLocations
   updateLollipopLocations(input: UpdateLollipopLocationsInput!, condition: ModelLollipopLocationsConditionInput): LollipopLocations
   deleteLollipopLocations(input: DeleteLollipopLocationsInput!, condition: ModelLollipopLocationsConditionInput): LollipopLocations
+  createLollipopLocationsMCF7(input: CreateLollipopLocationsMCF7Input!, condition: ModelLollipopLocationsMCF7ConditionInput): LollipopLocationsMCF7
+  updateLollipopLocationsMCF7(input: UpdateLollipopLocationsMCF7Input!, condition: ModelLollipopLocationsMCF7ConditionInput): LollipopLocationsMCF7
+  deleteLollipopLocationsMCF7(input: DeleteLollipopLocationsMCF7Input!, condition: ModelLollipopLocationsMCF7ConditionInput): LollipopLocationsMCF7
+  createGeneLollipopGraphMCF7(input: CreateGeneLollipopGraphMCF7Input!, condition: ModelGeneLollipopGraphMCF7ConditionInput): GeneLollipopGraphMCF7
+  updateGeneLollipopGraphMCF7(input: UpdateGeneLollipopGraphMCF7Input!, condition: ModelGeneLollipopGraphMCF7ConditionInput): GeneLollipopGraphMCF7
+  deleteGeneLollipopGraphMCF7(input: DeleteGeneLollipopGraphMCF7Input!, condition: ModelGeneLollipopGraphMCF7ConditionInput): GeneLollipopGraphMCF7
   createDomain(input: CreateDomainInput!, condition: ModelDomainConditionInput): Domain
   updateDomain(input: UpdateDomainInput!, condition: ModelDomainConditionInput): Domain
   deleteDomain(input: DeleteDomainInput!, condition: ModelDomainConditionInput): Domain
@@ -661,19 +748,6 @@ input ModelHomoSapiensConditionInput {
   not: ModelHomoSapiensConditionInput
 }
 
-enum ModelAttributeTypes {
-  binary
-  binarySet
-  bool
-  list
-  map
-  number
-  numberSet
-  string
-  stringSet
-  _null
-}
-
 type Subscription {
   onCreateHomoSapiens: HomoSapiens @aws_subscribe(mutations: ["createHomoSapiens"])
   onUpdateHomoSapiens: HomoSapiens @aws_subscribe(mutations: ["updateHomoSapiens"])
@@ -708,6 +782,12 @@ type Subscription {
   onCreateLollipopLocations: LollipopLocations @aws_subscribe(mutations: ["createLollipopLocations"])
   onUpdateLollipopLocations: LollipopLocations @aws_subscribe(mutations: ["updateLollipopLocations"])
   onDeleteLollipopLocations: LollipopLocations @aws_subscribe(mutations: ["deleteLollipopLocations"])
+  onCreateLollipopLocationsMCF7: LollipopLocationsMCF7 @aws_subscribe(mutations: ["createLollipopLocationsMCF7"])
+  onUpdateLollipopLocationsMCF7: LollipopLocationsMCF7 @aws_subscribe(mutations: ["updateLollipopLocationsMCF7"])
+  onDeleteLollipopLocationsMCF7: LollipopLocationsMCF7 @aws_subscribe(mutations: ["deleteLollipopLocationsMCF7"])
+  onCreateGeneLollipopGraphMCF7: GeneLollipopGraphMCF7 @aws_subscribe(mutations: ["createGeneLollipopGraphMCF7"])
+  onUpdateGeneLollipopGraphMCF7: GeneLollipopGraphMCF7 @aws_subscribe(mutations: ["updateGeneLollipopGraphMCF7"])
+  onDeleteGeneLollipopGraphMCF7: GeneLollipopGraphMCF7 @aws_subscribe(mutations: ["deleteGeneLollipopGraphMCF7"])
   onCreateDomain: Domain @aws_subscribe(mutations: ["createDomain"])
   onUpdateDomain: Domain @aws_subscribe(mutations: ["updateDomain"])
   onDeleteDomain: Domain @aws_subscribe(mutations: ["deleteDomain"])
@@ -765,7 +845,7 @@ input CreateYeastInput {
   codon: String
   gene: String
   genome_coord: String
-  id: ID
+  id: String
   n_tx_in_gene: String
   no_upstream_G: String
   percent_NMD: String
@@ -919,7 +999,7 @@ input CreateFishInput {
   codon: String
   gene: String
   genome_coord: String
-  id: ID
+  id: String
   n_tx_in_gene: String
   no_upstream_G: String
   percent_NMD: String
@@ -1073,7 +1153,7 @@ input CreateMouseInput {
   codon: String
   gene: String
   genome_cord: String
-  id: ID
+  id: String
   n_tx_in_gene: String
   no_upstream_G: String
   percent_NMD: String
@@ -1227,7 +1307,7 @@ input CreateFlyInput {
   codon: String
   gene: String
   genome_coord: String
-  id: ID
+  id: String
   n_tx_in_gene: String
   no_upstream_G: String
   percent_NMD: String
@@ -1379,7 +1459,7 @@ input CreateNematodeInput {
   chr: String
   codon: String
   genome_coord: String
-  id: ID
+  id: String
   n_tx_in_gene: String
   no_upstream_G: String
   percent_NMD: String
@@ -1531,7 +1611,7 @@ input CreatePlantInput {
   codon: String
   gene: String
   genome_coord: String
-  id: ID
+  id: String
   n_tx_in_gene: String
   no_upstream_G: String
   percent_NMD: String
@@ -1685,7 +1765,7 @@ input CreateRatInput {
   codon: String
   gene: String
   genome_coord: String
-  id: ID
+  id: String
   n_tx_in_gene: String
   no_upstream_G: String
   percent_NMD: String
@@ -1806,7 +1886,7 @@ input ModelAliasFilterInput {
 }
 
 input CreateAliasInput {
-  id: ID
+  id: String!
   alias: String!
   gene: String
   speciesName: String
@@ -1902,6 +1982,7 @@ input ModelLollipopLocationsFilterInput {
   fdrCPT: ModelStringInput
   clinVar: ModelStringInput
   aachg: ModelStringInput
+  cellLine: ModelStringInput
   and: [ModelLollipopLocationsFilterInput]
   or: [ModelLollipopLocationsFilterInput]
   not: ModelLollipopLocationsFilterInput
@@ -1930,6 +2011,7 @@ input CreateLollipopLocationsInput {
   fdrCPT: String
   clinVar: String
   aachg: String
+  cellLine: String
 }
 
 input UpdateLollipopLocationsInput {
@@ -1955,6 +2037,7 @@ input UpdateLollipopLocationsInput {
   fdrCPT: String
   clinVar: String
   aachg: String
+  cellLine: String
 }
 
 input DeleteLollipopLocationsInput {
@@ -1983,9 +2066,170 @@ input ModelLollipopLocationsConditionInput {
   fdrCPT: ModelStringInput
   clinVar: ModelStringInput
   aachg: ModelStringInput
+  cellLine: ModelStringInput
   and: [ModelLollipopLocationsConditionInput]
   or: [ModelLollipopLocationsConditionInput]
   not: ModelLollipopLocationsConditionInput
+}
+
+type ModelLollipopLocationsMCF7Connection {
+  items: [LollipopLocationsMCF7]
+  nextToken: String
+}
+
+input ModelLollipopLocationsMCF7FilterInput {
+  id: ModelIDInput
+  gene: ModelIDInput
+  sgRNASequence: ModelStringInput
+  function: ModelStringInput
+  aapos: ModelStringInput
+  lfcUNT: ModelStringInput
+  pvalueUNT: ModelStringInput
+  fdrUNT: ModelStringInput
+  lfcCISP: ModelStringInput
+  pvalueCISP: ModelStringInput
+  fdrCISP: ModelStringInput
+  lfcOLAP: ModelStringInput
+  pvalueOLAP: ModelStringInput
+  fdrOLAP: ModelStringInput
+  lfcDOX: ModelStringInput
+  pvalueDOX: ModelStringInput
+  fdrDOX: ModelStringInput
+  lfcCPT: ModelStringInput
+  pvalueCPT: ModelStringInput
+  fdrCPT: ModelStringInput
+  clinVar: ModelStringInput
+  aachg: ModelStringInput
+  cellLine: ModelStringInput
+  and: [ModelLollipopLocationsMCF7FilterInput]
+  or: [ModelLollipopLocationsMCF7FilterInput]
+  not: ModelLollipopLocationsMCF7FilterInput
+}
+
+input CreateLollipopLocationsMCF7Input {
+  id: ID
+  gene: ID!
+  sgRNASequence: String
+  function: String!
+  aapos: String
+  lfcUNT: String
+  pvalueUNT: String
+  fdrUNT: String
+  lfcCISP: String
+  pvalueCISP: String
+  fdrCISP: String
+  lfcOLAP: String
+  pvalueOLAP: String
+  fdrOLAP: String
+  lfcDOX: String
+  pvalueDOX: String
+  fdrDOX: String
+  lfcCPT: String
+  pvalueCPT: String
+  fdrCPT: String
+  clinVar: String
+  aachg: String
+  cellLine: String
+}
+
+input UpdateLollipopLocationsMCF7Input {
+  id: ID!
+  gene: ID
+  sgRNASequence: String
+  function: String
+  aapos: String
+  lfcUNT: String
+  pvalueUNT: String
+  fdrUNT: String
+  lfcCISP: String
+  pvalueCISP: String
+  fdrCISP: String
+  lfcOLAP: String
+  pvalueOLAP: String
+  fdrOLAP: String
+  lfcDOX: String
+  pvalueDOX: String
+  fdrDOX: String
+  lfcCPT: String
+  pvalueCPT: String
+  fdrCPT: String
+  clinVar: String
+  aachg: String
+  cellLine: String
+}
+
+input DeleteLollipopLocationsMCF7Input {
+  id: ID
+}
+
+input ModelLollipopLocationsMCF7ConditionInput {
+  gene: ModelIDInput
+  sgRNASequence: ModelStringInput
+  function: ModelStringInput
+  aapos: ModelStringInput
+  lfcUNT: ModelStringInput
+  pvalueUNT: ModelStringInput
+  fdrUNT: ModelStringInput
+  lfcCISP: ModelStringInput
+  pvalueCISP: ModelStringInput
+  fdrCISP: ModelStringInput
+  lfcOLAP: ModelStringInput
+  pvalueOLAP: ModelStringInput
+  fdrOLAP: ModelStringInput
+  lfcDOX: ModelStringInput
+  pvalueDOX: ModelStringInput
+  fdrDOX: ModelStringInput
+  lfcCPT: ModelStringInput
+  pvalueCPT: ModelStringInput
+  fdrCPT: ModelStringInput
+  clinVar: ModelStringInput
+  aachg: ModelStringInput
+  cellLine: ModelStringInput
+  and: [ModelLollipopLocationsMCF7ConditionInput]
+  or: [ModelLollipopLocationsMCF7ConditionInput]
+  not: ModelLollipopLocationsMCF7ConditionInput
+}
+
+type ModelGeneLollipopGraphMCF7Connection {
+  items: [GeneLollipopGraphMCF7]
+  nextToken: String
+}
+
+input ModelGeneLollipopGraphMCF7FilterInput {
+  id: ModelIDInput
+  transcriptId: ModelStringInput
+  transcriptId2: ModelStringInput
+  numberOfAAS: ModelStringInput
+  and: [ModelGeneLollipopGraphMCF7FilterInput]
+  or: [ModelGeneLollipopGraphMCF7FilterInput]
+  not: ModelGeneLollipopGraphMCF7FilterInput
+}
+
+input CreateGeneLollipopGraphMCF7Input {
+  id: ID
+  transcriptId: String!
+  transcriptId2: String
+  numberOfAAS: String
+}
+
+input UpdateGeneLollipopGraphMCF7Input {
+  id: ID!
+  transcriptId: String
+  transcriptId2: String
+  numberOfAAS: String
+}
+
+input DeleteGeneLollipopGraphMCF7Input {
+  id: ID
+}
+
+input ModelGeneLollipopGraphMCF7ConditionInput {
+  transcriptId: ModelStringInput
+  transcriptId2: ModelStringInput
+  numberOfAAS: ModelStringInput
+  and: [ModelGeneLollipopGraphMCF7ConditionInput]
+  or: [ModelGeneLollipopGraphMCF7ConditionInput]
+  not: ModelGeneLollipopGraphMCF7ConditionInput
 }
 
 type ModelDomainConnection {

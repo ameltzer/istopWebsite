@@ -1,4 +1,5 @@
-// tslint:disable
+/* tslint:disable */
+/* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
 export const onCreateHomoSapiens = /* GraphQL */ `
@@ -159,6 +160,8 @@ export const onCreateYeast = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -197,6 +200,8 @@ export const onUpdateYeast = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -235,6 +240,8 @@ export const onDeleteYeast = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -273,6 +280,8 @@ export const onCreateFish = /* GraphQL */ `
       sgNNNRRT
       sgNNNRRT_matches
       sgNNNRRT_spacing
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -311,6 +320,8 @@ export const onUpdateFish = /* GraphQL */ `
       sgNNNRRT
       sgNNNRRT_matches
       sgNNNRRT_spacing
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -349,6 +360,8 @@ export const onDeleteFish = /* GraphQL */ `
       sgNNNRRT
       sgNNNRRT_matches
       sgNNNRRT_spacing
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -387,6 +400,8 @@ export const onCreateMouse = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -425,6 +440,8 @@ export const onUpdateMouse = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -463,6 +480,8 @@ export const onDeleteMouse = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -501,6 +520,8 @@ export const onCreateFly = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -539,6 +560,8 @@ export const onUpdateFly = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -577,6 +600,8 @@ export const onDeleteFly = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -614,6 +639,8 @@ export const onCreateNematode = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       gene
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -651,6 +678,8 @@ export const onUpdateNematode = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       gene
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -688,6 +717,8 @@ export const onDeleteNematode = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       gene
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -726,6 +757,8 @@ export const onCreatePlant = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -764,6 +797,8 @@ export const onUpdatePlant = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -802,6 +837,8 @@ export const onDeletePlant = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -840,6 +877,8 @@ export const onCreateRat = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -878,6 +917,8 @@ export const onUpdateRat = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -916,6 +957,8 @@ export const onDeleteRat = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -926,6 +969,8 @@ export const onCreateAlias = /* GraphQL */ `
       alias
       gene
       speciesName
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -936,6 +981,8 @@ export const onUpdateAlias = /* GraphQL */ `
       alias
       gene
       speciesName
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -946,6 +993,8 @@ export const onDeleteAlias = /* GraphQL */ `
       alias
       gene
       speciesName
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -980,6 +1029,9 @@ export const onCreateGeneLollipopGraph = /* GraphQL */ `
           fdrCPT
           clinVar
           aachg
+          cellLine
+          createdAt
+          updatedAt
         }
         nextToken
       }
@@ -993,9 +1045,13 @@ export const onCreateGeneLollipopGraph = /* GraphQL */ `
           gene
           identifier
           color
+          createdAt
+          updatedAt
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1030,6 +1086,9 @@ export const onUpdateGeneLollipopGraph = /* GraphQL */ `
           fdrCPT
           clinVar
           aachg
+          cellLine
+          createdAt
+          updatedAt
         }
         nextToken
       }
@@ -1043,9 +1102,13 @@ export const onUpdateGeneLollipopGraph = /* GraphQL */ `
           gene
           identifier
           color
+          createdAt
+          updatedAt
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1080,6 +1143,9 @@ export const onDeleteGeneLollipopGraph = /* GraphQL */ `
           fdrCPT
           clinVar
           aachg
+          cellLine
+          createdAt
+          updatedAt
         }
         nextToken
       }
@@ -1093,9 +1159,13 @@ export const onDeleteGeneLollipopGraph = /* GraphQL */ `
           gene
           identifier
           color
+          createdAt
+          updatedAt
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1124,6 +1194,9 @@ export const onCreateLollipopLocations = /* GraphQL */ `
       fdrCPT
       clinVar
       aachg
+      cellLine
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1152,6 +1225,9 @@ export const onUpdateLollipopLocations = /* GraphQL */ `
       fdrCPT
       clinVar
       aachg
+      cellLine
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1180,6 +1256,273 @@ export const onDeleteLollipopLocations = /* GraphQL */ `
       fdrCPT
       clinVar
       aachg
+      cellLine
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateLollipopLocationsMcf7 = /* GraphQL */ `
+  subscription OnCreateLollipopLocationsMcf7 {
+    onCreateLollipopLocationsMCF7 {
+      id
+      gene
+      sgRNASequence
+      function
+      aapos
+      lfcUNT
+      pvalueUNT
+      fdrUNT
+      lfcCISP
+      pvalueCISP
+      fdrCISP
+      lfcOLAP
+      pvalueOLAP
+      fdrOLAP
+      lfcDOX
+      pvalueDOX
+      fdrDOX
+      lfcCPT
+      pvalueCPT
+      fdrCPT
+      clinVar
+      aachg
+      cellLine
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateLollipopLocationsMcf7 = /* GraphQL */ `
+  subscription OnUpdateLollipopLocationsMcf7 {
+    onUpdateLollipopLocationsMCF7 {
+      id
+      gene
+      sgRNASequence
+      function
+      aapos
+      lfcUNT
+      pvalueUNT
+      fdrUNT
+      lfcCISP
+      pvalueCISP
+      fdrCISP
+      lfcOLAP
+      pvalueOLAP
+      fdrOLAP
+      lfcDOX
+      pvalueDOX
+      fdrDOX
+      lfcCPT
+      pvalueCPT
+      fdrCPT
+      clinVar
+      aachg
+      cellLine
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteLollipopLocationsMcf7 = /* GraphQL */ `
+  subscription OnDeleteLollipopLocationsMcf7 {
+    onDeleteLollipopLocationsMCF7 {
+      id
+      gene
+      sgRNASequence
+      function
+      aapos
+      lfcUNT
+      pvalueUNT
+      fdrUNT
+      lfcCISP
+      pvalueCISP
+      fdrCISP
+      lfcOLAP
+      pvalueOLAP
+      fdrOLAP
+      lfcDOX
+      pvalueDOX
+      fdrDOX
+      lfcCPT
+      pvalueCPT
+      fdrCPT
+      clinVar
+      aachg
+      cellLine
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateGeneLollipopGraphMcf7 = /* GraphQL */ `
+  subscription OnCreateGeneLollipopGraphMcf7 {
+    onCreateGeneLollipopGraphMCF7 {
+      id
+      transcriptId
+      transcriptId2
+      numberOfAAS
+      lollipopLocations {
+        items {
+          id
+          gene
+          sgRNASequence
+          function
+          aapos
+          lfcUNT
+          pvalueUNT
+          fdrUNT
+          lfcCISP
+          pvalueCISP
+          fdrCISP
+          lfcOLAP
+          pvalueOLAP
+          fdrOLAP
+          lfcDOX
+          pvalueDOX
+          fdrDOX
+          lfcCPT
+          pvalueCPT
+          fdrCPT
+          clinVar
+          aachg
+          cellLine
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateGeneLollipopGraphMcf7 = /* GraphQL */ `
+  subscription OnUpdateGeneLollipopGraphMcf7 {
+    onUpdateGeneLollipopGraphMCF7 {
+      id
+      transcriptId
+      transcriptId2
+      numberOfAAS
+      lollipopLocations {
+        items {
+          id
+          gene
+          sgRNASequence
+          function
+          aapos
+          lfcUNT
+          pvalueUNT
+          fdrUNT
+          lfcCISP
+          pvalueCISP
+          fdrCISP
+          lfcOLAP
+          pvalueOLAP
+          fdrOLAP
+          lfcDOX
+          pvalueDOX
+          fdrDOX
+          lfcCPT
+          pvalueCPT
+          fdrCPT
+          clinVar
+          aachg
+          cellLine
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteGeneLollipopGraphMcf7 = /* GraphQL */ `
+  subscription OnDeleteGeneLollipopGraphMcf7 {
+    onDeleteGeneLollipopGraphMCF7 {
+      id
+      transcriptId
+      transcriptId2
+      numberOfAAS
+      lollipopLocations {
+        items {
+          id
+          gene
+          sgRNASequence
+          function
+          aapos
+          lfcUNT
+          pvalueUNT
+          fdrUNT
+          lfcCISP
+          pvalueCISP
+          fdrCISP
+          lfcOLAP
+          pvalueOLAP
+          fdrOLAP
+          lfcDOX
+          pvalueDOX
+          fdrDOX
+          lfcCPT
+          pvalueCPT
+          fdrCPT
+          clinVar
+          aachg
+          cellLine
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1194,6 +1537,8 @@ export const onCreateDomain = /* GraphQL */ `
       gene
       identifier
       color
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1208,6 +1553,8 @@ export const onUpdateDomain = /* GraphQL */ `
       gene
       identifier
       color
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1222,6 +1569,8 @@ export const onDeleteDomain = /* GraphQL */ `
       gene
       identifier
       color
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1229,6 +1578,8 @@ export const onCreateAuth = /* GraphQL */ `
   subscription OnCreateAuth {
     onCreateAuth {
       id
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1236,6 +1587,8 @@ export const onUpdateAuth = /* GraphQL */ `
   subscription OnUpdateAuth {
     onUpdateAuth {
       id
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1243,6 +1596,8 @@ export const onDeleteAuth = /* GraphQL */ `
   subscription OnDeleteAuth {
     onDeleteAuth {
       id
+      createdAt
+      updatedAt
     }
   }
 `;

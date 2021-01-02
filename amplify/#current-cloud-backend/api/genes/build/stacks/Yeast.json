@@ -226,7 +226,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Yeast",
+                                    "Yeast0e4193",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -241,7 +241,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Yeast",
+                                    "Yeaste3c76d",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"

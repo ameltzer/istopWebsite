@@ -8,6 +8,7 @@ const { ExportCSVButton } = CSVExport;
 import { HashRouter as Router} from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
+import { getGeneLollipopGraphMcf7 } from "src/graphql/queries";
 
 
 interface CandlestickProps {
@@ -19,11 +20,13 @@ interface CandlestickState {
     treatment:string
     isInSearch:boolean
     curGeneList:string[]
-    mockData:any
+    renderConfigData:any
     numberOfAAS:number
     transcriptId:string
     radioChecked:Map<string, boolean>
+    radioCheckedCell:Map<string, boolean>
     curPressed:string
+    curPressedCell:string
     funCheckBoxChecked:Map<string, boolean>
     pValueLessThan:Map<string, boolean>
     displayGene:string
@@ -92,8 +95,60 @@ const getGeneLollipopGraph2 = /* GraphQL */ `
     }
   }
 `;
+
+const getGeneLollipopGraphMCF72 = /* GraphQL */ `
+  query GetGeneLollipopGraphMCF7($id: ID!) {
+    getGeneLollipopGraphMCF7(id: $id) {
+      id
+      transcriptId
+      transcriptId2
+      numberOfAAS
+      lollipopLocations(limit:1000000) {
+        items {
+          id
+          gene
+          sgRNASequence
+          function
+          aapos
+          lfcUNT
+          pvalueUNT
+          fdrUNT
+          lfcCISP
+          pvalueCISP
+          fdrCISP
+          lfcOLAP
+          pvalueOLAP
+          fdrOLAP
+          lfcDOX
+          pvalueDOX
+          fdrDOX
+          lfcCPT
+          pvalueCPT
+          fdrCPT
+          clinVar
+          aachg
+          cellLine
+        }
+        nextToken
+      }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
+        }
+        nextToken
+      }
+    }
+  }
+`;
 const defaultHiddenHeaders = []
-const tableHeaders = ['gene','sgRNASequence','aapos','function','clinVar','lfcUNT','pvalueUNT','fdrUNT','lfcCISP','pvalueCISP','fdrCISP','lfcCPT','pvalueCPT','fdrCPT','lfcDOX','pvalueDOX','fdrDOX','lfcOLAP','pvalueOLAP','fdrOLAP','aachg']
+const tableHeaders = ['gene','sgRNASequence','aapos','function','clinVar','lfcUNT','pvalueUNT','fdrUNT','lfcCISP','pvalueCISP','fdrCISP','lfcCPT','pvalueCPT','fdrCPT','lfcDOX','pvalueDOX','fdrDOX','lfcOLAP','pvalueOLAP','fdrOLAP','aachg','cellLine']
 const tableHeaderTranslation = new Map(
   [
     ['gene', 'Gene'],
@@ -116,7 +171,8 @@ const tableHeaderTranslation = new Map(
     ['lfcOLAP', 'LFC Olaparib'],
     ['pvalueOLAP', 'P-Value Olaparib'],
     ['fdrOLAP', 'FDR Olaparib'],
-    ['aachg', 'AA Change']
+    ['aachg', 'AA Change'],
+    ['cellLine', 'Cell Line']
   ]
 )
 
@@ -130,18 +186,21 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             funCheckBoxChecked: new Map<string, boolean>([["nonsense",false], ["missense",false],["splice",false],["synonymous",false],["other",false]]),
             pValueLessThan: new Map<string, boolean>([["UNT",false],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]]),
             radioChecked: new Map<string, boolean>([["UNT",true],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]]),
+            radioCheckedCell: new Map<string,boolean>([["MCF10A", true], ["MCF7", false]]),
             curPressed: "UNT",
+            curPressedCell: "MCF10A",
             gene: "",
             treatment: "UNT",
             isInSearch:true,
             curGeneList: geneList,
             xMax: 1210,
-            mockData: {
+            renderConfigData: {
                 vizHeight: 130, // hardcoded
                 vizWidth: 665, // hardcoded
                 yMax: 23, // max #mutations
                 hugoGeneSymbol: 'Log Fold Change',
-                lollipops: [],
+                lollipops: [], //data in the table MCF10A
+                lollipopsMCF7: [], //data in the table MCF7
               },
               domains: [],
               numberOfAAS:0,
@@ -190,44 +249,54 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         const query = {
           id: this.state.gene
         };
-        API.graphql(graphqlOperation(getGeneLollipopGraph2, query)).then(result => {
+        API.graphql(graphqlOperation(getGeneLollipopGraph2, query)).then(result => { //query first database
           const filteredLocations = this.filterLocations(result.data.getGeneLollipopGraph.lollipopLocations.items)
-          const xMax:number = parseInt(result.data.getGeneLollipopGraph.numberOfAAS)
+          API.graphql(graphqlOperation(getGeneLollipopGraphMCF72, query)).then(secondQueryResult => {//query second database
+            console.log("begin query results")
+            console.log(result)
+            console.log(secondQueryResult)
+            console.log("end query results")
+            const filteredMCF7 = this.filterLocations(secondQueryResult.data.getGeneLollipopGraphMCF7.lollipopLocations.items)
+            const xMax:number = parseInt(result.data.getGeneLollipopGraph.numberOfAAS)
 
-          const domains = result.data.getGeneLollipopGraph.domains.items.map(domain => {
-            var domainEnd = domain.end > xMax ? xMax : domain.end;
+            const domains = result.data.getGeneLollipopGraph.domains.items.map(domain => {
+              var domainEnd = domain.end > xMax ? xMax : domain.end;
+    
   
-
-            return {
-              startCodon: domain.start,
-              endCodon: domainEnd,
-              label: domain.identifier,
-              color: domain.color,
-              tooltip: {
-                header:domain.identifier,
-                body: (<div>Identifier: {domain.identifier}<br/>Start: {domain.start}<br/>End: {domainEnd}</div>)
+              return {
+                startCodon: domain.start,
+                endCodon: domainEnd,
+                label: domain.identifier,
+                color: domain.color,
+                tooltip: {
+                  header:domain.identifier,
+                  body: (<div>Identifier: {domain.identifier}<br/>Start: {domain.start}<br/>End: {domainEnd}</div>)
+                }
               }
-            }
+            })
+            const sortedDomains = domains.sort((domain1, domain2) => {
+              const startDiff:number = domain1.startCodon - domain2.startCodon
+              if(startDiff==0) {
+                return domain1.endCodon - domain2.endCodon;
+              }
+              return -1;
+            })
+            console.log(sortedDomains)
+            this.setState(prevState => {
+              return {
+                ...prevState,
+                numberOfAAS: result.data.getGeneLollipopGraph.numberOfAAS,
+                transcriptId: result.data.getGeneLollipopGraph.transcriptId,
+                displayGene: this.state.gene,
+                domains: sortedDomains,
+                xMax: xMax,
+                curPressedCell: filteredMCF7.length == 0 ? "MCF10A" : prevState.curPressedCell,
+                radioCheckedCell: filteredMCF7.length == 0 ? new Map<string,boolean>([["MCF10A", true], ["MCF7", false]]) : prevState.radioCheckedCell
+              }
+            })
+            this.updateState(filteredLocations, filteredMCF7)
           })
-          const sortedDomains = domains.sort((domain1, domain2) => {
-            const startDiff:number = domain1.startCodon - domain2.startCodon
-            if(startDiff==0) {
-              return domain1.endCodon - domain2.endCodon;
-            }
-            return -1;
-          })
-          console.log(sortedDomains)
-          this.setState(prevState => {
-            return {
-              ...prevState,
-              numberOfAAS: result.data.getGeneLollipopGraph.numberOfAAS,
-              transcriptId: result.data.getGeneLollipopGraph.transcriptId,
-              displayGene: this.state.gene,
-              domains: sortedDomains,
-              xMax: xMax,
-            }
-          })
-          this.updateState(filteredLocations)
+         
         }).catch(err => {
           console.log(err)
         })
@@ -252,16 +321,17 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
       }
     }
 
-    updateState = (filteredLocations) => {
+    updateState = (filteredLocations, filteredMCF7) => {
           this.setState(prevState => {
             return {
                 ...prevState,
                 isInSearch: false,
-                mockData: {
+                renderConfigData: {
                     vizHeight: 130, // hardcoded
                     vizWidth: 665, // hardcoded
                     hugoGeneSymbol: 'Log Fold Change',
-                    lollipops: filteredLocations
+                    lollipops: filteredLocations,
+                    lollipopsMCF7: filteredMCF7
                   }
             }
     })
@@ -306,10 +376,30 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             curPressed: treatment
           }
         })
-        this.updateState(this.state.mockData.lollipops)
+        this.updateState(this.state.renderConfigData.lollipops, this.state.renderConfigData.lollipopsMCF7)
       }
     }
 
+    
+    setCellLine = (cellLine:string) => {
+      return (e) => {
+        if(cellLine === this.state.curPressedCell) {
+          return;
+        }
+        const curCheckedMap = this.state.radioCheckedCell;
+        curCheckedMap.set(cellLine, true)
+        curCheckedMap.set(this.state.curPressedCell, false)
+        this.setState(prevState => {
+          return {
+            ...prevState,
+            cellLine: cellLine,
+            radioCheckedCell: curCheckedMap,
+            curPressedCell: cellLine
+          }
+        })
+        this.updateState(this.state.renderConfigData.lollipops, this.state.renderConfigData.lollipopsMCF7)
+      }
+    }
     setFun = (fun:string) => {
       return (e) => {
         var newFunCheckBoxChecked =  this.state.funCheckBoxChecked;
@@ -377,8 +467,8 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     }
 
     render() {
-        var filteredLollipops = this.state.mockData.lollipops
-       
+        var filteredLollipops = this.state.curPressedCell === "MCF10A" ? this.state.renderConfigData.lollipops :  this.state.renderConfigData.lollipopsMCF7 //If then to determine which table to render
+        
         const funFilters:string[] = Array.from(this.state.funCheckBoxChecked).filter(funFilter => funFilter[1]).map(funFilter => funFilter[0])
         if (funFilters.length > 0) {
           filteredLollipops = filteredLollipops.filter(lollipop =>  funFilters.some(check => check === lollipop.function))
@@ -428,9 +518,15 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
           tableLollipops = tableLollipops.filter(lollipop => lollipopFilters.some(sgRNA => sgRNA === lollipop.sgRNASequence))
         }
 
-        const displayLollipops = tableLollipops.map(lollipop => {
+        const populatedLollipop = this.state.curPressedCell === "MCF10A" ? tableLollipops.map(lollipop => {
+          lollipop["cellLine"] = "MCF10A"
+          return lollipop
+        }) : tableLollipops 
+        console.log(populatedLollipop) // adds MCF10A to cell line column for only the MCF10A table
+
+        const displayLollipops = populatedLollipop.map(lollipop => {
           var newObj = {}
-          tableHeaders.forEach(el => newObj[el] = lollipop[el])
+          tableHeaders.forEach(el => newObj[el] = lollipop[el]   )
           return newObj
         })
 
@@ -468,7 +564,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                       lollipops={lollipops}
                       vizWidth={765}
                       vizHeight={500}
-                      hugoGeneSymbol={this.state.mockData.hugoGeneSymbol}
+                      hugoGeneSymbol={this.state.renderConfigData.hugoGeneSymbol}
                       xMax={this.state.xMax}
                       options={options}
                       proteinLength={this.state.numberOfAAS}
@@ -485,15 +581,22 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                       <div className="filterColumn">
                         <label className="filterHeader"><b>{"p<0.01"}</b></label>
                       </div>
+                      <div className= "filterColumn">
+                        <label className="filterHeader"><b>Cell Line</b></label>
+                      </div>
                     </div>
 
                     <div className="filterRow secondFilterRow">
                       <div className="filterColumn">
                         <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")} checked={this.state.radioChecked.get("UNT")}/>Untreated</label>
                       </div>
-                      <div>
+                      <div className= "filterColumn">
                         <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("UNT")} checked={this.state.pValueLessThan.get("UNT")}></input>
                       </div>
+                      <div className= "filterColumn">
+                        <label><input type="radio" className="rightSideButton" onClick={this.setCellLine("MCF10A")} checked={this.state.radioCheckedCell.get("MCF10A")}/>MCF10A</label>
+                      </div>
+                      
                     </div>
 
                     <div className="filterRow secondFilterRow">
@@ -503,6 +606,9 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                       <div className="filterColumn">
                         <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("CISP")} checked={this.state.pValueLessThan.get("CISP")}></input>
                       </div>
+                      <div className= "filterColumn">
+                        {this.state.renderConfigData.lollipopsMCF7.length > 0 ? <label><input type="radio" className="rightSideButton" onClick={this.setCellLine("MCF7")} checked={this.state.radioCheckedCell.get("MCF7")}/>MCF7</label> : <label></label>}
+                      </div>                      
                     </div>
                     
                     <div className="filterRow secondFilterRow">
@@ -599,6 +705,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <h2 className="helvetica">Functional analysis of nucleotide variants in DDR genes</h2>
+                    <p className="filterBody">For more information, please see: Cuella-Martin <i>et al.</i>, 2021, Cell</p>
                     <br/>
                     <p className="filterHeaderMain">Gene Search</p>
                     <b><p className="helvetica reducedMargin">Filter Box</p></b>

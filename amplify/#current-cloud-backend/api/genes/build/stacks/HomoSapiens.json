@@ -258,7 +258,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "HomoSapiens",
+                                    "HomoSapiens233ff6",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -273,7 +273,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "HomoSapiens",
+                                    "HomoSapiensafaf32",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"

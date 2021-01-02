@@ -28,44 +28,13 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
 
     setMode = (mode) => {
         return (e) => {
-            if(mode === 2) {
-                API.graphql(graphqlOperation(getAuth, {
-                    id:this.state.curpw
-                })).then(result => {
-                    if(result.data.getAuth) {
-                        this.setState(prevState => {
-                            return {
-                                ...prevState,
-                                mode:mode,
-                                errorMessage:""
-                            }
-                        })
-                    } else {
-                        this.setState(prevState => {
-                            return {
-                                ...prevState,
-                                errorMessage:"Invalid password"
-                            }
-                        })
-                    }
-                }).catch(err => {
-                    console.log(err)
-                    this.setState(prevState => {
-                        return {
-                            ...prevState,
-                            errorMessage:"Invalid password"
-                        }
-                    })
-                })
-            } else {
-                this.setState(prevState => {
-                    return {
-                        ...prevState,
-                        mode:mode,
-                        errorMessage:""
-                    }
-                })
-            }
+            this.setState(prevState => {
+                return {
+                    ...prevState,
+                    mode:mode,
+                    errorMessage:""
+                }
+            })
         }
     }
 
@@ -93,8 +62,6 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
       }
 
     render() {
-        console.log('-------')
-        console.log('-------')
         var toDisplay = <div></div>;
         console.log("mode2: "+this.state.mode)
         if (this.state.mode == 0) {
@@ -103,10 +70,6 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                         <Button onClick={this.setMode(1)}>Go to istop</Button>
                         
                         <br/>
-                        <br/>
-                        The DDR variants query is password protected. Please enter the password.
-                        <br/>
-                        <textarea value={this.state.curpw} onChange={this.textAreaChange}/>
                         <br/>
                         <Button onClick={this.setMode(2)}>Go to DDR variants query</Button>
                         <br/>

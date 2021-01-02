@@ -226,7 +226,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Nematode",
+                                    "Nematodec770b4",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -241,7 +241,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Nematode",
+                                    "Nematodeafe5bd",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"

@@ -1,4 +1,5 @@
-// tslint:disable
+/* tslint:disable */
+/* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
 export const getHomoSapiens = /* GraphQL */ `
@@ -125,6 +126,8 @@ export const getYeast = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -168,6 +171,8 @@ export const listYeasts = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         strand
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -208,6 +213,8 @@ export const getFish = /* GraphQL */ `
       sgNNNRRT
       sgNNNRRT_matches
       sgNNNRRT_spacing
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -251,6 +258,8 @@ export const listFishs = /* GraphQL */ `
         sgNNNRRT
         sgNNNRRT_matches
         sgNNNRRT_spacing
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -291,6 +300,8 @@ export const getMouse = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -334,6 +345,8 @@ export const listMouses = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         strand
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -374,6 +387,8 @@ export const getFly = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -417,6 +432,8 @@ export const listFlys = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         strand
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -456,6 +473,8 @@ export const getNematode = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       gene
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -498,6 +517,8 @@ export const listNematodes = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         gene
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -538,6 +559,8 @@ export const getPlant = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -581,6 +604,8 @@ export const listPlants = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         strand
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -621,6 +646,8 @@ export const getRat = /* GraphQL */ `
       sgNNNRRT_matches
       sgNNNRRT_spacing
       strand
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -664,6 +691,8 @@ export const listRats = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         strand
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -676,6 +705,8 @@ export const getAlias = /* GraphQL */ `
       alias
       gene
       speciesName
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -691,6 +722,8 @@ export const listAliass = /* GraphQL */ `
         alias
         gene
         speciesName
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -727,6 +760,9 @@ export const getGeneLollipopGraph = /* GraphQL */ `
           fdrCPT
           clinVar
           aachg
+          cellLine
+          createdAt
+          updatedAt
         }
         nextToken
       }
@@ -740,9 +776,13 @@ export const getGeneLollipopGraph = /* GraphQL */ `
           gene
           identifier
           color
+          createdAt
+          updatedAt
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -768,6 +808,8 @@ export const listGeneLollipopGraphs = /* GraphQL */ `
         domains {
           nextToken
         }
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -798,6 +840,9 @@ export const getLollipopLocations = /* GraphQL */ `
       fdrCPT
       clinVar
       aachg
+      cellLine
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -835,6 +880,168 @@ export const listLollipopLocationss = /* GraphQL */ `
         fdrCPT
         clinVar
         aachg
+        cellLine
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getLollipopLocationsMcf7 = /* GraphQL */ `
+  query GetLollipopLocationsMcf7($id: ID!) {
+    getLollipopLocationsMCF7(id: $id) {
+      id
+      gene
+      sgRNASequence
+      function
+      aapos
+      lfcUNT
+      pvalueUNT
+      fdrUNT
+      lfcCISP
+      pvalueCISP
+      fdrCISP
+      lfcOLAP
+      pvalueOLAP
+      fdrOLAP
+      lfcDOX
+      pvalueDOX
+      fdrDOX
+      lfcCPT
+      pvalueCPT
+      fdrCPT
+      clinVar
+      aachg
+      cellLine
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listLollipopLocationsMcf7s = /* GraphQL */ `
+  query ListLollipopLocationsMcf7s(
+    $filter: ModelLollipopLocationsMCF7FilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listLollipopLocationsMCF7s(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        gene
+        sgRNASequence
+        function
+        aapos
+        lfcUNT
+        pvalueUNT
+        fdrUNT
+        lfcCISP
+        pvalueCISP
+        fdrCISP
+        lfcOLAP
+        pvalueOLAP
+        fdrOLAP
+        lfcDOX
+        pvalueDOX
+        fdrDOX
+        lfcCPT
+        pvalueCPT
+        fdrCPT
+        clinVar
+        aachg
+        cellLine
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getGeneLollipopGraphMcf7 = /* GraphQL */ `
+  query GetGeneLollipopGraphMcf7($id: ID!) {
+    getGeneLollipopGraphMCF7(id: $id) {
+      id
+      transcriptId
+      transcriptId2
+      numberOfAAS
+      lollipopLocations {
+        items {
+          id
+          gene
+          sgRNASequence
+          function
+          aapos
+          lfcUNT
+          pvalueUNT
+          fdrUNT
+          lfcCISP
+          pvalueCISP
+          fdrCISP
+          lfcOLAP
+          pvalueOLAP
+          fdrOLAP
+          lfcDOX
+          pvalueDOX
+          fdrDOX
+          lfcCPT
+          pvalueCPT
+          fdrCPT
+          clinVar
+          aachg
+          cellLine
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      domains {
+        items {
+          id
+          accessionNumber
+          type
+          start
+          end
+          gene
+          identifier
+          color
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listGeneLollipopGraphMcf7s = /* GraphQL */ `
+  query ListGeneLollipopGraphMcf7s(
+    $filter: ModelGeneLollipopGraphMCF7FilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listGeneLollipopGraphMCF7s(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        transcriptId
+        transcriptId2
+        numberOfAAS
+        lollipopLocations {
+          nextToken
+        }
+        domains {
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -851,6 +1058,8 @@ export const getDomain = /* GraphQL */ `
       gene
       identifier
       color
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -870,6 +1079,8 @@ export const listDomains = /* GraphQL */ `
         gene
         identifier
         color
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -879,6 +1090,8 @@ export const getAuth = /* GraphQL */ `
   query GetAuth($id: ID!) {
     getAuth(id: $id) {
       id
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -891,6 +1104,8 @@ export const listAuths = /* GraphQL */ `
     listAuths(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -1056,6 +1271,8 @@ export const geneYeast = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         strand
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -1109,6 +1326,8 @@ export const geneFish = /* GraphQL */ `
         sgNNNRRT
         sgNNNRRT_matches
         sgNNNRRT_spacing
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -1162,6 +1381,8 @@ export const geneMouse = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         strand
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -1215,6 +1436,8 @@ export const geneFly = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         strand
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -1267,6 +1490,8 @@ export const geneNematode = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         gene
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -1320,6 +1545,8 @@ export const genePlant = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         strand
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -1373,6 +1600,8 @@ export const geneRat = /* GraphQL */ `
         sgNNNRRT_matches
         sgNNNRRT_spacing
         strand
+        createdAt
+        updatedAt
       }
       nextToken
     }
@@ -1398,6 +1627,8 @@ export const byAlias = /* GraphQL */ `
         alias
         gene
         speciesName
+        createdAt
+        updatedAt
       }
       nextToken
     }

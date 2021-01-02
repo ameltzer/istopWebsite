@@ -1,5 +1,5 @@
 {
-    "AppSyncApiName": "genes",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": "false"
+  "AppSyncApiName": "genes",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": "false"
 }

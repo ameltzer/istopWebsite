@@ -937,7 +937,7 @@ export type DeleteRatInput = {
 };
 
 export type CreateAliasInput = {
-  id?: string | null,
+  id: string,
   alias: string,
   gene?: string | null,
   speciesName?: string | null,
@@ -1013,6 +1013,7 @@ export type CreateLollipopLocationsInput = {
   fdrCPT?: string | null,
   clinVar?: string | null,
   aachg?: string | null,
+  cellLine?: string | null,
 };
 
 export type ModelLollipopLocationsConditionInput = {
@@ -1037,6 +1038,7 @@ export type ModelLollipopLocationsConditionInput = {
   fdrCPT?: ModelStringInput | null,
   clinVar?: ModelStringInput | null,
   aachg?: ModelStringInput | null,
+  cellLine?: ModelStringInput | null,
   and?: Array< ModelLollipopLocationsConditionInput | null > | null,
   or?: Array< ModelLollipopLocationsConditionInput | null > | null,
   not?: ModelLollipopLocationsConditionInput | null,
@@ -1081,9 +1083,121 @@ export type UpdateLollipopLocationsInput = {
   fdrCPT?: string | null,
   clinVar?: string | null,
   aachg?: string | null,
+  cellLine?: string | null,
 };
 
 export type DeleteLollipopLocationsInput = {
+  id?: string | null,
+};
+
+export type CreateLollipopLocationsMCF7Input = {
+  id?: string | null,
+  gene: string,
+  sgRNASequence?: string | null,
+  function: string,
+  aapos?: string | null,
+  lfcUNT?: string | null,
+  pvalueUNT?: string | null,
+  fdrUNT?: string | null,
+  lfcCISP?: string | null,
+  pvalueCISP?: string | null,
+  fdrCISP?: string | null,
+  lfcOLAP?: string | null,
+  pvalueOLAP?: string | null,
+  fdrOLAP?: string | null,
+  lfcDOX?: string | null,
+  pvalueDOX?: string | null,
+  fdrDOX?: string | null,
+  lfcCPT?: string | null,
+  pvalueCPT?: string | null,
+  fdrCPT?: string | null,
+  clinVar?: string | null,
+  aachg?: string | null,
+  cellLine?: string | null,
+};
+
+export type ModelLollipopLocationsMCF7ConditionInput = {
+  gene?: ModelIDInput | null,
+  sgRNASequence?: ModelStringInput | null,
+  function?: ModelStringInput | null,
+  aapos?: ModelStringInput | null,
+  lfcUNT?: ModelStringInput | null,
+  pvalueUNT?: ModelStringInput | null,
+  fdrUNT?: ModelStringInput | null,
+  lfcCISP?: ModelStringInput | null,
+  pvalueCISP?: ModelStringInput | null,
+  fdrCISP?: ModelStringInput | null,
+  lfcOLAP?: ModelStringInput | null,
+  pvalueOLAP?: ModelStringInput | null,
+  fdrOLAP?: ModelStringInput | null,
+  lfcDOX?: ModelStringInput | null,
+  pvalueDOX?: ModelStringInput | null,
+  fdrDOX?: ModelStringInput | null,
+  lfcCPT?: ModelStringInput | null,
+  pvalueCPT?: ModelStringInput | null,
+  fdrCPT?: ModelStringInput | null,
+  clinVar?: ModelStringInput | null,
+  aachg?: ModelStringInput | null,
+  cellLine?: ModelStringInput | null,
+  and?: Array< ModelLollipopLocationsMCF7ConditionInput | null > | null,
+  or?: Array< ModelLollipopLocationsMCF7ConditionInput | null > | null,
+  not?: ModelLollipopLocationsMCF7ConditionInput | null,
+};
+
+export type UpdateLollipopLocationsMCF7Input = {
+  id: string,
+  gene?: string | null,
+  sgRNASequence?: string | null,
+  function?: string | null,
+  aapos?: string | null,
+  lfcUNT?: string | null,
+  pvalueUNT?: string | null,
+  fdrUNT?: string | null,
+  lfcCISP?: string | null,
+  pvalueCISP?: string | null,
+  fdrCISP?: string | null,
+  lfcOLAP?: string | null,
+  pvalueOLAP?: string | null,
+  fdrOLAP?: string | null,
+  lfcDOX?: string | null,
+  pvalueDOX?: string | null,
+  fdrDOX?: string | null,
+  lfcCPT?: string | null,
+  pvalueCPT?: string | null,
+  fdrCPT?: string | null,
+  clinVar?: string | null,
+  aachg?: string | null,
+  cellLine?: string | null,
+};
+
+export type DeleteLollipopLocationsMCF7Input = {
+  id?: string | null,
+};
+
+export type CreateGeneLollipopGraphMCF7Input = {
+  id?: string | null,
+  transcriptId: string,
+  transcriptId2?: string | null,
+  numberOfAAS?: string | null,
+};
+
+export type ModelGeneLollipopGraphMCF7ConditionInput = {
+  transcriptId?: ModelStringInput | null,
+  transcriptId2?: ModelStringInput | null,
+  numberOfAAS?: ModelStringInput | null,
+  and?: Array< ModelGeneLollipopGraphMCF7ConditionInput | null > | null,
+  or?: Array< ModelGeneLollipopGraphMCF7ConditionInput | null > | null,
+  not?: ModelGeneLollipopGraphMCF7ConditionInput | null,
+};
+
+export type UpdateGeneLollipopGraphMCF7Input = {
+  id: string,
+  transcriptId?: string | null,
+  transcriptId2?: string | null,
+  numberOfAAS?: string | null,
+};
+
+export type DeleteGeneLollipopGraphMCF7Input = {
   id?: string | null,
 };
 
@@ -1493,9 +1607,49 @@ export type ModelLollipopLocationsFilterInput = {
   fdrCPT?: ModelStringInput | null,
   clinVar?: ModelStringInput | null,
   aachg?: ModelStringInput | null,
+  cellLine?: ModelStringInput | null,
   and?: Array< ModelLollipopLocationsFilterInput | null > | null,
   or?: Array< ModelLollipopLocationsFilterInput | null > | null,
   not?: ModelLollipopLocationsFilterInput | null,
+};
+
+export type ModelLollipopLocationsMCF7FilterInput = {
+  id?: ModelIDInput | null,
+  gene?: ModelIDInput | null,
+  sgRNASequence?: ModelStringInput | null,
+  function?: ModelStringInput | null,
+  aapos?: ModelStringInput | null,
+  lfcUNT?: ModelStringInput | null,
+  pvalueUNT?: ModelStringInput | null,
+  fdrUNT?: ModelStringInput | null,
+  lfcCISP?: ModelStringInput | null,
+  pvalueCISP?: ModelStringInput | null,
+  fdrCISP?: ModelStringInput | null,
+  lfcOLAP?: ModelStringInput | null,
+  pvalueOLAP?: ModelStringInput | null,
+  fdrOLAP?: ModelStringInput | null,
+  lfcDOX?: ModelStringInput | null,
+  pvalueDOX?: ModelStringInput | null,
+  fdrDOX?: ModelStringInput | null,
+  lfcCPT?: ModelStringInput | null,
+  pvalueCPT?: ModelStringInput | null,
+  fdrCPT?: ModelStringInput | null,
+  clinVar?: ModelStringInput | null,
+  aachg?: ModelStringInput | null,
+  cellLine?: ModelStringInput | null,
+  and?: Array< ModelLollipopLocationsMCF7FilterInput | null > | null,
+  or?: Array< ModelLollipopLocationsMCF7FilterInput | null > | null,
+  not?: ModelLollipopLocationsMCF7FilterInput | null,
+};
+
+export type ModelGeneLollipopGraphMCF7FilterInput = {
+  id?: ModelIDInput | null,
+  transcriptId?: ModelStringInput | null,
+  transcriptId2?: ModelStringInput | null,
+  numberOfAAS?: ModelStringInput | null,
+  and?: Array< ModelGeneLollipopGraphMCF7FilterInput | null > | null,
+  or?: Array< ModelGeneLollipopGraphMCF7FilterInput | null > | null,
+  not?: ModelGeneLollipopGraphMCF7FilterInput | null,
 };
 
 export type ModelDomainFilterInput = {
@@ -1703,6 +1857,8 @@ export type CreateYeastMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -1746,6 +1902,8 @@ export type UpdateYeastMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -1789,6 +1947,8 @@ export type DeleteYeastMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -1832,6 +1992,8 @@ export type CreateFishMutation = {
     sgNNNRRT: string | null,
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -1875,6 +2037,8 @@ export type UpdateFishMutation = {
     sgNNNRRT: string | null,
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -1918,6 +2082,8 @@ export type DeleteFishMutation = {
     sgNNNRRT: string | null,
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -1961,6 +2127,8 @@ export type CreateMouseMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2004,6 +2172,8 @@ export type UpdateMouseMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2047,6 +2217,8 @@ export type DeleteMouseMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2090,6 +2262,8 @@ export type CreateFlyMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2133,6 +2307,8 @@ export type UpdateFlyMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2176,6 +2352,8 @@ export type DeleteFlyMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2218,6 +2396,8 @@ export type CreateNematodeMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     gene: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2260,6 +2440,8 @@ export type UpdateNematodeMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     gene: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2302,6 +2484,8 @@ export type DeleteNematodeMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     gene: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2345,6 +2529,8 @@ export type CreatePlantMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2388,6 +2574,8 @@ export type UpdatePlantMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2431,6 +2619,8 @@ export type DeletePlantMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2474,6 +2664,8 @@ export type CreateRatMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2517,6 +2709,8 @@ export type UpdateRatMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2560,6 +2754,8 @@ export type DeleteRatMutation = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2575,6 +2771,8 @@ export type CreateAliasMutation = {
     alias: string,
     gene: string | null,
     speciesName: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2590,6 +2788,8 @@ export type UpdateAliasMutation = {
     alias: string,
     gene: string | null,
     speciesName: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2605,6 +2805,8 @@ export type DeleteAliasMutation = {
     alias: string,
     gene: string | null,
     speciesName: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2646,6 +2848,9 @@ export type CreateGeneLollipopGraphMutation = {
         fdrCPT: string | null,
         clinVar: string | null,
         aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -2661,9 +2866,13 @@ export type CreateGeneLollipopGraphMutation = {
         gene: string,
         identifier: string | null,
         color: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2705,6 +2914,9 @@ export type UpdateGeneLollipopGraphMutation = {
         fdrCPT: string | null,
         clinVar: string | null,
         aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -2720,9 +2932,13 @@ export type UpdateGeneLollipopGraphMutation = {
         gene: string,
         identifier: string | null,
         color: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2764,6 +2980,9 @@ export type DeleteGeneLollipopGraphMutation = {
         fdrCPT: string | null,
         clinVar: string | null,
         aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -2779,9 +2998,13 @@ export type DeleteGeneLollipopGraphMutation = {
         gene: string,
         identifier: string | null,
         color: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2815,6 +3038,9 @@ export type CreateLollipopLocationsMutation = {
     fdrCPT: string | null,
     clinVar: string | null,
     aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2848,6 +3074,9 @@ export type UpdateLollipopLocationsMutation = {
     fdrCPT: string | null,
     clinVar: string | null,
     aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2881,6 +3110,315 @@ export type DeleteLollipopLocationsMutation = {
     fdrCPT: string | null,
     clinVar: string | null,
     aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateLollipopLocationsMcf7MutationVariables = {
+  input: CreateLollipopLocationsMCF7Input,
+  condition?: ModelLollipopLocationsMCF7ConditionInput | null,
+};
+
+export type CreateLollipopLocationsMcf7Mutation = {
+  createLollipopLocationsMCF7:  {
+    __typename: "LollipopLocationsMCF7",
+    id: string,
+    gene: string,
+    sgRNASequence: string | null,
+    function: string,
+    aapos: string | null,
+    lfcUNT: string | null,
+    pvalueUNT: string | null,
+    fdrUNT: string | null,
+    lfcCISP: string | null,
+    pvalueCISP: string | null,
+    fdrCISP: string | null,
+    lfcOLAP: string | null,
+    pvalueOLAP: string | null,
+    fdrOLAP: string | null,
+    lfcDOX: string | null,
+    pvalueDOX: string | null,
+    fdrDOX: string | null,
+    lfcCPT: string | null,
+    pvalueCPT: string | null,
+    fdrCPT: string | null,
+    clinVar: string | null,
+    aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateLollipopLocationsMcf7MutationVariables = {
+  input: UpdateLollipopLocationsMCF7Input,
+  condition?: ModelLollipopLocationsMCF7ConditionInput | null,
+};
+
+export type UpdateLollipopLocationsMcf7Mutation = {
+  updateLollipopLocationsMCF7:  {
+    __typename: "LollipopLocationsMCF7",
+    id: string,
+    gene: string,
+    sgRNASequence: string | null,
+    function: string,
+    aapos: string | null,
+    lfcUNT: string | null,
+    pvalueUNT: string | null,
+    fdrUNT: string | null,
+    lfcCISP: string | null,
+    pvalueCISP: string | null,
+    fdrCISP: string | null,
+    lfcOLAP: string | null,
+    pvalueOLAP: string | null,
+    fdrOLAP: string | null,
+    lfcDOX: string | null,
+    pvalueDOX: string | null,
+    fdrDOX: string | null,
+    lfcCPT: string | null,
+    pvalueCPT: string | null,
+    fdrCPT: string | null,
+    clinVar: string | null,
+    aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteLollipopLocationsMcf7MutationVariables = {
+  input: DeleteLollipopLocationsMCF7Input,
+  condition?: ModelLollipopLocationsMCF7ConditionInput | null,
+};
+
+export type DeleteLollipopLocationsMcf7Mutation = {
+  deleteLollipopLocationsMCF7:  {
+    __typename: "LollipopLocationsMCF7",
+    id: string,
+    gene: string,
+    sgRNASequence: string | null,
+    function: string,
+    aapos: string | null,
+    lfcUNT: string | null,
+    pvalueUNT: string | null,
+    fdrUNT: string | null,
+    lfcCISP: string | null,
+    pvalueCISP: string | null,
+    fdrCISP: string | null,
+    lfcOLAP: string | null,
+    pvalueOLAP: string | null,
+    fdrOLAP: string | null,
+    lfcDOX: string | null,
+    pvalueDOX: string | null,
+    fdrDOX: string | null,
+    lfcCPT: string | null,
+    pvalueCPT: string | null,
+    fdrCPT: string | null,
+    clinVar: string | null,
+    aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateGeneLollipopGraphMcf7MutationVariables = {
+  input: CreateGeneLollipopGraphMCF7Input,
+  condition?: ModelGeneLollipopGraphMCF7ConditionInput | null,
+};
+
+export type CreateGeneLollipopGraphMcf7Mutation = {
+  createGeneLollipopGraphMCF7:  {
+    __typename: "GeneLollipopGraphMCF7",
+    id: string,
+    transcriptId: string,
+    transcriptId2: string | null,
+    numberOfAAS: string | null,
+    lollipopLocations:  {
+      __typename: "ModelLollipopLocationsMCF7Connection",
+      items:  Array< {
+        __typename: "LollipopLocationsMCF7",
+        id: string,
+        gene: string,
+        sgRNASequence: string | null,
+        function: string,
+        aapos: string | null,
+        lfcUNT: string | null,
+        pvalueUNT: string | null,
+        fdrUNT: string | null,
+        lfcCISP: string | null,
+        pvalueCISP: string | null,
+        fdrCISP: string | null,
+        lfcOLAP: string | null,
+        pvalueOLAP: string | null,
+        fdrOLAP: string | null,
+        lfcDOX: string | null,
+        pvalueDOX: string | null,
+        fdrDOX: string | null,
+        lfcCPT: string | null,
+        pvalueCPT: string | null,
+        fdrCPT: string | null,
+        clinVar: string | null,
+        aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateGeneLollipopGraphMcf7MutationVariables = {
+  input: UpdateGeneLollipopGraphMCF7Input,
+  condition?: ModelGeneLollipopGraphMCF7ConditionInput | null,
+};
+
+export type UpdateGeneLollipopGraphMcf7Mutation = {
+  updateGeneLollipopGraphMCF7:  {
+    __typename: "GeneLollipopGraphMCF7",
+    id: string,
+    transcriptId: string,
+    transcriptId2: string | null,
+    numberOfAAS: string | null,
+    lollipopLocations:  {
+      __typename: "ModelLollipopLocationsMCF7Connection",
+      items:  Array< {
+        __typename: "LollipopLocationsMCF7",
+        id: string,
+        gene: string,
+        sgRNASequence: string | null,
+        function: string,
+        aapos: string | null,
+        lfcUNT: string | null,
+        pvalueUNT: string | null,
+        fdrUNT: string | null,
+        lfcCISP: string | null,
+        pvalueCISP: string | null,
+        fdrCISP: string | null,
+        lfcOLAP: string | null,
+        pvalueOLAP: string | null,
+        fdrOLAP: string | null,
+        lfcDOX: string | null,
+        pvalueDOX: string | null,
+        fdrDOX: string | null,
+        lfcCPT: string | null,
+        pvalueCPT: string | null,
+        fdrCPT: string | null,
+        clinVar: string | null,
+        aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteGeneLollipopGraphMcf7MutationVariables = {
+  input: DeleteGeneLollipopGraphMCF7Input,
+  condition?: ModelGeneLollipopGraphMCF7ConditionInput | null,
+};
+
+export type DeleteGeneLollipopGraphMcf7Mutation = {
+  deleteGeneLollipopGraphMCF7:  {
+    __typename: "GeneLollipopGraphMCF7",
+    id: string,
+    transcriptId: string,
+    transcriptId2: string | null,
+    numberOfAAS: string | null,
+    lollipopLocations:  {
+      __typename: "ModelLollipopLocationsMCF7Connection",
+      items:  Array< {
+        __typename: "LollipopLocationsMCF7",
+        id: string,
+        gene: string,
+        sgRNASequence: string | null,
+        function: string,
+        aapos: string | null,
+        lfcUNT: string | null,
+        pvalueUNT: string | null,
+        fdrUNT: string | null,
+        lfcCISP: string | null,
+        pvalueCISP: string | null,
+        fdrCISP: string | null,
+        lfcOLAP: string | null,
+        pvalueOLAP: string | null,
+        fdrOLAP: string | null,
+        lfcDOX: string | null,
+        pvalueDOX: string | null,
+        fdrDOX: string | null,
+        lfcCPT: string | null,
+        pvalueCPT: string | null,
+        fdrCPT: string | null,
+        clinVar: string | null,
+        aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2900,6 +3438,8 @@ export type CreateDomainMutation = {
     gene: string,
     identifier: string | null,
     color: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2919,6 +3459,8 @@ export type UpdateDomainMutation = {
     gene: string,
     identifier: string | null,
     color: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2938,6 +3480,8 @@ export type DeleteDomainMutation = {
     gene: string,
     identifier: string | null,
     color: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2950,6 +3494,8 @@ export type CreateAuthMutation = {
   createAuth:  {
     __typename: "Auth",
     id: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2962,6 +3508,8 @@ export type UpdateAuthMutation = {
   updateAuth:  {
     __typename: "Auth",
     id: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -2974,6 +3522,8 @@ export type DeleteAuthMutation = {
   deleteAuth:  {
     __typename: "Auth",
     id: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3112,6 +3662,8 @@ export type GetYeastQuery = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3158,6 +3710,8 @@ export type ListYeastsQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       strand: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3202,6 +3756,8 @@ export type GetFishQuery = {
     sgNNNRRT: string | null,
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3248,6 +3804,8 @@ export type ListFishsQuery = {
       sgNNNRRT: string | null,
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3292,6 +3850,8 @@ export type GetMouseQuery = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3338,6 +3898,8 @@ export type ListMousesQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       strand: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3382,6 +3944,8 @@ export type GetFlyQuery = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3428,6 +3992,8 @@ export type ListFlysQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       strand: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3471,6 +4037,8 @@ export type GetNematodeQuery = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     gene: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3516,6 +4084,8 @@ export type ListNematodesQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       gene: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3560,6 +4130,8 @@ export type GetPlantQuery = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3606,6 +4178,8 @@ export type ListPlantsQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       strand: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3650,6 +4224,8 @@ export type GetRatQuery = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3696,6 +4272,8 @@ export type ListRatsQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       strand: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3712,6 +4290,8 @@ export type GetAliasQuery = {
     alias: string,
     gene: string | null,
     speciesName: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3730,6 +4310,8 @@ export type ListAliassQuery = {
       alias: string,
       gene: string | null,
       speciesName: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3772,6 +4354,9 @@ export type GetGeneLollipopGraphQuery = {
         fdrCPT: string | null,
         clinVar: string | null,
         aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -3787,9 +4372,13 @@ export type GetGeneLollipopGraphQuery = {
         gene: string,
         identifier: string | null,
         color: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3816,6 +4405,8 @@ export type ListGeneLollipopGraphsQuery = {
         __typename: "ModelDomainConnection",
         nextToken: string | null,
       } | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3850,6 +4441,9 @@ export type GetLollipopLocationsQuery = {
     fdrCPT: string | null,
     clinVar: string | null,
     aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3886,6 +4480,180 @@ export type ListLollipopLocationssQuery = {
       fdrCPT: string | null,
       clinVar: string | null,
       aachg: string | null,
+      cellLine: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetLollipopLocationsMcf7QueryVariables = {
+  id: string,
+};
+
+export type GetLollipopLocationsMcf7Query = {
+  getLollipopLocationsMCF7:  {
+    __typename: "LollipopLocationsMCF7",
+    id: string,
+    gene: string,
+    sgRNASequence: string | null,
+    function: string,
+    aapos: string | null,
+    lfcUNT: string | null,
+    pvalueUNT: string | null,
+    fdrUNT: string | null,
+    lfcCISP: string | null,
+    pvalueCISP: string | null,
+    fdrCISP: string | null,
+    lfcOLAP: string | null,
+    pvalueOLAP: string | null,
+    fdrOLAP: string | null,
+    lfcDOX: string | null,
+    pvalueDOX: string | null,
+    fdrDOX: string | null,
+    lfcCPT: string | null,
+    pvalueCPT: string | null,
+    fdrCPT: string | null,
+    clinVar: string | null,
+    aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListLollipopLocationsMcf7sQueryVariables = {
+  filter?: ModelLollipopLocationsMCF7FilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListLollipopLocationsMcf7sQuery = {
+  listLollipopLocationsMCF7s:  {
+    __typename: "ModelLollipopLocationsMCF7Connection",
+    items:  Array< {
+      __typename: "LollipopLocationsMCF7",
+      id: string,
+      gene: string,
+      sgRNASequence: string | null,
+      function: string,
+      aapos: string | null,
+      lfcUNT: string | null,
+      pvalueUNT: string | null,
+      fdrUNT: string | null,
+      lfcCISP: string | null,
+      pvalueCISP: string | null,
+      fdrCISP: string | null,
+      lfcOLAP: string | null,
+      pvalueOLAP: string | null,
+      fdrOLAP: string | null,
+      lfcDOX: string | null,
+      pvalueDOX: string | null,
+      fdrDOX: string | null,
+      lfcCPT: string | null,
+      pvalueCPT: string | null,
+      fdrCPT: string | null,
+      clinVar: string | null,
+      aachg: string | null,
+      cellLine: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetGeneLollipopGraphMcf7QueryVariables = {
+  id: string,
+};
+
+export type GetGeneLollipopGraphMcf7Query = {
+  getGeneLollipopGraphMCF7:  {
+    __typename: "GeneLollipopGraphMCF7",
+    id: string,
+    transcriptId: string,
+    transcriptId2: string | null,
+    numberOfAAS: string | null,
+    lollipopLocations:  {
+      __typename: "ModelLollipopLocationsMCF7Connection",
+      items:  Array< {
+        __typename: "LollipopLocationsMCF7",
+        id: string,
+        gene: string,
+        sgRNASequence: string | null,
+        function: string,
+        aapos: string | null,
+        lfcUNT: string | null,
+        pvalueUNT: string | null,
+        fdrUNT: string | null,
+        lfcCISP: string | null,
+        pvalueCISP: string | null,
+        fdrCISP: string | null,
+        lfcOLAP: string | null,
+        pvalueOLAP: string | null,
+        fdrOLAP: string | null,
+        lfcDOX: string | null,
+        pvalueDOX: string | null,
+        fdrDOX: string | null,
+        lfcCPT: string | null,
+        pvalueCPT: string | null,
+        fdrCPT: string | null,
+        clinVar: string | null,
+        aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListGeneLollipopGraphMcf7sQueryVariables = {
+  filter?: ModelGeneLollipopGraphMCF7FilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListGeneLollipopGraphMcf7sQuery = {
+  listGeneLollipopGraphMCF7s:  {
+    __typename: "ModelGeneLollipopGraphMCF7Connection",
+    items:  Array< {
+      __typename: "GeneLollipopGraphMCF7",
+      id: string,
+      transcriptId: string,
+      transcriptId2: string | null,
+      numberOfAAS: string | null,
+      lollipopLocations:  {
+        __typename: "ModelLollipopLocationsMCF7Connection",
+        nextToken: string | null,
+      } | null,
+      domains:  {
+        __typename: "ModelDomainConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3906,6 +4674,8 @@ export type GetDomainQuery = {
     gene: string,
     identifier: string | null,
     color: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3928,6 +4698,8 @@ export type ListDomainsQuery = {
       gene: string,
       identifier: string | null,
       color: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -3941,6 +4713,8 @@ export type GetAuthQuery = {
   getAuth:  {
     __typename: "Auth",
     id: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -3956,6 +4730,8 @@ export type ListAuthsQuery = {
     items:  Array< {
       __typename: "Auth",
       id: string,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4112,6 +4888,8 @@ export type GeneYeastQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       strand: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4162,6 +4940,8 @@ export type GeneFishQuery = {
       sgNNNRRT: string | null,
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4212,6 +4992,8 @@ export type GeneMouseQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       strand: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4262,6 +5044,8 @@ export type GeneFlyQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       strand: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4311,6 +5095,8 @@ export type GeneNematodeQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       gene: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4361,6 +5147,8 @@ export type GenePlantQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       strand: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4411,6 +5199,8 @@ export type GeneRatQuery = {
       sgNNNRRT_matches: string | null,
       sgNNNRRT_spacing: string | null,
       strand: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4433,6 +5223,8 @@ export type ByAliasQuery = {
       alias: string,
       gene: string | null,
       speciesName: string | null,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -4596,6 +5388,8 @@ export type OnCreateYeastSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -4634,6 +5428,8 @@ export type OnUpdateYeastSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -4672,6 +5468,8 @@ export type OnDeleteYeastSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -4710,6 +5508,8 @@ export type OnCreateFishSubscription = {
     sgNNNRRT: string | null,
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -4748,6 +5548,8 @@ export type OnUpdateFishSubscription = {
     sgNNNRRT: string | null,
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -4786,6 +5588,8 @@ export type OnDeleteFishSubscription = {
     sgNNNRRT: string | null,
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -4824,6 +5628,8 @@ export type OnCreateMouseSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -4862,6 +5668,8 @@ export type OnUpdateMouseSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -4900,6 +5708,8 @@ export type OnDeleteMouseSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -4938,6 +5748,8 @@ export type OnCreateFlySubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -4976,6 +5788,8 @@ export type OnUpdateFlySubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5014,6 +5828,8 @@ export type OnDeleteFlySubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5051,6 +5867,8 @@ export type OnCreateNematodeSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     gene: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5088,6 +5906,8 @@ export type OnUpdateNematodeSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     gene: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5125,6 +5945,8 @@ export type OnDeleteNematodeSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     gene: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5163,6 +5985,8 @@ export type OnCreatePlantSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5201,6 +6025,8 @@ export type OnUpdatePlantSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5239,6 +6065,8 @@ export type OnDeletePlantSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5277,6 +6105,8 @@ export type OnCreateRatSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5315,6 +6145,8 @@ export type OnUpdateRatSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5353,6 +6185,8 @@ export type OnDeleteRatSubscription = {
     sgNNNRRT_matches: string | null,
     sgNNNRRT_spacing: string | null,
     strand: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5363,6 +6197,8 @@ export type OnCreateAliasSubscription = {
     alias: string,
     gene: string | null,
     speciesName: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5373,6 +6209,8 @@ export type OnUpdateAliasSubscription = {
     alias: string,
     gene: string | null,
     speciesName: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5383,6 +6221,8 @@ export type OnDeleteAliasSubscription = {
     alias: string,
     gene: string | null,
     speciesName: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5419,6 +6259,9 @@ export type OnCreateGeneLollipopGraphSubscription = {
         fdrCPT: string | null,
         clinVar: string | null,
         aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -5434,9 +6277,13 @@ export type OnCreateGeneLollipopGraphSubscription = {
         gene: string,
         identifier: string | null,
         color: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5473,6 +6320,9 @@ export type OnUpdateGeneLollipopGraphSubscription = {
         fdrCPT: string | null,
         clinVar: string | null,
         aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -5488,9 +6338,13 @@ export type OnUpdateGeneLollipopGraphSubscription = {
         gene: string,
         identifier: string | null,
         color: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5527,6 +6381,9 @@ export type OnDeleteGeneLollipopGraphSubscription = {
         fdrCPT: string | null,
         clinVar: string | null,
         aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -5542,9 +6399,13 @@ export type OnDeleteGeneLollipopGraphSubscription = {
         gene: string,
         identifier: string | null,
         color: string | null,
+        createdAt: string,
+        updatedAt: string,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5573,6 +6434,9 @@ export type OnCreateLollipopLocationsSubscription = {
     fdrCPT: string | null,
     clinVar: string | null,
     aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5601,6 +6465,9 @@ export type OnUpdateLollipopLocationsSubscription = {
     fdrCPT: string | null,
     clinVar: string | null,
     aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5629,6 +6496,285 @@ export type OnDeleteLollipopLocationsSubscription = {
     fdrCPT: string | null,
     clinVar: string | null,
     aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateLollipopLocationsMcf7Subscription = {
+  onCreateLollipopLocationsMCF7:  {
+    __typename: "LollipopLocationsMCF7",
+    id: string,
+    gene: string,
+    sgRNASequence: string | null,
+    function: string,
+    aapos: string | null,
+    lfcUNT: string | null,
+    pvalueUNT: string | null,
+    fdrUNT: string | null,
+    lfcCISP: string | null,
+    pvalueCISP: string | null,
+    fdrCISP: string | null,
+    lfcOLAP: string | null,
+    pvalueOLAP: string | null,
+    fdrOLAP: string | null,
+    lfcDOX: string | null,
+    pvalueDOX: string | null,
+    fdrDOX: string | null,
+    lfcCPT: string | null,
+    pvalueCPT: string | null,
+    fdrCPT: string | null,
+    clinVar: string | null,
+    aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateLollipopLocationsMcf7Subscription = {
+  onUpdateLollipopLocationsMCF7:  {
+    __typename: "LollipopLocationsMCF7",
+    id: string,
+    gene: string,
+    sgRNASequence: string | null,
+    function: string,
+    aapos: string | null,
+    lfcUNT: string | null,
+    pvalueUNT: string | null,
+    fdrUNT: string | null,
+    lfcCISP: string | null,
+    pvalueCISP: string | null,
+    fdrCISP: string | null,
+    lfcOLAP: string | null,
+    pvalueOLAP: string | null,
+    fdrOLAP: string | null,
+    lfcDOX: string | null,
+    pvalueDOX: string | null,
+    fdrDOX: string | null,
+    lfcCPT: string | null,
+    pvalueCPT: string | null,
+    fdrCPT: string | null,
+    clinVar: string | null,
+    aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteLollipopLocationsMcf7Subscription = {
+  onDeleteLollipopLocationsMCF7:  {
+    __typename: "LollipopLocationsMCF7",
+    id: string,
+    gene: string,
+    sgRNASequence: string | null,
+    function: string,
+    aapos: string | null,
+    lfcUNT: string | null,
+    pvalueUNT: string | null,
+    fdrUNT: string | null,
+    lfcCISP: string | null,
+    pvalueCISP: string | null,
+    fdrCISP: string | null,
+    lfcOLAP: string | null,
+    pvalueOLAP: string | null,
+    fdrOLAP: string | null,
+    lfcDOX: string | null,
+    pvalueDOX: string | null,
+    fdrDOX: string | null,
+    lfcCPT: string | null,
+    pvalueCPT: string | null,
+    fdrCPT: string | null,
+    clinVar: string | null,
+    aachg: string | null,
+    cellLine: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateGeneLollipopGraphMcf7Subscription = {
+  onCreateGeneLollipopGraphMCF7:  {
+    __typename: "GeneLollipopGraphMCF7",
+    id: string,
+    transcriptId: string,
+    transcriptId2: string | null,
+    numberOfAAS: string | null,
+    lollipopLocations:  {
+      __typename: "ModelLollipopLocationsMCF7Connection",
+      items:  Array< {
+        __typename: "LollipopLocationsMCF7",
+        id: string,
+        gene: string,
+        sgRNASequence: string | null,
+        function: string,
+        aapos: string | null,
+        lfcUNT: string | null,
+        pvalueUNT: string | null,
+        fdrUNT: string | null,
+        lfcCISP: string | null,
+        pvalueCISP: string | null,
+        fdrCISP: string | null,
+        lfcOLAP: string | null,
+        pvalueOLAP: string | null,
+        fdrOLAP: string | null,
+        lfcDOX: string | null,
+        pvalueDOX: string | null,
+        fdrDOX: string | null,
+        lfcCPT: string | null,
+        pvalueCPT: string | null,
+        fdrCPT: string | null,
+        clinVar: string | null,
+        aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateGeneLollipopGraphMcf7Subscription = {
+  onUpdateGeneLollipopGraphMCF7:  {
+    __typename: "GeneLollipopGraphMCF7",
+    id: string,
+    transcriptId: string,
+    transcriptId2: string | null,
+    numberOfAAS: string | null,
+    lollipopLocations:  {
+      __typename: "ModelLollipopLocationsMCF7Connection",
+      items:  Array< {
+        __typename: "LollipopLocationsMCF7",
+        id: string,
+        gene: string,
+        sgRNASequence: string | null,
+        function: string,
+        aapos: string | null,
+        lfcUNT: string | null,
+        pvalueUNT: string | null,
+        fdrUNT: string | null,
+        lfcCISP: string | null,
+        pvalueCISP: string | null,
+        fdrCISP: string | null,
+        lfcOLAP: string | null,
+        pvalueOLAP: string | null,
+        fdrOLAP: string | null,
+        lfcDOX: string | null,
+        pvalueDOX: string | null,
+        fdrDOX: string | null,
+        lfcCPT: string | null,
+        pvalueCPT: string | null,
+        fdrCPT: string | null,
+        clinVar: string | null,
+        aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteGeneLollipopGraphMcf7Subscription = {
+  onDeleteGeneLollipopGraphMCF7:  {
+    __typename: "GeneLollipopGraphMCF7",
+    id: string,
+    transcriptId: string,
+    transcriptId2: string | null,
+    numberOfAAS: string | null,
+    lollipopLocations:  {
+      __typename: "ModelLollipopLocationsMCF7Connection",
+      items:  Array< {
+        __typename: "LollipopLocationsMCF7",
+        id: string,
+        gene: string,
+        sgRNASequence: string | null,
+        function: string,
+        aapos: string | null,
+        lfcUNT: string | null,
+        pvalueUNT: string | null,
+        fdrUNT: string | null,
+        lfcCISP: string | null,
+        pvalueCISP: string | null,
+        fdrCISP: string | null,
+        lfcOLAP: string | null,
+        pvalueOLAP: string | null,
+        fdrOLAP: string | null,
+        lfcDOX: string | null,
+        pvalueDOX: string | null,
+        fdrDOX: string | null,
+        lfcCPT: string | null,
+        pvalueCPT: string | null,
+        fdrCPT: string | null,
+        clinVar: string | null,
+        aachg: string | null,
+        cellLine: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    domains:  {
+      __typename: "ModelDomainConnection",
+      items:  Array< {
+        __typename: "Domain",
+        id: string,
+        accessionNumber: string | null,
+        type: string | null,
+        start: string | null,
+        end: string | null,
+        gene: string,
+        identifier: string | null,
+        color: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5643,6 +6789,8 @@ export type OnCreateDomainSubscription = {
     gene: string,
     identifier: string | null,
     color: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5657,6 +6805,8 @@ export type OnUpdateDomainSubscription = {
     gene: string,
     identifier: string | null,
     color: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5671,6 +6821,8 @@ export type OnDeleteDomainSubscription = {
     gene: string,
     identifier: string | null,
     color: string | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5678,6 +6830,8 @@ export type OnCreateAuthSubscription = {
   onCreateAuth:  {
     __typename: "Auth",
     id: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5685,6 +6839,8 @@ export type OnUpdateAuthSubscription = {
   onUpdateAuth:  {
     __typename: "Auth",
     id: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -5692,5 +6848,7 @@ export type OnDeleteAuthSubscription = {
   onDeleteAuth:  {
     __typename: "Auth",
     id: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };

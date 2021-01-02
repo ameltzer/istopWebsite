@@ -226,7 +226,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Alias",
+                                    "Aliasf31b89",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -241,7 +241,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Alias",
+                                    "Alias9c8e0f",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"

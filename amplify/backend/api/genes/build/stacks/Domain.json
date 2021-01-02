@@ -226,7 +226,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Domain",
+                                    "Domainf484a3",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
@@ -241,7 +241,7 @@
                             "Fn::Join": [
                                 "-",
                                 [
-                                    "Domain",
+                                    "Domainc977e2",
                                     "role",
                                     {
                                         "Ref": "GetAttGraphQLAPIApiId"
