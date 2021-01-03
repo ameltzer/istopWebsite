@@ -58,7 +58,7 @@ var istopWebsite = Object.assign({}, config, {
 
 var lollipopWebsite = Object.assign({}, config, {
   output: {
-    path: __dirname + "/public/ddr",
+    path: __dirname + "/public/ddr-variants",
     publicPath: "build/",
     filename: "bundle.js"
   },

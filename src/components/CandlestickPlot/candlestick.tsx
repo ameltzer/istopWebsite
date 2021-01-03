@@ -175,7 +175,6 @@ const tableHeaderTranslation = new Map(
   ]
 )
 
-const initialPValueLessThan =  new Map<string, boolean>([["UNT",false],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]])
 
 export class CandlestickResults extends React.Component<CandlestickProps, CandlestickState> {
 
@@ -185,7 +184,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             lollipopsClicked: new Map<string, boolean>(),
             displayGene:"",
             funCheckBoxChecked: new Map<string, boolean>([["nonsense",false], ["missense",false],["splice",false],["synonymous",false],["other",false]]),
-            pValueLessThan: initialPValueLessThan,
+            pValueLessThan: new Map<string, boolean>([["UNT",false],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]]),
             radioChecked: new Map<string, boolean>([["UNT",true],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]]),
             radioCheckedCell: new Map<string,boolean>([["MCF10A", true], ["MCF7", false]]),
             curPressedCell: "MCF10A",
@@ -368,7 +367,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             ...prevState,
             treatment: treatment,
             radioChecked: curCheckedMap,
-            pValueLessThan: initialPValueLessThan
+            pValueLessThan: new Map<string, boolean>([["UNT",false],["CISP",false],["OLAP",false],["DOX",false],["CPT",false]])
           }
         })
         this.updateState(this.state.renderConfigData.lollipops, this.state.renderConfigData.lollipopsMCF7)
@@ -470,6 +469,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
     }
 
     render() {
+        console.log(this.state.pValueLessThan)
         var filteredLollipops = this.state.curPressedCell === "MCF10A" ? this.state.renderConfigData.lollipops :  this.state.renderConfigData.lollipopsMCF7 //If then to determine which table to render
         
         const funFilters:string[] = Array.from(this.state.funCheckBoxChecked).filter(funFilter => funFilter[1]).map(funFilter => funFilter[0])
