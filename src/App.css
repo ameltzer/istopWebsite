@@ -120,6 +120,46 @@ th {
     font-size: 10pt;
 }
 
+.mutationalOutcomeNonsense
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    margin: 2px;
+    color: #FF0000;
+}
+
+.mutationalOutcomeMissense
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    margin: 2px;
+    color: #800080;
+}
+
+.mutationalOutcomeSplice
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;    
+    margin: 2px;
+    color: #FFA500;
+}
+
+.mutationalOutcomeSilent
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;    
+    margin: 2px;
+    color: #008000;
+}
+
+.mutationalOutcomeOther
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;   
+    margin: 2px;
+    color: #000000;
+}
+
 .legendPad {
     margin-left: 1px
 }
@@ -147,11 +187,18 @@ button {
 
 .filterColumn {
   float: left;
-  width: 33%;
+  width: 30%;
+  margin: 2px;
+}
+
+.filterFirstColumn {
+  float: left;
+  width: 40%;
+  margin: 2px;
 }
 
 .secondFilterRow {
-    width:300px;
+    width:350px;
     margin-bottom: 0px;
     margin-top: 0px;
 }
@@ -178,4 +225,16 @@ button {
 }
 .queryResultsTable {
     width:100% !important;
+}
+
+.rightSideButton {
+    padding: 5px !important;
+    -webkit-box-sizing: border-box !important; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box !important;    /* Firefox, other Gecko */
+    box-sizing: border-box !important;         /* Opera/IE 8+ */
+}
+
+
+.tspanSub {
+    font-size: 8pt;
 }

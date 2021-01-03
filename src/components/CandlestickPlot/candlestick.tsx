@@ -365,6 +365,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         if(treatment === this.state.curPressed) {
           return;
         }
+
         const curCheckedMap = this.state.radioChecked;
         curCheckedMap.set(treatment, true)
         curCheckedMap.set(this.state.curPressed, false)
@@ -394,7 +395,8 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             ...prevState,
             cellLine: cellLine,
             radioCheckedCell: curCheckedMap,
-            curPressedCell: cellLine
+            curPressedCell: cellLine,
+            lollipopsClicked: new Map<string, boolean>()
           }
         })
         this.updateState(this.state.renderConfigData.lollipops, this.state.renderConfigData.lollipopsMCF7)
@@ -417,12 +419,17 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
 
     setPValueLessThan = (treatment:string) => {
       return (e) => {
+        if (treatment !== this.state.treatment) {
+          return;
+        }
+
         const curPValue = this.state.pValueLessThan;
         curPValue.set(treatment, !curPValue.get(treatment))
         this.setState(prevState => {
           return {
             ...prevState,
             pValueLessThan: curPValue,
+            lollipopsClicked: treatment !== prevState.treatment ? new Map<string, boolean>() : prevState.lollipopsClicked
           }
         })
       }
@@ -588,32 +595,32 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
 
                     <div className="filterRow secondFilterRow">
                       <div className="filterColumn">
-                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")} checked={this.state.radioChecked.get("UNT")}/>Untreated</label>
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("UNT")} checked={this.state.radioChecked.get("UNT")}/>&nbsp;Untreated</label>
                       </div>
                       <div className= "filterColumn">
                         <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("UNT")} checked={this.state.pValueLessThan.get("UNT")}></input>
                       </div>
                       <div className= "filterColumn">
-                        <label><input type="radio" className="rightSideButton" onClick={this.setCellLine("MCF10A")} checked={this.state.radioCheckedCell.get("MCF10A")}/>MCF10A</label>
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setCellLine("MCF10A")} checked={this.state.radioCheckedCell.get("MCF10A")}/>&nbsp;MCF10A</label>
                       </div>
                       
                     </div>
 
                     <div className="filterRow secondFilterRow">
                       <div className="filterColumn">
-                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("CISP")} checked={this.state.radioChecked.get("CISP")}/>Cisplatin</label>
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("CISP")} checked={this.state.radioChecked.get("CISP")}/>&nbsp;Cisplatin</label>
                       </div>
                       <div className="filterColumn">
                         <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("CISP")} checked={this.state.pValueLessThan.get("CISP")}></input>
                       </div>
                       <div className= "filterColumn">
-                        {this.state.renderConfigData.lollipopsMCF7.length > 0 ? <label><input type="radio" className="rightSideButton" onClick={this.setCellLine("MCF7")} checked={this.state.radioCheckedCell.get("MCF7")}/>MCF7</label> : <label></label>}
+                        {this.state.renderConfigData.lollipopsMCF7.length > 0 ? <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setCellLine("MCF7")} checked={this.state.radioCheckedCell.get("MCF7")}/>&nbsp;MCF7</label> : <label></label>}
                       </div>                      
                     </div>
                     
                     <div className="filterRow secondFilterRow">
                       <div className="filterColumn">
-                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("OLAP")} checked={this.state.radioChecked.get("OLAP")}/>Olaparib</label>
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("OLAP")} checked={this.state.radioChecked.get("OLAP")}/>&nbsp;Olaparib</label>
                       </div>
                       <div className="filterColumn">
                         <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("OLAP")} checked={this.state.pValueLessThan.get("OLAP")}></input>
@@ -622,7 +629,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                     
                     <div className="filterRow secondFilterRow">
                       <div className="filterColumn">
-                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("DOX")} checked={this.state.radioChecked.get("DOX")}/>Doxorubicin</label>
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("DOX")} checked={this.state.radioChecked.get("DOX")}/>&nbsp;Doxorubicin</label>
                       </div>
                       <div className="filterColumn">
                         <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("DOX")} checked={this.state.pValueLessThan.get("DOX")}></input>
@@ -631,7 +638,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                     
                     <div className="filterRow secondFilterRow">
                       <div className="filterColumn">
-                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")} checked={this.state.radioChecked.get("CPT")}/>Camptothecin</label>
+                        <label className="filterBody"><input type="radio" className="rightSideButton" onClick={this.setTreatment("CPT")} checked={this.state.radioChecked.get("CPT")}/>&nbsp;Camptothecin</label>
                       </div>
                       <div className="filterColumn">
                         <input type="checkbox" className="rightSideButton" onClick={this.setPValueLessThan("CPT")} checked={this.state.pValueLessThan.get("CPT")}></input>
@@ -643,19 +650,22 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                   <br/>
                   <b>Mutational outcome</b>
                   <br/>
-                  <label style = {{margin: "2px", color:"#FF0000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("nonsense")} checked={this.state.funCheckBoxChecked.get("nonsense")}/>Nonsense</label>
+                  <label className="mutationalOutcomeNonsense"><input type="checkbox" onClick={this.setFun("nonsense")} checked={this.state.funCheckBoxChecked.get("nonsense")}/>&nbsp;Nonsense</label>
                   <br/>
-                  <label style = {{margin: "2px", color:"#800080"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("missense")} checked={this.state.funCheckBoxChecked.get("missense")}/>Missense</label>
+                  <label className="mutationalOutcomeMissense"><input type="checkbox" onClick={this.setFun("missense")} checked={this.state.funCheckBoxChecked.get("missense")}/>&nbsp;Missense</label>
                   <br/>
-                  <label style = {{margin: "2px", color:"#FFA500"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("splice")} checked={this.state.funCheckBoxChecked.get("splice")}/>Splice</label>
+                  <label className="mutationalOutcomeSplice"><input type="checkbox" onClick={this.setFun("splice")} checked={this.state.funCheckBoxChecked.get("splice")}/>&nbsp;Splice</label>
                   <br/>
-                  <label style = {{margin: "2px", color:"#008000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("synonymous")} checked={this.state.funCheckBoxChecked.get("synonymous")}/>Silent</label>
+                  <label className="mutationalOutcomeSilent"><input type="checkbox" onClick={this.setFun("synonymous")} checked={this.state.funCheckBoxChecked.get("synonymous")}/>&nbsp;Silent</label>
                   <br/>
-                  <label style = {{margin: "2px", color:"#000000"}}><input type="checkbox" className="rightSideButton" onClick={this.setFun("other")} checked={this.state.funCheckBoxChecked.get("other")}/>Other</label>
+                  <label className="mutationalOutcomeOther"><input type="checkbox" onClick={this.setFun("other")} checked={this.state.funCheckBoxChecked.get("other")}/>&nbsp;Other</label>
                 </div>
                 <br/>
                 <br/>
                 <br/>
+              </div>
+              <div>
+              <p className="helvetica reducedMargin">The table below contains information on the lollipops displayed in the plot. Values of individual lollipops will be shown by clicking on them in the plot.</p>
               </div>
               <div>
                 <div> 
@@ -705,7 +715,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <h2 className="helvetica">Functional analysis of nucleotide variants in DDR genes</h2>
-                    <p className="filterBody">For more information, please see: Cuella-Martin <i>et al.</i>, 2021, Cell</p>
+                    <p className="filterBody">For more information, please see: Cuella-Martin <i>et al.</i>, Cell, 2021</p>
                     <br/>
                     <p className="filterHeaderMain">Gene Search</p>
                     <b><p className="helvetica reducedMargin">Filter Box</p></b>

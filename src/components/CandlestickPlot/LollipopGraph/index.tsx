@@ -271,7 +271,7 @@ class LollipopPlot extends React.Component<any, any> {
               y={this.geneY()}
               transform={`rotate(270,${this.geneX() - 47},${this.geneY()})`}
             >
-          <tspan>log<tspan baseline-shift="sub">2</tspan>-fold change</tspan>
+          <tspan>log<tspan className="tspanSub" baseline-shift="sub">2</tspan>-fold change</tspan>
         </text>
        
           

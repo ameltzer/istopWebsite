@@ -58,6 +58,13 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
                     mode:1
                 }
             })
+           } else if(window.location.href && window.location.href.toLowerCase().includes("ddr")) {
+              this.setState(prevState => {
+                return {
+                    ...prevState,
+                    mode:2
+                  }
+                })
            }
       }
 

@@ -1,13 +1,7 @@
-module.exports = {
+var config = {
   mode: "development",
 
   entry: "./src/index.tsx",
-
-  output: {
-    path: __dirname + "/public",
-    publicPath: "build/",
-    filename: "bundle.js"
-  },
 
   devtool: "source-map",
 
@@ -43,3 +37,32 @@ module.exports = {
     ]
   }
 };
+
+var rootWebsite = Object.assign({}, config, {
+  output: {
+    path: __dirname + "/public",
+    publicPath: "build/",
+    filename: "bundle.js"
+  },
+
+});
+
+var istopWebsite = Object.assign({}, config, {
+  output: {
+    path: __dirname + "/public/istop",
+    publicPath: "build/",
+    filename: "bundle.js"
+  },
+
+});
+
+var lollipopWebsite = Object.assign({}, config, {
+  output: {
+    path: __dirname + "/public/ddr",
+    publicPath: "build/",
+    filename: "bundle.js"
+  },
+
+});
+
+module.exports = [rootWebsite, istopWebsite, lollipopWebsite]
