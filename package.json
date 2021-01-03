@@ -4,7 +4,8 @@
   "description": "boilerplate for react-redux project in typescript",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "webpacker": "node --max_old_space_size=8192"
   },
   "keywords": [
     "typescript",
