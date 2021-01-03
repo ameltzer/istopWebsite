@@ -36,12 +36,12 @@
         "GraphQLAPIEndpointOutput": "https://fiqq5pqiqzbddnnlhuuva44dqm.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-fanwy746rvb5rlojqdugykgm7e"
       },
-      "lastPushTimeStamp": "2021-01-03T02:07:09.915Z",
+      "lastPushTimeStamp": "2021-01-03T02:42:56.395Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apigenes"
       },
-      "lastPushDirHash": "O4swTJe70a/MmD0zXcb3XUWJdBg="
+      "lastPushDirHash": "9X04XGmoOuJTj72XTk9W+2pBy70="
     }
   },
   "hosting": {
@@ -58,7 +58,7 @@
         "HostingBucketName": "ciccia-lab-website-20200507221357-hostingbucket-cicciac",
         "CloudFrontDomainName": "d3aouq5s3rqf5t.cloudfront.net"
       },
-      "lastPushTimeStamp": "2021-01-03T02:07:09.915Z",
+      "lastPushTimeStamp": "2021-01-03T02:42:56.397Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/hosting/template.json",
         "logicalId": "hostingS3AndCloudFront"
@@ -74,7 +74,7 @@
         "IdentityPoolId": "us-east-1:6c8dc45b-43e0-4c2b-ad21-df8c4dbea3f0",
         "IdentityPoolName": "ciccia_lab_website_identitypool_14af56c6__cicciac"
       },
-      "lastPushTimeStamp": "2021-01-03T02:07:09.915Z",
+      "lastPushTimeStamp": "2021-01-03T02:42:56.398Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/auth/cognito2eeaa326-cloudformation-template.yml",
         "logicalId": "authcognito2eeaa326"
@@ -91,7 +91,7 @@
         "Region": "us-east-1",
         "Id": "b74e3d7f47c948a087d9f21ef8e0e440"
       },
-      "lastPushTimeStamp": "2021-01-03T02:07:09.915Z",
+      "lastPushTimeStamp": "2021-01-03T02:42:56.399Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
         "logicalId": "analyticsciccialabwebsite"
