@@ -424,12 +424,13 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         }
 
         const curPValue = this.state.pValueLessThan;
-        curPValue.set(treatment, !curPValue.get(treatment))
+        const newPValueBool = !curPValue.get(treatment)
+        curPValue.set(treatment, newPValueBool)
         this.setState(prevState => {
           return {
             ...prevState,
             pValueLessThan: curPValue,
-            lollipopsClicked: treatment !== prevState.treatment ? new Map<string, boolean>() : prevState.lollipopsClicked
+            lollipopsClicked: (treatment !== prevState.treatment || !newPValueBool) ? new Map<string, boolean>() : prevState.lollipopsClicked
           }
         })
       }
