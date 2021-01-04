@@ -383,12 +383,11 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         const curPValue = this.state.pValueLessThan;
         const newPValueBool = !curPValue.get(treatment)
         curPValue.set(treatment, newPValueBool)
-        const resetLollipop = (treatment !== this.state.treatment || !newPValueBool)
         this.setState(prevState => {
           return {
             ...prevState,
             pValueLessThan: curPValue,
-            lollipopsClicked: resetLollipop ? new Map<string, boolean>() : prevState.lollipopsClicked
+            lollipopsClicked: prevState.lollipopsClicked
           }
         })
       }
@@ -518,14 +517,19 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
 
         const lollipopFilters:string[] = Array.from(this.state.lollipopsClicked).filter(lollipopFilter => lollipopFilter[1]).map(lollipopFilter => lollipopFilter[0])
         if (lollipopFilters.length > 0) {
-          tableLollipops = tableLollipops.filter(lollipop => lollipopFilters.some(sgRNA => sgRNA === lollipop.sgRNASequence))
+          const tableFilteredByLollipopFilters = tableLollipops.filter(lollipop => lollipopFilters.some(sgRNA => sgRNA === lollipop.sgRNASequence))
+          if (tableFilteredByLollipopFilters.length > 0) {
+            tableLollipops = tableFilteredByLollipopFilters
+          }
         }
-
+        
+        //when MF10A, populate celLIne with MCF10A
         const populatedLollipop = this.state.curPressedCell === "MCF10A" ? tableLollipops.map(lollipop => {
           lollipop["cellLine"] = "MCF10A"
           return lollipop
         }) : tableLollipops 
 
+        //extracts relevant columns for table
         const displayLollipops = populatedLollipop.map(lollipop => {
           var newObj = {}
           tableHeaders.forEach(el => newObj[el] = lollipop[el]   )

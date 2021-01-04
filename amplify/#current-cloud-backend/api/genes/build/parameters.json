@@ -4,5 +4,5 @@
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": "false",
     "S3DeploymentBucket": "amplify-ciccia-lab-website-cicciac-210811-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/28d25ab9e6d71577d16c4bcf5a4bb1d7fc643a0b"
+    "S3DeploymentRootKey": "amplify-appsync-files/57ffde8823062459a5276a476cb791c41299aec2"
 }

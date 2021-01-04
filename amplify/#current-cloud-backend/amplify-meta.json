@@ -10,11 +10,6 @@
       "StackName": "amplify-ciccia-lab-website-cicciac-210811",
       "StackId": "arn:aws:cloudformation:us-east-1:345472211644:stack/amplify-ciccia-lab-website-cicciac-210811/1b20be30-ee4b-11ea-b29f-1277bf9feb05",
       "AmplifyAppId": "d2111u5sji5uw5"
-    },
-    "categories": {
-      "auth": {
-        "cognito2eeaa326": {}
-      }
     }
   },
   "api": {
@@ -36,12 +31,12 @@
         "GraphQLAPIEndpointOutput": "https://fiqq5pqiqzbddnnlhuuva44dqm.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-fanwy746rvb5rlojqdugykgm7e"
       },
-      "lastPushTimeStamp": "2021-01-03T21:28:16.488Z",
+      "lastPushTimeStamp": "2021-01-03T21:57:53.118Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apigenes"
       },
-      "lastPushDirHash": "aANC7keIWiF500X6zjRO9cRPd6E="
+      "lastPushDirHash": "KKpOERwph1ywdWHWAHhZLB8ZmlA="
     }
   },
   "hosting": {
@@ -58,12 +53,12 @@
         "HostingBucketName": "ciccia-lab-website-20200507221357-hostingbucket-cicciac",
         "CloudFrontDomainName": "d3aouq5s3rqf5t.cloudfront.net"
       },
-      "lastPushTimeStamp": "2021-01-03T21:28:16.488Z",
+      "lastPushTimeStamp": "2021-01-03T21:57:53.118Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/hosting/template.json",
         "logicalId": "hostingS3AndCloudFront"
       },
-      "lastPushDirHash": "kAs5yve0S4b9gYmIpBMsUcmyYZY="
+      "lastPushDirHash": "YzHw5P1HeJYpi2HSSdaE9B6jk24="
     }
   },
   "auth": {
@@ -74,12 +69,12 @@
         "IdentityPoolId": "us-east-1:6c8dc45b-43e0-4c2b-ad21-df8c4dbea3f0",
         "IdentityPoolName": "ciccia_lab_website_identitypool_14af56c6__cicciac"
       },
-      "lastPushTimeStamp": "2021-01-03T21:28:16.488Z",
+      "lastPushTimeStamp": "2021-01-03T21:57:53.118Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/auth/cognito2eeaa326-cloudformation-template.yml",
         "logicalId": "authcognito2eeaa326"
       },
-      "lastPushDirHash": "m1pQPw937xgLMuFR+Ta7xoR9B5w="
+      "lastPushDirHash": "b1w6DgnXGe9jXZ1d8A9utbS0tCg="
     }
   },
   "analytics": {
@@ -91,12 +86,12 @@
         "Region": "us-east-1",
         "Id": "b74e3d7f47c948a087d9f21ef8e0e440"
       },
-      "lastPushTimeStamp": "2021-01-03T21:28:16.488Z",
+      "lastPushTimeStamp": "2021-01-03T21:57:53.118Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ciccia-lab-website-cicciac-210811-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
         "logicalId": "analyticsciccialabwebsite"
       },
-      "lastPushDirHash": "xBVtLTwWEckvYEkQYmncKhN/6Eo="
+      "lastPushDirHash": "4P2m/BTj46kHNJzgwWeiKNz024s="
     }
   }
 }
