@@ -76,8 +76,8 @@ const getGeneLollipopGraph2 = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          TCGA
-          PTMsiteLoc
+          tCGA
+          pTMsiteLoc
           noncanonicalTranscript
           cellLine
         }
@@ -132,8 +132,8 @@ const getGeneLollipopGraphMCF72 = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          TCGA
-          PTMsiteLoc
+          tCGA
+          pTMsiteLoc
           noncanonicalTranscript
           cellLine
         }
@@ -156,7 +156,7 @@ const getGeneLollipopGraphMCF72 = /* GraphQL */ `
   }
 `;
 const defaultHiddenHeaders = []
-const tableHeaders = ['gene','sgRNASequence','function', 'aachg', 'clinVar','clinVar_ID','lfcUNT','pvalueUNT','fdrUNT','lfcCISP','pvalueCISP','fdrCISP','lfcCPT','pvalueCPT','fdrCPT','lfcDOX','pvalueDOX','fdrDOX','lfcOLAP','pvalueOLAP','fdrOLAP','TCGA','PTMsiteLoc','noncanonicalTranscript','cellLine']
+const tableHeaders = ['gene','sgRNASequence','function', 'aachg', 'clinVar','clinVar_ID','lfcUNT','pvalueUNT','fdrUNT','lfcCISP','pvalueCISP','fdrCISP','lfcCPT','pvalueCPT','fdrCPT','lfcDOX','pvalueDOX','fdrDOX','lfcOLAP','pvalueOLAP','fdrOLAP','tCGA','pTMsiteLoc','noncanonicalTranscript','cellLine']
 const tableHeaderTranslation = new Map(
   [
     ['gene', 'Gene'],
@@ -180,8 +180,8 @@ const tableHeaderTranslation = new Map(
     ['lfcOLAP', 'LFC Olaparib'],
     ['pvalueOLAP', 'P-Value Olaparib'],
     ['fdrOLAP', 'FDR Olaparib'],
-    ['TCGA', 'TCGA'],
-    ['PTMsiteLoc', 'PTM site location'],
+    ['tCGA', 'TCGA'],
+    ['pTMsiteLoc', 'PTM site location'],
     ['noncanonicalTranscript', 'Non-Canonical Transcript ID for Function'],
     ['cellLine', 'Cell Line']
   ]
