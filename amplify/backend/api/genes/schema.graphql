@@ -314,8 +314,8 @@ type LollipopLocations @model @key(name: "byGeneLollipopLocation", fields:["gene
   lfcCPT: String
   pvalueCPT: String
   fdrCPT: String
-  TCGA: String
-  PTMsiteLoc: String
+  tCGA: String
+  pTMsiteLoc: String
   noncanonicalTranscript: String
   cellLine: String
 }
@@ -343,8 +343,8 @@ type LollipopLocationsMCF7 @model @key(name: "byGeneLollipopLocationMCF7", field
   lfcCPT: String
   pvalueCPT: String
   fdrCPT: String
-  TCGA: String
-  PTMsiteLoc: String
+  tCGA: String
+  pTMsiteLoc: String
   noncanonicalTranscript: String
   cellLine: String
 }
