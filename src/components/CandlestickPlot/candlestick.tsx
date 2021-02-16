@@ -37,7 +37,7 @@ interface CandlestickState {
 
 
 
-const geneList:string[] = ["BRCA1","BRCA2","BARD1","PALB2","BRIP1","RAD51C","RAD51D","XRCC3","NBN","MRE11A","RAD50","CHEK2","ATM","FANCA","FANCG","FANCC","FANCD2","FANCE","FANCF","FANCM","FANCI","FANCL","RECQL","ATR","BLM","WRN","CDK12","FAM175A","APTX","C17orf53","CDK5RAP2","CEP152","CEP63","ERCC8","ERCC6","DCLRE1C","DNA2","DONSON","ERCC1","ERCC4","LIG4","LMNA","MCM8","MCM9","MCPH1","MLH1","MSH2","MSH6","MUTYH","NIN","ORC1","ORC4","PCNT","PMS2","PNKP","POLE","POLH","PRKDC","RAD51","RBBP8","RECQL4","REV3L","RFWD3","RIF1","RNASEH2A","RNF168","RTEL1","SAMHD1","SETX","SLX4","SMARCAL1","TDP1","TP53BP1","TRAIP","TREX1","GTF2H5","UBE2T","UVSSA","NHEJ1","XPA","ERCC3","ERCC2","ERCC5","ZRANB3","TONSL","HLTF"]
+const geneList:string[] = ["BRCA1","BRCA2","BARD1","PALB2","BRIP1","RAD51C","RAD51D","XRCC3","NBN","MRE11A","RAD50","CHEK2","ATM","FANCA","FANCG","FANCC","FANCD2","FANCE","FANCF","FANCM","FANCI","FANCL","RECQL","ATR","BLM","WRN","CDK12","ABRAXAS1","APTX","HROB","CDK5RAP2","CEP152","CEP63","ERCC8","ERCC6","DCLRE1C","DNA2","DONSON","ERCC1","ERCC4","LIG4","LMNA","MCM8","MCM9","MCPH1","MLH1","MSH2","MSH6","MUTYH","NIN","ORC1","ORC4","PCNT","PMS2","PNKP","POLE","POLH","PRKDC","RAD51","RBBP8","RECQL4","REV3L","RFWD3","RIF1","RNASEH2A","RNF168","RTEL1","SAMHD1","SETX","SLX4","SMARCAL1","TDP1","TP53BP1","TRAIP","TREX1","GTF2H5","UBE2T","UVSSA","NHEJ1","XPA","ERCC3","ERCC2","ERCC5","ZRANB3","TONSL","HLTF"]
 
 const options = {
   displayDomainLabel: false,
@@ -58,6 +58,9 @@ const getGeneLollipopGraph2 = /* GraphQL */ `
           sgRNASequence
           function
           aapos
+          aachg
+          clinVar
+          clinVar_ID
           lfcUNT
           pvalueUNT
           fdrUNT
@@ -73,8 +76,10 @@ const getGeneLollipopGraph2 = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          clinVar
-          aachg
+          TCGA
+          PTMsiteLoc
+          noncanonicalTranscript
+          cellLine
         }
         nextToken
       }
@@ -109,6 +114,9 @@ const getGeneLollipopGraphMCF72 = /* GraphQL */ `
           sgRNASequence
           function
           aapos
+          aachg
+          clinVar
+          clinVar_ID
           lfcUNT
           pvalueUNT
           fdrUNT
@@ -124,8 +132,9 @@ const getGeneLollipopGraphMCF72 = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          clinVar
-          aachg
+          TCGA
+          PTMsiteLoc
+          noncanonicalTranscript
           cellLine
         }
         nextToken
@@ -147,14 +156,15 @@ const getGeneLollipopGraphMCF72 = /* GraphQL */ `
   }
 `;
 const defaultHiddenHeaders = []
-const tableHeaders = ['gene','sgRNASequence','aapos','function','clinVar','lfcUNT','pvalueUNT','fdrUNT','lfcCISP','pvalueCISP','fdrCISP','lfcCPT','pvalueCPT','fdrCPT','lfcDOX','pvalueDOX','fdrDOX','lfcOLAP','pvalueOLAP','fdrOLAP','aachg','cellLine']
+const tableHeaders = ['gene','sgRNASequence','function', 'aachg', 'clinVar','clinVar_ID','lfcUNT','pvalueUNT','fdrUNT','lfcCISP','pvalueCISP','fdrCISP','lfcCPT','pvalueCPT','fdrCPT','lfcDOX','pvalueDOX','fdrDOX','lfcOLAP','pvalueOLAP','fdrOLAP','TCGA','PTMsiteLoc','noncanonicalTranscript','cellLine']
 const tableHeaderTranslation = new Map(
   [
     ['gene', 'Gene'],
     ['sgRNASequence','sgRNA Sequence'],
-    ['aapos', 'AA Pos'],
     ['function', 'Function'],
-    ['clinVar', 'Clinical Relevance'],
+    ['aachg', 'AA change'],
+    ['clinVar', 'ClinVar significance'],
+    ['clinVar_ID', 'ClinVar ID'],
     ['lfcUNT', 'LFC Untreated'],
     ['pvalueUNT', 'P-Value Untreated'],
     ['fdrUNT', 'FDR Untreated'],
@@ -170,7 +180,9 @@ const tableHeaderTranslation = new Map(
     ['lfcOLAP', 'LFC Olaparib'],
     ['pvalueOLAP', 'P-Value Olaparib'],
     ['fdrOLAP', 'FDR Olaparib'],
-    ['aachg', 'AA Change'],
+    ['TCGA', 'TCGA'],
+    ['PTMsiteLoc', 'PTM site location'],
+    ['noncanonicalTranscript', 'Non-Canonical Transcript ID for Function'],
     ['cellLine', 'Cell Line']
   ]
 )
@@ -524,10 +536,10 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         }
         
         //when MF10A, populate celLIne with MCF10A
-        const populatedLollipop = this.state.curPressedCell === "MCF10A" ? tableLollipops.map(lollipop => {
-          lollipop["cellLine"] = "MCF10A"
-          return lollipop
-        }) : tableLollipops 
+        //const populatedLollipop = this.state.curPressedCell === "MCF10A" ? tableLollipops.map(lollipop => {
+        //  lollipop["cellLine"] = "MCF10A"
+        //  return lollipop
+        //}) : tableLollipops 
 
         //extracts relevant columns for table
         const displayLollipops = populatedLollipop.map(lollipop => {
