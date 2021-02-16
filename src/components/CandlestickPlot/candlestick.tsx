@@ -542,7 +542,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         //}) : tableLollipops 
 
         //extracts relevant columns for table
-        const displayLollipops = populatedLollipop.map(lollipop => {
+        const displayLollipops = tableLollipops.map(lollipop => {
           var newObj = {}
           tableHeaders.forEach(el => newObj[el] = lollipop[el]   )
           return newObj

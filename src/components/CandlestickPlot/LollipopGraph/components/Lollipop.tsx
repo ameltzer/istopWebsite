@@ -34,8 +34,6 @@ class Lollipop extends React.Component<any,any> {
   onClickHandler = (e) => {
     if (this.props.onClick) {
       const sgRNA = this.props.sgRNA
-      console.log(sgRNA)
-      console.log(this.props)
       this.props.onClick(sgRNA)
     }
     this.setState({
