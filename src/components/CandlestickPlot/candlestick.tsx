@@ -243,7 +243,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         return "#FF0000"
       } else if(fun === "missense") {
         return "#800080"
-      } else if(fun === "splice") {
+      } else if(fun === "splice-donor" || fun === "splice-acceptor") {
         return "#FFA500"
       } else if(fun === "synonymous") {
         return "#008000	"
@@ -483,8 +483,14 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         console.log(this.state.pValueLessThan)
         var filteredLollipops = this.state.curPressedCell === "MCF10A" ? this.state.renderConfigData.lollipops :  this.state.renderConfigData.lollipopsMCF7 //If then to determine which table to render
         
-        const funFilters:string[] = Array.from(this.state.funCheckBoxChecked).filter(funFilter => funFilter[1]).map(funFilter => funFilter[0])
+        var funFilters:string[] = Array.from(this.state.funCheckBoxChecked).filter(funFilter => funFilter[1]).map(funFilter => funFilter[0])
         if (funFilters.length > 0) {
+          if(funFilters.includes("splice")){
+            funFilters = funFilters.filter(removeSplice => "splice"!== removeSplice)
+            funFilters.push("splice-acceptor")
+            funFilters.push("splice-donor")
+          }
+          
           filteredLollipops = filteredLollipops.filter(lollipop =>  funFilters.some(check => check === lollipop.function))
         }
 
