@@ -243,7 +243,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
         return "#FF0000"
       } else if(fun === "missense") {
         return "#800080"
-      } else if(fun === "splice-donor" || fun === "splice-acceptor") {
+      } else if(fun === "splice") {
         return "#FFA500"
       } else if(fun === "synonymous") {
         return "#008000	"
@@ -490,7 +490,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
             funFilters.push("splice-acceptor")
             funFilters.push("splice-donor")
           }
-          
+
           filteredLollipops = filteredLollipops.filter(lollipop =>  funFilters.some(check => check === lollipop.function))
         }
 
