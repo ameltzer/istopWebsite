@@ -5,7 +5,7 @@ import { API, graphqlOperation } from "aws-amplify";
 import BootstrapTable from 'react-bootstrap-table-next'
 import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit';
 const { ExportCSVButton } = CSVExport;
-import { HashRouter as Router, Switch, Route} from "react-router-dom";
+import { HashRouter as Router, Switch, Route, BrowserRouter} from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { getGeneLollipopGraphMcf7 } from "src/graphql/queries";
@@ -720,7 +720,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
 
         return (
           <div>
-            <Router basename="/">
+            <BrowserRouter basename="/">
               <Navbar bg="dark" variant="dark">
                 <Nav className="ml-auto">
                   <Nav.Link href="https://www.ciccialab.com">
@@ -733,7 +733,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                 <Route path="/ddr-variants"/>
                 <Route path="/istop"/>
               </Switch>
-            </Router>
+            </BrowserRouter>
            
             <div>
                 <form onSubmit={this.handleSubmit}>
