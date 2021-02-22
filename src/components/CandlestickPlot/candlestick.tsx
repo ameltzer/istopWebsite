@@ -726,13 +726,14 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                   <Nav.Link href="https://www.ciccialab.com">
                     <i className="glyphicon glyphicon-home"></i> Ciccia Lab
                   </Nav.Link>
+                  <Nav.Link href="istop"><i className="bannerLink"></i>iSTOP</Nav.Link>
                 </Nav>
               </Navbar>
             </Router>
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <h2 className="helvetica">Functional analysis of nucleotide variants in DDR genes</h2>
-                    <p className="filterBody">For more information, please see: Cuella-Martin <i>et al.</i>, Cell, 2021</p>
+                    <h2 className="helvetica">Functional interrogation of DNA damage response variants with base editing screens</h2>
+                    <p className="filterBody">For more information, please click here for: <a href="https://www.cell.com/cell/fulltext/S0092-8674(21)00084-2"> Cuella-Martin <i>et al.</i>, Functional interrogation of DNA damage response variants with base editing screens. Cell. 2021; 184(4): P1081-1097.E19</a></p>
                     <br/>
                     <p className="filterHeaderMain">Gene Search</p>
                     <b><p className="helvetica reducedMargin">Filter Box</p></b>

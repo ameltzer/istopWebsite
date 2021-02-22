@@ -296,6 +296,9 @@ type LollipopLocations @model @key(name: "byGeneLollipopLocation", fields:["gene
   sgRNASequence: String
   function: String!
   aapos: String
+  aachg: String
+  clinVar: String
+  clinVar_ID: String
   lfcUNT: String
   pvalueUNT: String
   fdrUNT: String
@@ -311,8 +314,9 @@ type LollipopLocations @model @key(name: "byGeneLollipopLocation", fields:["gene
   lfcCPT: String
   pvalueCPT: String
   fdrCPT: String
-  clinVar: String
-  aachg: String
+  tCGA: String
+  pTMsiteLoc: String
+  noncanonicalTranscript: String
   cellLine: String
 }
 type LollipopLocationsMCF7 @model @key(name: "byGeneLollipopLocationMCF7", fields:["gene"]) {
@@ -321,6 +325,9 @@ type LollipopLocationsMCF7 @model @key(name: "byGeneLollipopLocationMCF7", field
   sgRNASequence: String
   function: String!
   aapos: String
+  aachg: String
+  clinVar: String
+  clinVar_ID: String
   lfcUNT: String
   pvalueUNT: String
   fdrUNT: String
@@ -336,8 +343,9 @@ type LollipopLocationsMCF7 @model @key(name: "byGeneLollipopLocationMCF7", field
   lfcCPT: String
   pvalueCPT: String
   fdrCPT: String
-  clinVar: String
-  aachg: String
+  tCGA: String
+  pTMsiteLoc: String
+  noncanonicalTranscript: String
   cellLine: String
 }
 

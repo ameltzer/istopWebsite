@@ -1096,6 +1096,9 @@ export const createGeneLollipopGraph = /* GraphQL */ `
           sgRNASequence
           function
           aapos
+          aachg
+          clinVar
+          clinVar_ID
           lfcUNT
           pvalueUNT
           fdrUNT
@@ -1111,8 +1114,9 @@ export const createGeneLollipopGraph = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          clinVar
-          aachg
+          tCGA
+          pTMsiteLoc
+          noncanonicalTranscript
           cellLine
           createdAt
           updatedAt
@@ -1156,6 +1160,9 @@ export const updateGeneLollipopGraph = /* GraphQL */ `
           sgRNASequence
           function
           aapos
+          aachg
+          clinVar
+          clinVar_ID
           lfcUNT
           pvalueUNT
           fdrUNT
@@ -1171,8 +1178,9 @@ export const updateGeneLollipopGraph = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          clinVar
-          aachg
+          tCGA
+          pTMsiteLoc
+          noncanonicalTranscript
           cellLine
           createdAt
           updatedAt
@@ -1216,6 +1224,9 @@ export const deleteGeneLollipopGraph = /* GraphQL */ `
           sgRNASequence
           function
           aapos
+          aachg
+          clinVar
+          clinVar_ID
           lfcUNT
           pvalueUNT
           fdrUNT
@@ -1231,8 +1242,9 @@ export const deleteGeneLollipopGraph = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          clinVar
-          aachg
+          tCGA
+          pTMsiteLoc
+          noncanonicalTranscript
           cellLine
           createdAt
           updatedAt
@@ -1270,6 +1282,9 @@ export const createLollipopLocations = /* GraphQL */ `
       sgRNASequence
       function
       aapos
+      aachg
+      clinVar
+      clinVar_ID
       lfcUNT
       pvalueUNT
       fdrUNT
@@ -1285,8 +1300,9 @@ export const createLollipopLocations = /* GraphQL */ `
       lfcCPT
       pvalueCPT
       fdrCPT
-      clinVar
-      aachg
+      tCGA
+      pTMsiteLoc
+      noncanonicalTranscript
       cellLine
       createdAt
       updatedAt
@@ -1304,6 +1320,9 @@ export const updateLollipopLocations = /* GraphQL */ `
       sgRNASequence
       function
       aapos
+      aachg
+      clinVar
+      clinVar_ID
       lfcUNT
       pvalueUNT
       fdrUNT
@@ -1319,8 +1338,9 @@ export const updateLollipopLocations = /* GraphQL */ `
       lfcCPT
       pvalueCPT
       fdrCPT
-      clinVar
-      aachg
+      tCGA
+      pTMsiteLoc
+      noncanonicalTranscript
       cellLine
       createdAt
       updatedAt
@@ -1338,6 +1358,9 @@ export const deleteLollipopLocations = /* GraphQL */ `
       sgRNASequence
       function
       aapos
+      aachg
+      clinVar
+      clinVar_ID
       lfcUNT
       pvalueUNT
       fdrUNT
@@ -1353,8 +1376,9 @@ export const deleteLollipopLocations = /* GraphQL */ `
       lfcCPT
       pvalueCPT
       fdrCPT
-      clinVar
-      aachg
+      tCGA
+      pTMsiteLoc
+      noncanonicalTranscript
       cellLine
       createdAt
       updatedAt
@@ -1372,6 +1396,9 @@ export const createLollipopLocationsMcf7 = /* GraphQL */ `
       sgRNASequence
       function
       aapos
+      aachg
+      clinVar
+      clinVar_ID
       lfcUNT
       pvalueUNT
       fdrUNT
@@ -1387,8 +1414,9 @@ export const createLollipopLocationsMcf7 = /* GraphQL */ `
       lfcCPT
       pvalueCPT
       fdrCPT
-      clinVar
-      aachg
+      tCGA
+      pTMsiteLoc
+      noncanonicalTranscript
       cellLine
       createdAt
       updatedAt
@@ -1406,6 +1434,9 @@ export const updateLollipopLocationsMcf7 = /* GraphQL */ `
       sgRNASequence
       function
       aapos
+      aachg
+      clinVar
+      clinVar_ID
       lfcUNT
       pvalueUNT
       fdrUNT
@@ -1421,8 +1452,9 @@ export const updateLollipopLocationsMcf7 = /* GraphQL */ `
       lfcCPT
       pvalueCPT
       fdrCPT
-      clinVar
-      aachg
+      tCGA
+      pTMsiteLoc
+      noncanonicalTranscript
       cellLine
       createdAt
       updatedAt
@@ -1440,6 +1472,9 @@ export const deleteLollipopLocationsMcf7 = /* GraphQL */ `
       sgRNASequence
       function
       aapos
+      aachg
+      clinVar
+      clinVar_ID
       lfcUNT
       pvalueUNT
       fdrUNT
@@ -1455,8 +1490,9 @@ export const deleteLollipopLocationsMcf7 = /* GraphQL */ `
       lfcCPT
       pvalueCPT
       fdrCPT
-      clinVar
-      aachg
+      tCGA
+      pTMsiteLoc
+      noncanonicalTranscript
       cellLine
       createdAt
       updatedAt
@@ -1480,6 +1516,9 @@ export const createGeneLollipopGraphMcf7 = /* GraphQL */ `
           sgRNASequence
           function
           aapos
+          aachg
+          clinVar
+          clinVar_ID
           lfcUNT
           pvalueUNT
           fdrUNT
@@ -1495,8 +1534,9 @@ export const createGeneLollipopGraphMcf7 = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          clinVar
-          aachg
+          tCGA
+          pTMsiteLoc
+          noncanonicalTranscript
           cellLine
           createdAt
           updatedAt
@@ -1540,6 +1580,9 @@ export const updateGeneLollipopGraphMcf7 = /* GraphQL */ `
           sgRNASequence
           function
           aapos
+          aachg
+          clinVar
+          clinVar_ID
           lfcUNT
           pvalueUNT
           fdrUNT
@@ -1555,8 +1598,9 @@ export const updateGeneLollipopGraphMcf7 = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          clinVar
-          aachg
+          tCGA
+          pTMsiteLoc
+          noncanonicalTranscript
           cellLine
           createdAt
           updatedAt
@@ -1600,6 +1644,9 @@ export const deleteGeneLollipopGraphMcf7 = /* GraphQL */ `
           sgRNASequence
           function
           aapos
+          aachg
+          clinVar
+          clinVar_ID
           lfcUNT
           pvalueUNT
           fdrUNT
@@ -1615,8 +1662,9 @@ export const deleteGeneLollipopGraphMcf7 = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          clinVar
-          aachg
+          tCGA
+          pTMsiteLoc
+          noncanonicalTranscript
           cellLine
           createdAt
           updatedAt

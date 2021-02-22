@@ -52,6 +52,9 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
           <Nav.Link href="https://www.ciccialab.com">
           <i className="glyphicon glyphicon-home"></i> Ciccia Lab
           </Nav.Link>
+          <Nav.Link href="ddr-variants">
+          <i className=""></i> DDR Variants
+          </Nav.Link>
         </Nav>
       </Navbar>
       

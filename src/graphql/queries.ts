@@ -743,6 +743,9 @@ export const getGeneLollipopGraph = /* GraphQL */ `
           sgRNASequence
           function
           aapos
+          aachg
+          clinVar
+          clinVar_ID
           lfcUNT
           pvalueUNT
           fdrUNT
@@ -758,8 +761,9 @@ export const getGeneLollipopGraph = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          clinVar
-          aachg
+          tCGA
+          pTMsiteLoc
+          noncanonicalTranscript
           cellLine
           createdAt
           updatedAt
@@ -823,6 +827,9 @@ export const getLollipopLocations = /* GraphQL */ `
       sgRNASequence
       function
       aapos
+      aachg
+      clinVar
+      clinVar_ID
       lfcUNT
       pvalueUNT
       fdrUNT
@@ -838,8 +845,9 @@ export const getLollipopLocations = /* GraphQL */ `
       lfcCPT
       pvalueCPT
       fdrCPT
-      clinVar
-      aachg
+      tCGA
+      pTMsiteLoc
+      noncanonicalTranscript
       cellLine
       createdAt
       updatedAt
@@ -863,6 +871,9 @@ export const listLollipopLocationss = /* GraphQL */ `
         sgRNASequence
         function
         aapos
+        aachg
+        clinVar
+        clinVar_ID
         lfcUNT
         pvalueUNT
         fdrUNT
@@ -878,8 +889,9 @@ export const listLollipopLocationss = /* GraphQL */ `
         lfcCPT
         pvalueCPT
         fdrCPT
-        clinVar
-        aachg
+        tCGA
+        pTMsiteLoc
+        noncanonicalTranscript
         cellLine
         createdAt
         updatedAt
@@ -896,6 +908,9 @@ export const getLollipopLocationsMcf7 = /* GraphQL */ `
       sgRNASequence
       function
       aapos
+      aachg
+      clinVar
+      clinVar_ID
       lfcUNT
       pvalueUNT
       fdrUNT
@@ -911,8 +926,9 @@ export const getLollipopLocationsMcf7 = /* GraphQL */ `
       lfcCPT
       pvalueCPT
       fdrCPT
-      clinVar
-      aachg
+      tCGA
+      pTMsiteLoc
+      noncanonicalTranscript
       cellLine
       createdAt
       updatedAt
@@ -936,6 +952,9 @@ export const listLollipopLocationsMcf7s = /* GraphQL */ `
         sgRNASequence
         function
         aapos
+        aachg
+        clinVar
+        clinVar_ID
         lfcUNT
         pvalueUNT
         fdrUNT
@@ -951,8 +970,9 @@ export const listLollipopLocationsMcf7s = /* GraphQL */ `
         lfcCPT
         pvalueCPT
         fdrCPT
-        clinVar
-        aachg
+        tCGA
+        pTMsiteLoc
+        noncanonicalTranscript
         cellLine
         createdAt
         updatedAt
@@ -975,6 +995,9 @@ export const getGeneLollipopGraphMcf7 = /* GraphQL */ `
           sgRNASequence
           function
           aapos
+          aachg
+          clinVar
+          clinVar_ID
           lfcUNT
           pvalueUNT
           fdrUNT
@@ -990,8 +1013,9 @@ export const getGeneLollipopGraphMcf7 = /* GraphQL */ `
           lfcCPT
           pvalueCPT
           fdrCPT
-          clinVar
-          aachg
+          tCGA
+          pTMsiteLoc
+          noncanonicalTranscript
           cellLine
           createdAt
           updatedAt

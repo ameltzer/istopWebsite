@@ -320,6 +320,9 @@ type LollipopLocations {
   sgRNASequence: String
   function: String!
   aapos: String
+  aachg: String
+  clinVar: String
+  clinVar_ID: String
   lfcUNT: String
   pvalueUNT: String
   fdrUNT: String
@@ -335,8 +338,9 @@ type LollipopLocations {
   lfcCPT: String
   pvalueCPT: String
   fdrCPT: String
-  clinVar: String
-  aachg: String
+  tCGA: String
+  pTMsiteLoc: String
+  noncanonicalTranscript: String
   cellLine: String
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
@@ -348,6 +352,9 @@ type LollipopLocationsMCF7 {
   sgRNASequence: String
   function: String!
   aapos: String
+  aachg: String
+  clinVar: String
+  clinVar_ID: String
   lfcUNT: String
   pvalueUNT: String
   fdrUNT: String
@@ -363,8 +370,9 @@ type LollipopLocationsMCF7 {
   lfcCPT: String
   pvalueCPT: String
   fdrCPT: String
-  clinVar: String
-  aachg: String
+  tCGA: String
+  pTMsiteLoc: String
+  noncanonicalTranscript: String
   cellLine: String
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
@@ -1965,6 +1973,9 @@ input ModelLollipopLocationsFilterInput {
   sgRNASequence: ModelStringInput
   function: ModelStringInput
   aapos: ModelStringInput
+  aachg: ModelStringInput
+  clinVar: ModelStringInput
+  clinVar_ID: ModelStringInput
   lfcUNT: ModelStringInput
   pvalueUNT: ModelStringInput
   fdrUNT: ModelStringInput
@@ -1980,8 +1991,9 @@ input ModelLollipopLocationsFilterInput {
   lfcCPT: ModelStringInput
   pvalueCPT: ModelStringInput
   fdrCPT: ModelStringInput
-  clinVar: ModelStringInput
-  aachg: ModelStringInput
+  tCGA: ModelStringInput
+  pTMsiteLoc: ModelStringInput
+  noncanonicalTranscript: ModelStringInput
   cellLine: ModelStringInput
   and: [ModelLollipopLocationsFilterInput]
   or: [ModelLollipopLocationsFilterInput]
@@ -1994,6 +2006,9 @@ input CreateLollipopLocationsInput {
   sgRNASequence: String
   function: String!
   aapos: String
+  aachg: String
+  clinVar: String
+  clinVar_ID: String
   lfcUNT: String
   pvalueUNT: String
   fdrUNT: String
@@ -2009,8 +2024,9 @@ input CreateLollipopLocationsInput {
   lfcCPT: String
   pvalueCPT: String
   fdrCPT: String
-  clinVar: String
-  aachg: String
+  tCGA: String
+  pTMsiteLoc: String
+  noncanonicalTranscript: String
   cellLine: String
 }
 
@@ -2020,6 +2036,9 @@ input UpdateLollipopLocationsInput {
   sgRNASequence: String
   function: String
   aapos: String
+  aachg: String
+  clinVar: String
+  clinVar_ID: String
   lfcUNT: String
   pvalueUNT: String
   fdrUNT: String
@@ -2035,8 +2054,9 @@ input UpdateLollipopLocationsInput {
   lfcCPT: String
   pvalueCPT: String
   fdrCPT: String
-  clinVar: String
-  aachg: String
+  tCGA: String
+  pTMsiteLoc: String
+  noncanonicalTranscript: String
   cellLine: String
 }
 
@@ -2049,6 +2069,9 @@ input ModelLollipopLocationsConditionInput {
   sgRNASequence: ModelStringInput
   function: ModelStringInput
   aapos: ModelStringInput
+  aachg: ModelStringInput
+  clinVar: ModelStringInput
+  clinVar_ID: ModelStringInput
   lfcUNT: ModelStringInput
   pvalueUNT: ModelStringInput
   fdrUNT: ModelStringInput
@@ -2064,8 +2087,9 @@ input ModelLollipopLocationsConditionInput {
   lfcCPT: ModelStringInput
   pvalueCPT: ModelStringInput
   fdrCPT: ModelStringInput
-  clinVar: ModelStringInput
-  aachg: ModelStringInput
+  tCGA: ModelStringInput
+  pTMsiteLoc: ModelStringInput
+  noncanonicalTranscript: ModelStringInput
   cellLine: ModelStringInput
   and: [ModelLollipopLocationsConditionInput]
   or: [ModelLollipopLocationsConditionInput]
@@ -2083,6 +2107,9 @@ input ModelLollipopLocationsMCF7FilterInput {
   sgRNASequence: ModelStringInput
   function: ModelStringInput
   aapos: ModelStringInput
+  aachg: ModelStringInput
+  clinVar: ModelStringInput
+  clinVar_ID: ModelStringInput
   lfcUNT: ModelStringInput
   pvalueUNT: ModelStringInput
   fdrUNT: ModelStringInput
@@ -2098,8 +2125,9 @@ input ModelLollipopLocationsMCF7FilterInput {
   lfcCPT: ModelStringInput
   pvalueCPT: ModelStringInput
   fdrCPT: ModelStringInput
-  clinVar: ModelStringInput
-  aachg: ModelStringInput
+  tCGA: ModelStringInput
+  pTMsiteLoc: ModelStringInput
+  noncanonicalTranscript: ModelStringInput
   cellLine: ModelStringInput
   and: [ModelLollipopLocationsMCF7FilterInput]
   or: [ModelLollipopLocationsMCF7FilterInput]
@@ -2112,6 +2140,9 @@ input CreateLollipopLocationsMCF7Input {
   sgRNASequence: String
   function: String!
   aapos: String
+  aachg: String
+  clinVar: String
+  clinVar_ID: String
   lfcUNT: String
   pvalueUNT: String
   fdrUNT: String
@@ -2127,8 +2158,9 @@ input CreateLollipopLocationsMCF7Input {
   lfcCPT: String
   pvalueCPT: String
   fdrCPT: String
-  clinVar: String
-  aachg: String
+  tCGA: String
+  pTMsiteLoc: String
+  noncanonicalTranscript: String
   cellLine: String
 }
 
@@ -2138,6 +2170,9 @@ input UpdateLollipopLocationsMCF7Input {
   sgRNASequence: String
   function: String
   aapos: String
+  aachg: String
+  clinVar: String
+  clinVar_ID: String
   lfcUNT: String
   pvalueUNT: String
   fdrUNT: String
@@ -2153,8 +2188,9 @@ input UpdateLollipopLocationsMCF7Input {
   lfcCPT: String
   pvalueCPT: String
   fdrCPT: String
-  clinVar: String
-  aachg: String
+  tCGA: String
+  pTMsiteLoc: String
+  noncanonicalTranscript: String
   cellLine: String
 }
 
@@ -2167,6 +2203,9 @@ input ModelLollipopLocationsMCF7ConditionInput {
   sgRNASequence: ModelStringInput
   function: ModelStringInput
   aapos: ModelStringInput
+  aachg: ModelStringInput
+  clinVar: ModelStringInput
+  clinVar_ID: ModelStringInput
   lfcUNT: ModelStringInput
   pvalueUNT: ModelStringInput
   fdrUNT: ModelStringInput
@@ -2182,8 +2221,9 @@ input ModelLollipopLocationsMCF7ConditionInput {
   lfcCPT: ModelStringInput
   pvalueCPT: ModelStringInput
   fdrCPT: ModelStringInput
-  clinVar: ModelStringInput
-  aachg: ModelStringInput
+  tCGA: ModelStringInput
+  pTMsiteLoc: ModelStringInput
+  noncanonicalTranscript: ModelStringInput
   cellLine: ModelStringInput
   and: [ModelLollipopLocationsMCF7ConditionInput]
   or: [ModelLollipopLocationsMCF7ConditionInput]
