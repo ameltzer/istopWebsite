@@ -6,8 +6,7 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Link,
-  BrowserRouter
+  Link
 } from "react-router-dom";
 interface ISTOPWebsiteProps {
 
@@ -30,7 +29,7 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
 
     render() {
         return (
-          <BrowserRouter basename="/">
+          <Router basename="/">
     <>
       <header>
         <h1>Welcome to iSTOP! </h1>
@@ -220,7 +219,7 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
         </Route>
       </Switch>
     </>
-    </BrowserRouter>
+    </Router>
         )
     }
 
