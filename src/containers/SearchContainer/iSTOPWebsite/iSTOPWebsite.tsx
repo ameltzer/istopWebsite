@@ -72,6 +72,8 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
             <SearchContainer />
           </article>
         </Route>
+        <Route path="/ddr-variants"/>
+        <Route path="/istop"/>
         <Route path="/faq">
           <div>
             <h3>How does it work?</h3>

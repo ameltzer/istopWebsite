@@ -5,7 +5,7 @@ import { API, graphqlOperation } from "aws-amplify";
 import BootstrapTable from 'react-bootstrap-table-next'
 import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit';
 const { ExportCSVButton } = CSVExport;
-import { HashRouter as Router} from "react-router-dom";
+import { HashRouter as Router, Switch, Route} from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { getGeneLollipopGraphMcf7 } from "src/graphql/queries";
@@ -729,11 +729,16 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                   <Nav.Link href="istop"><i className="bannerLink"></i>iSTOP</Nav.Link>
                 </Nav>
               </Navbar>
+              <Switch>
+                <Route path="/ddr-variants"/>
+                <Route path="/istop"/>
+              </Switch>
             </Router>
+           
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <h2 className="helvetica">Functional interrogation of DNA damage response variants with base editing screens</h2>
-                    <p className="filterBody">For more information, please click here for: <a href="https://www.cell.com/cell/fulltext/S0092-8674(21)00084-2"> Cuella-Martin <i>et al.</i>, Functional interrogation of DNA damage response variants with base editing screens. Cell. 2021; 184(4): P1081-1097.E19</a></p>
+                    <p className="filterBody">For more information, please click here: <a href="https://www.cell.com/cell/fulltext/S0092-8674(21)00084-2"> Cuella-Martin <i>et al.</i>. Cell. 2021; 184(4): P1081-1097.E19</a></p>
                     <br/>
                     <p className="filterHeaderMain">Gene Search</p>
                     <b><p className="helvetica reducedMargin">Filter Box</p></b>
