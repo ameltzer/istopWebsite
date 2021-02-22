@@ -29,7 +29,7 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
 
     render() {
         return (
-            <Router>
+          <Router basename="/">
     <>
       <header>
         <h1>Welcome to iSTOP! </h1>

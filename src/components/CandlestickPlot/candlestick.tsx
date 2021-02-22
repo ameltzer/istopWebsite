@@ -720,7 +720,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
 
         return (
           <div>
-            <Router>
+            <Router basename="/">
               <Navbar bg="dark" variant="dark">
                 <Nav className="ml-auto">
                   <Nav.Link href="https://www.ciccialab.com">
