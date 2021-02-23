@@ -12,7 +12,7 @@ import { getGeneLollipopGraphMcf7 } from "src/graphql/queries";
 
 
 interface CandlestickProps {
-
+    setMode: (e) => void
 }
 
 interface CandlestickState {
@@ -722,17 +722,16 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
           <div>
             <Router basename="/">
               <Navbar bg="dark" variant="dark">
-                <Nav className="ml-auto">
-                  <Nav.Link href="https://www.ciccialab.com">
-                    <i className="glyphicon glyphicon-home"></i> Ciccia Lab
-                  </Nav.Link>
-                  <Nav.Link href="istop"><i className="bannerLink"></i>iSTOP</Nav.Link>
-                </Nav>
+                <Navbar.Collapse>
+                  <Nav className="ml-auto">
+                    <Nav.Link href="https://www.ciccialab.com">
+                      <i className="glyphicon glyphicon-home"></i> Ciccia Lab
+                    </Nav.Link>
+                    <span className="nav-link" onClick={this.props.setMode}>iSTOP</span>
+                  </Nav>
+                </Navbar.Collapse>
               </Navbar>
-              <Switch>
-                <Route path="/ddr-variants"/>
-                <Route path="/istop"/>
-              </Switch>
+              <Switch/>
             </Router>
            
             <div>

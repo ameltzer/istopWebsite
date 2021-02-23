@@ -9,7 +9,7 @@ import {
   Link
 } from "react-router-dom";
 interface ISTOPWebsiteProps {
-
+  setMode: (e) => void
 }
 
 interface randomInterface {
@@ -21,12 +21,16 @@ interface ISTOPWebsiteState {
 
 }
 
+
+
 export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsiteState> {
 
     constructor(props) {
         super(props)
     }
-
+    goToDDRVariants(e) {
+      console.log("hi")
+    }
     render() {
         return (
           <Router basename="/">
@@ -37,25 +41,26 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
               using CRISPR-dependent base editing </h2>
       </header>
       <Navbar bg="dark" variant="dark">
-        <Nav>
-          <Navbar.Brand>
-            <Link to="/"/>
-          </Navbar.Brand>
-          <Navbar.Brand>
-            <Link to="/" className="bannerLink">Home</Link>
-          </Navbar.Brand>
-          <Navbar.Brand>
-            <Link to="/faq" className="bannerLink">FAQ</Link>
-          </Navbar.Brand>
-        </Nav>
-        <Nav className="ml-auto">
-          <Nav.Link href="https://www.ciccialab.com">
-          <i className="glyphicon glyphicon-home"></i> Ciccia Lab
-          </Nav.Link>
-          <Nav.Link href="ddr-variants">
-          <i className=""></i> DDR Variants
-          </Nav.Link>
-        </Nav>
+        <Navbar.Collapse>
+          <Nav>
+            <Navbar.Brand>
+              <Link to="/"/>
+            </Navbar.Brand>
+            <Navbar.Brand>
+              <Link to="/" className="bannerLink">Home</Link>
+            </Navbar.Brand>
+            <Navbar.Brand>
+              <Link to="/faq" className="bannerLink">FAQ</Link>
+            </Navbar.Brand>
+          </Nav>
+          <Nav className="ml-auto">
+            <Nav.Link href="https://www.ciccialab.com">
+              <i className="glyphicon glyphicon-home"></i> Ciccia Lab
+            </Nav.Link>
+            <span className="nav-link" onClick={this.props.setMode}>DDR Variants</span>
+          </Nav>
+          
+        </Navbar.Collapse>
       </Navbar>
       
       <Switch>
@@ -72,8 +77,6 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
             <SearchContainer />
           </article>
         </Route>
-        <Route path="/ddr-variants"/>
-        <Route path="/istop"/>
         <Route path="/faq">
           <div>
             <h3>How does it work?</h3>

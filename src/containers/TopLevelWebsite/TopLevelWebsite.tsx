@@ -86,12 +86,12 @@ export class TopLevelWebsite extends React.Component<TopLevelProps, TopLevelStat
         } else if (this.state.mode == 1) {
            toDisplay = 
            <div className="overallContainer">
-               <ISTOPWebsite/>
+               <ISTOPWebsite setMode={this.setMode(2)}/>
            </div>
         } else if (this.state.mode == 2 ) {
            toDisplay = 
            <div className="overallContainer">
-               <CandlestickResults/>
+               <CandlestickResults setMode={this.setMode(1)}/>
            </div>
         }
         return (
