@@ -57,7 +57,7 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
             <Nav.Link href="https://www.ciccialab.com">
               <i className="glyphicon glyphicon-home"></i> Ciccia Lab
             </Nav.Link>
-            <span className="nav-link" onClick={this.props.setMode}>DDR Variants</span>
+            <span className="nav-link pointer" onClick={this.props.setMode}>DDR Variants</span>
           </Nav>
           
         </Navbar.Collapse>

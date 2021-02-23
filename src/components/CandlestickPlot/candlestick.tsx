@@ -727,7 +727,7 @@ export class CandlestickResults extends React.Component<CandlestickProps, Candle
                     <Nav.Link href="https://www.ciccialab.com">
                       <i className="glyphicon glyphicon-home"></i> Ciccia Lab
                     </Nav.Link>
-                    <span className="nav-link" onClick={this.props.setMode}>iSTOP</span>
+                    <span className="nav-link pointer" onClick={this.props.setMode}>iSTOP</span>
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>

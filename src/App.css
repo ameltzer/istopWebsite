@@ -238,3 +238,7 @@ button {
 .tspanSub {
     font-size: 8pt;
 }
+
+.pointer {
+    cursor: pointer;
+}
