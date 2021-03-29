@@ -31,6 +31,7 @@ export class ISTOPWebsite extends React.Component<ISTOPWebsiteProps, ISTOPWebsit
     goToDDRVariants(e) {
       console.log("hi")
     }
+
     
 
     render() {
