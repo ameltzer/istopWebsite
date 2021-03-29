@@ -22,13 +22,13 @@ interface SearchContainerState {
 const tableToQuery:Map<string, string> = new Map<string, string> (
     [
       ["Homo Sapiens", gene],
-      ["Yeast", geneYeast],
-      ["Fish",geneFish],
-      ["Mouse",geneMouse],
-      ["Fly",geneFly],
-      ["Nematode",geneNematode],
-      ["Plant",genePlant],
-      ["Rat",geneRat]
+      ["Saccharomyces cerevisiae", geneYeast],
+      ["Danio rerio",geneFish],
+      ["Mus musculus",geneMouse],
+      ["Drosophila melanogaster",geneFly],
+      ["Caenorhabditis elegans",geneNematode],
+      ["Arabidopsis thaliana",genePlant],
+      ["Rattus norvegicus",geneRat]
     ]
   )
 
@@ -55,7 +55,8 @@ export class SearchContainer extends React.Component<SearchContainerProps, Searc
             limit: 1000000,
             gene: geneName
           }
-          
+        console.log("type:");
+        console.log(type);
         const query = tableToQuery.get(type);
         return [query, geneQuery]
     }

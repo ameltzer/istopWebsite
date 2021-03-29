@@ -35,27 +35,43 @@ const tableToColumns:Map<string, string[]> = new Map<string, string[]>(
   ]
 )
 
-
-const tableToQuery:Map<string, string> = new Map<string, string> (
-  [
-    ["Homo Sapiens", gene],
-    ["Yeast", geneYeast],
-    ["Fish",geneFish],
-    ["Mouse",geneMouse],
-    ["Fly",geneFly],
-    ["Nematode",geneNematode],
-    ["Plant",genePlant],
-    ["Rat",geneRat]
-  ]
-)
-
 export class GeneSearch extends React.Component<SearchProps, SearchState> {
     constructor(props) {
       super(props);
       this.state = {type: this.props.types[0], genes: "", filterState: null, disabled:false}
     }
 
-
+    extractGenes = (data:any) => {
+      let key:string
+      if('gene' in data) {
+        key = 'gene'
+      }
+      if('geneYeast' in data) {
+        key = 'geneYeast'
+      }
+      if('geneFish' in data) {
+        key = 'geneFish'
+      }
+      if('geneMouse' in data) {
+        key = 'geneMouse'
+      }
+      if('geneFly' in data) {
+        key = 'geneFly'
+      }
+      if('geneNematode' in data) {
+        key = 'geneNematode'
+      }
+      if('genePlant' in data) {
+        key = 'genePlant'
+      }
+      if('geneRat' in data) {
+        key = 'geneRat'
+      }
+      console.log(data)
+      console.log(key)
+      console.log(data[key])
+      return data[key]
+    }
 
     handleSubmit = (e:  React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
@@ -69,9 +85,10 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
       Promise.all(initialGeneSearchPromises).then(initialGeneSearchResults => {
         var successValues = []
         var failureInputGeneNames = []
+        console.log(initialGeneSearchResults)
         for(var i =0; i<initialGeneSearchResults.length; i++) {
-          if (initialGeneSearchResults[i].data.gene.items && initialGeneSearchResults[i].data.gene.items.length > 0) {
-            successValues.push(initialGeneSearchResults[i].data.gene.items)
+          if (this.extractGenes(initialGeneSearchResults[i].data).items && this.extractGenes(initialGeneSearchResults[i].data).items.length > 0) {
+            successValues.push(this.extractGenes(initialGeneSearchResults[i].data).items)
           } else {
             failureInputGeneNames.push(queriesParameters[i][1].gene)
           }
@@ -92,7 +109,7 @@ export class GeneSearch extends React.Component<SearchProps, SearchState> {
             Promise.all(genePromises).then(geneResults => {
                 console.log("finalStep")
                 const resolvedGeneValues = geneResults.map((geneResult:any) => {
-                  return geneResult.data.gene.items
+                  return this.extractGenes(geneResult.data).items
                 })
                 const allResults = resolvedGeneValues.concat(successValues)
                 this.filterAllValues(allResults, filterColumns(columns,this.state.filterState))
