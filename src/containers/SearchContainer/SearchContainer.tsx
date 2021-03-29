@@ -57,7 +57,7 @@ export class SearchContainer extends React.Component<SearchContainerProps, Searc
           }
           
         const query = tableToQuery.get(type);
-        return [gene, geneQuery]
+        return [query, geneQuery]
     }
     goBack = (e) => {
         this.setState(prevState => {
