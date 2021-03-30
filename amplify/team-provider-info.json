@@ -1,56 +1,51 @@
 {
-    "ciccia": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-ciccia-lab-website-ciccia-202110-authRole",
-            "UnauthRoleArn": "arn:aws:iam::333032867409:role/amplify-ciccia-lab-website-ciccia-202110-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::333032867409:role/amplify-ciccia-lab-website-ciccia-202110-authRole",
-            "Region": "us-east-1",
-            "DeploymentBucketName": "amplify-ciccia-lab-website-ciccia-202110-deployment",
-            "UnauthRoleName": "amplify-ciccia-lab-website-ciccia-202110-unauthRole",
-            "StackName": "amplify-ciccia-lab-website-ciccia-202110",
-            "StackId": "arn:aws:cloudformation:us-east-1:333032867409:stack/amplify-ciccia-lab-website-ciccia-202110/dff29570-6652-11ea-a7ad-126c97cb5bc1",
-            "AmplifyAppId": "d2q8dmq4hh6f50"
-        },
-        "categories": {
-            "auth": {
-                "cognito2eeaa326": {}
-            }
-        }
+  "ciccia": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ciccia-lab-website-ciccia-202110-authRole",
+      "UnauthRoleArn": "arn:aws:iam::333032867409:role/amplify-ciccia-lab-website-ciccia-202110-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::333032867409:role/amplify-ciccia-lab-website-ciccia-202110-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-ciccia-lab-website-ciccia-202110-deployment",
+      "UnauthRoleName": "amplify-ciccia-lab-website-ciccia-202110-unauthRole",
+      "StackName": "amplify-ciccia-lab-website-ciccia-202110",
+      "StackId": "arn:aws:cloudformation:us-east-1:333032867409:stack/amplify-ciccia-lab-website-ciccia-202110/dff29570-6652-11ea-a7ad-126c97cb5bc1",
+      "AmplifyAppId": "d2q8dmq4hh6f50"
     },
-    "aciccia": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-ciccia-lab-website-aciccia-223150-authRole",
-            "UnauthRoleArn": "arn:aws:iam::345472211644:role/amplify-ciccia-lab-website-aciccia-223150-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::345472211644:role/amplify-ciccia-lab-website-aciccia-223150-authRole",
-            "Region": "us-east-1",
-            "DeploymentBucketName": "amplify-ciccia-lab-website-aciccia-223150-deployment",
-            "UnauthRoleName": "amplify-ciccia-lab-website-aciccia-223150-unauthRole",
-            "StackName": "amplify-ciccia-lab-website-aciccia-223150",
-            "StackId": "arn:aws:cloudformation:us-east-1:345472211644:stack/amplify-ciccia-lab-website-aciccia-223150/9ff88f20-ed8d-11ea-9f3c-12a48490849f",
-            "AmplifyAppId": "d2111u5sji5uw5"
-        },
-        "categories": {
-            "auth": {
-                "cognito2eeaa326": {}
-            }
-        }
-    },
-    "cicciac": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-ciccia-lab-website-cicciac-210811-authRole",
-            "UnauthRoleArn": "arn:aws:iam::345472211644:role/amplify-ciccia-lab-website-cicciac-210811-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::345472211644:role/amplify-ciccia-lab-website-cicciac-210811-authRole",
-            "Region": "us-east-1",
-            "DeploymentBucketName": "amplify-ciccia-lab-website-cicciac-210811-deployment",
-            "UnauthRoleName": "amplify-ciccia-lab-website-cicciac-210811-unauthRole",
-            "StackName": "amplify-ciccia-lab-website-cicciac-210811",
-            "StackId": "arn:aws:cloudformation:us-east-1:345472211644:stack/amplify-ciccia-lab-website-cicciac-210811/1b20be30-ee4b-11ea-b29f-1277bf9feb05",
-            "AmplifyAppId": "d2111u5sji5uw5"
-        },
-        "categories": {
-            "auth": {
-                "cognito2eeaa326": {}
-            }
-        }
+    "categories": {
+      "auth": {
+        "cognito2eeaa326": {}
+      }
     }
+  },
+  "aciccia": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ciccia-lab-website-aciccia-223150-authRole",
+      "UnauthRoleArn": "arn:aws:iam::345472211644:role/amplify-ciccia-lab-website-aciccia-223150-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::345472211644:role/amplify-ciccia-lab-website-aciccia-223150-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-ciccia-lab-website-aciccia-223150-deployment",
+      "UnauthRoleName": "amplify-ciccia-lab-website-aciccia-223150-unauthRole",
+      "StackName": "amplify-ciccia-lab-website-aciccia-223150",
+      "StackId": "arn:aws:cloudformation:us-east-1:345472211644:stack/amplify-ciccia-lab-website-aciccia-223150/9ff88f20-ed8d-11ea-9f3c-12a48490849f",
+      "AmplifyAppId": "d2111u5sji5uw5"
+    },
+    "categories": {
+      "auth": {
+        "cognito2eeaa326": {}
+      }
+    }
+  },
+  "cicciac": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ciccia-lab-website-cicciac-210811-authRole",
+      "UnauthRoleArn": "arn:aws:iam::345472211644:role/amplify-ciccia-lab-website-cicciac-210811-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::345472211644:role/amplify-ciccia-lab-website-cicciac-210811-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-ciccia-lab-website-cicciac-210811-deployment",
+      "UnauthRoleName": "amplify-ciccia-lab-website-cicciac-210811-unauthRole",
+      "StackName": "amplify-ciccia-lab-website-cicciac-210811",
+      "StackId": "arn:aws:cloudformation:us-east-1:345472211644:stack/amplify-ciccia-lab-website-cicciac-210811/1b20be30-ee4b-11ea-b29f-1277bf9feb05",
+      "AmplifyAppId": "d2111u5sji5uw5"
+    }
+  }
 }
